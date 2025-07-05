@@ -8,7 +8,7 @@ exports.handler = async function(event, context) {
   const timestamp = new Date().toISOString();
 
   // ✅ 실제 Google Sheets Web App URL
-  const webhookUrl = "https://script.google.com/a/macros/swonlaw.com/s/AKfycbwNpx3HZslqdElIdzmQv1iuU8fyRtz3i32zqS3nbpzhmpvYwqjhEMLKWJJtr0Vqe00e1A/exec";
+  const webhookUrl = "https://script.google.com/a/macros/swonlaw.com/s/AKfycbwPJYBZWqZbUASnl4cCDf8Lm0qSRgeM6zb5u1ex3YT-J88ROdriVj9xy7Qk1HBBbFKjSQ/exec";
   const logData = JSON.stringify({ ip, timestamp });
 
   // ✅ Google Sheets로 IP + 시간 전송
