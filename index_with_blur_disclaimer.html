@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project-K Report Portal</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f7fafc;
+      color: #2d3748;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      filter: blur(6px);
+      transition: filter 0.3s ease;
+    }
+
+    .unblurred {
+      filter: none !important;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #3182ce;
+      background: #e2e8f0;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .menu a:hover {
+      background: #cbd5e0;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #a0aec0;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .disclaimer-box {
+      max-width: 600px;
+      background: #ffffff;
+      border: 1px solid #cbd5e0;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      font-size: 14px;
+      color: #2d3748;
+    }
+
+    .disclaimer-box ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .disclaimer-box label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay">
+    <div class="disclaimer-box">
+      <p>
+        This report contains proprietary strategic analysis prepared exclusively for institutional review.
+        By accessing this material, you agree to the following terms:
+      </p>
+      <ul>
+        <li>🔒 You will maintain strict confidentiality and not disclose any content to third parties.</li>
+        <li>🚫 You will not capture, reproduce, distribute, or modify this material in any form (including screenshots) without explicit written permission.</li>
+        <li>⚖️ Unauthorized use, disclosure, or dissemination may constitute a violation of intellectual property laws and result in civil and/or criminal liability.</li>
+        <li>📜 All content remains the exclusive property of Trinos Strategy and is protected by applicable copyright, trade secret, and confidentiality laws.</li>
+      </ul>
+      <label>
+        <input type="checkbox" id="agreeBox" />
+        I understand and agree to the above terms.
+      </label>
+    </div>
+  </div>
+
+  <div class="content" id="content">
+    <h1>📚 Project-K Report Portal</h1>
+
+    <div class="menu">
+      <a href="k_culture_investment_report.html">🇺🇸 K-Culture Investment Report</a>
+      <a href="k_culture_investment_report_kr.html">🇰🇷 K-컬처 투자 리포트</a>
+      <a href="why_750m_required.html">🇺🇸 Why $750M is Required</a>
+      <a href="why_750m_required_kr.html">🇰🇷 왜 7.5억 달러가 필요한가</a>
+    </div>
+
+    <footer>Trinos Strategy © 2025</footer>
+  </div>
+
+  <script>
+    const checkbox = document.getElementById('agreeBox');
+    const overlay = document.getElementById('overlay');
+    const content = document.getElementById('content');
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        overlay.style.display = 'none';
+        content.classList.add('unblurred');
+      }
+    });
+  </script>
+
+</body>
+</html>
