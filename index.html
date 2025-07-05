@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Project-K Report Portal</title>
+  <title>Confidential Report Access – Trinos Strategy</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Helvetica Neue', sans-serif;
       margin: 0;
-      background: #f7fafc;
-      color: #2d3748;
+      background-color: #f0f2f5;
+      color: #1a202c;
     }
 
     .content {
@@ -19,7 +19,7 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      padding: 20px;
+      padding: 40px;
       filter: blur(6px);
       transition: filter 0.3s ease;
     }
@@ -29,35 +29,47 @@
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+      color: #2d3748;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #4a5568;
+      margin-bottom: 30px;
     }
 
     .menu {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       text-align: center;
-      margin-top: 20px;
+      width: 100%;
+      max-width: 400px;
     }
 
     .menu a {
       text-decoration: none;
-      font-size: 18px;
-      color: #3182ce;
-      background: #e2e8f0;
-      padding: 12px 24px;
-      border-radius: 8px;
-      transition: all 0.2s ease;
+      font-size: 15px;
+      color: #1a202c;
+      background: #edf2f7;
+      padding: 12px 20px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e0;
+      transition: background 0.2s ease;
     }
 
     .menu a:hover {
-      background: #cbd5e0;
+      background: #e2e8f0;
     }
 
     footer {
       margin-top: 40px;
-      font-size: 12px;
+      font-size: 11px;
       color: #a0aec0;
     }
 
@@ -65,7 +77,7 @@
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(255,255,255,0.85);
+      background: rgba(30, 41, 59, 0.88);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -76,11 +88,18 @@
       max-width: 600px;
       background: #ffffff;
       border: 1px solid #cbd5e0;
-      padding: 24px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      padding: 28px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       font-size: 14px;
+      line-height: 1.6;
       color: #2d3748;
+    }
+
+    .disclaimer-box h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #1a202c;
     }
 
     .disclaimer-box ul {
@@ -93,6 +112,7 @@
       align-items: center;
       gap: 8px;
       margin-top: 16px;
+      font-size: 14px;
     }
 
     input[type="checkbox"] {
@@ -104,15 +124,13 @@
 
   <div class="overlay" id="overlay">
     <div class="disclaimer-box">
-      <p>
-        This report contains proprietary strategic analysis prepared exclusively for institutional review.
-        By accessing this material, you agree to the following terms:
-      </p>
+      <h2>Confidential Access Disclaimer</h2>
+      <p>This portal contains proprietary strategic analysis provided exclusively for authorized institutional use. By accessing this material, you agree to the following terms:</p>
       <ul>
-        <li>🔒 You will maintain strict confidentiality and not disclose any content to third parties.</li>
-        <li>🚫 You will not capture, reproduce, distribute, or modify this material in any form (including screenshots) without explicit written permission.</li>
-        <li>⚖️ Unauthorized use, disclosure, or dissemination may constitute a violation of intellectual property laws and result in civil and/or criminal liability.</li>
-        <li>📜 All content remains the exclusive property of Trinos Strategy and is protected by applicable copyright, trade secret, and confidentiality laws.</li>
+        <li>Maintain strict confidentiality. No sharing with third parties.</li>
+        <li>Do not capture, reproduce, or distribute this content in any form (including screenshots).</li>
+        <li>Unauthorized use may result in civil and/or criminal liability under applicable laws.</li>
+        <li>All content remains the intellectual property of Trinos Strategy and is protected by law.</li>
       </ul>
       <label>
         <input type="checkbox" id="agreeBox" />
@@ -122,16 +140,17 @@
   </div>
 
   <div class="content" id="content">
-    <h1>📚 Project-K Report Portal</h1>
+    <h1>Confidential Report Portal</h1>
+    <div class="subtitle">Authorized Access Only – Trinos Strategy</div>
 
     <div class="menu">
-      <a href="k_culture_investment_report.html">🇺🇸 K-Culture Investment Report</a>
-      <a href="k_culture_investment_report_kr.html">🇰🇷 K-컬처 투자 리포트</a>
-      <a href="why_750m_required.html">🇺🇸 Why $750M is Required</a>
-      <a href="why_750m_required_kr.html">🇰🇷 왜 7.5억 달러가 필요한가</a>
+      <a href="k_culture_investment_report.html">K-Culture Investment Report (EN)</a>
+      <a href="k_culture_investment_report_kr.html">K-컬처 투자 리포트 (KR)</a>
+      <a href="why_750m_required.html">Why $750M is Required (EN)</a>
+      <a href="why_750m_required_kr.html">왜 7.5억 달러가 필요한가 (KR)</a>
     </div>
 
-    <footer>Trinos Strategy © 2025</footer>
+    <footer>© 2025 Trinos Strategy – All Rights Reserved</footer>
   </div>
 
   <script>
