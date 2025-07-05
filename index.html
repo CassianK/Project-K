@@ -85,7 +85,7 @@
     }
 
     .disclaimer-box {
-      max-width: 600px;
+      max-width: 680px;
       background: #ffffff;
       border: 1px solid #cbd5e0;
       padding: 28px;
@@ -118,23 +118,53 @@
     input[type="checkbox"] {
       transform: scale(1.2);
     }
+
+    .lang-section {
+      margin-bottom: 24px;
+    }
+
+    .lang-section h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: #2d3748;
+    }
+
+    .lang-section ul {
+      margin-top: 5px;
+    }
   </style>
 </head>
 <body>
 
   <div class="overlay" id="overlay">
     <div class="disclaimer-box">
-      <h2>Confidential Access Disclaimer</h2>
-      <p>This portal contains proprietary strategic analysis provided exclusively for authorized institutional use. By accessing this material, you agree to the following terms:</p>
-      <ul>
-        <li>Maintain strict confidentiality. No sharing with third parties.</li>
-        <li>Do not capture, reproduce, or distribute this content in any form (including screenshots).</li>
-        <li>Unauthorized use may result in civil and/or criminal liability under applicable laws.</li>
-        <li>All content remains the intellectual property of Trinos Strategy and is protected by law.</li>
-      </ul>
+      <h2>Confidential Access Disclaimer / 접근 동의 고지</h2>
+
+      <div class="lang-section">
+        <h3>🇺🇸 English</h3>
+        <p>This portal contains proprietary strategic analysis provided exclusively for authorized institutional use. By accessing this material, you agree to the following terms:</p>
+        <ul>
+          <li>Maintain strict confidentiality. No sharing with third parties.</li>
+          <li>Do not capture, reproduce, or distribute this content in any form (including screenshots).</li>
+          <li>Unauthorized use may result in civil and/or criminal liability under applicable laws.</li>
+          <li>All content remains the intellectual property of Trinos Strategy and is protected by law.</li>
+        </ul>
+      </div>
+
+      <div class="lang-section">
+        <h3>🇰🇷 한국어</h3>
+        <p>본 포털은 기관 전용 전략 분석 자료를 포함하고 있으며, 열람자는 아래 조건에 동의해야 합니다:</p>
+        <ul>
+          <li>모든 정보를 비밀로 유지하며 제3자에게 공유하지 않습니다.</li>
+          <li>콘텐츠를 복사, 캡처, 유포하거나 어떤 형태로든 재사용하지 않습니다.</li>
+          <li>무단 열람 및 사용 시 관련 법률에 따라 민형사상 책임이 발생할 수 있습니다.</li>
+          <li>모든 콘텐츠는 Trinos Strategy의 지적 재산이며, 법적 보호를 받습니다.</li>
+        </ul>
+      </div>
+
       <label>
         <input type="checkbox" id="agreeBox" />
-        I understand and agree to the above terms.
+        위 내용을 이해하였으며 동의합니다 / I understand and agree to the above terms.
       </label>
     </div>
   </div>
