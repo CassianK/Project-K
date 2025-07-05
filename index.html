@@ -4,45 +4,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Secure Report Portal – Trinos Strategy</title>
+  <title>Confidential Report Access – Trinos Strategy</title>
   <style>
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f7fafc;
-      color: #2d3748;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #1a202c;
       margin: 0;
-      padding: 40px;
+      padding: 60px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     h1 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 600;
-      margin-bottom: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      color: #2d3748;
     }
 
     .subtitle {
       font-size: 14px;
       color: #4a5568;
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
     .auth-box {
       background: #ffffff;
-      border: 1px solid #cbd5e0;
-      padding: 24px;
+      border: 1px solid #dee2e6;
+      padding: 32px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      max-width: 400px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+      max-width: 720px;
       width: 100%;
-      margin-bottom: 30px;
-    }
-
-    input[type="password"], input[type="checkbox"] {
-      margin-top: 10px;
-      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     input[type="password"] {
@@ -51,29 +50,31 @@
       font-size: 14px;
       border: 1px solid #cbd5e0;
       border-radius: 4px;
-    }
-
-    label {
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 10px;
+      margin-top: 16px;
     }
 
     button {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
       font-size: 14px;
-      background: #2b6cb0;
+      background: #2d3748;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      margin-top: 18px;
     }
 
     button:hover {
-      background: #2c5282;
+      background: #1a202c;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-size: 14px;
     }
 
     .menu {
@@ -83,56 +84,75 @@
       text-align: center;
       width: 100%;
       max-width: 400px;
+      margin-top: 40px;
     }
 
     .menu a {
       text-decoration: none;
       font-size: 15px;
       color: #1a202c;
-      background: #edf2f7;
+      background: #e9ecef;
       padding: 12px 20px;
       border-radius: 6px;
-      border: 1px solid #cbd5e0;
+      border: 1px solid #ced4da;
       transition: background 0.2s ease;
     }
 
     .menu a:hover {
-      background: #e2e8f0;
+      background: #dee2e6;
     }
 
     footer {
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 11px;
-      color: #a0aec0;
+      color: #adb5bd;
     }
 
     .disclaimer-text {
-      font-size: 13px;
-      color: #4a5568;
       margin-top: 10px;
+      font-size: 13px;
+      color: #495057;
+    }
+
+    .disclaimer-text strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #212529;
     }
   </style>
 </head>
 <body>
 
-  <h1>Secure Report Portal</h1>
-  <div class="subtitle">Confidential Access – Trinos Strategy</div>
+  <h1>Confidential Report Access</h1>
+  <div class="subtitle">Institutional Access Only – Trinos Strategy</div>
 
   <div class="auth-box" id="auth-box">
-    <input type="password" id="password-input" placeholder="Enter access code" />
+    <div class="disclaimer-text">
+      <strong>Confidential Access Disclaimer / 접근 동의 고지</strong>
+      This report contains proprietary strategic analysis prepared exclusively for institutional review. By accessing this material, you agree to the following terms:
+      <ul>
+        <li>Maintain strict confidentiality. No sharing with third parties.</li>
+        <li>No capture, reproduction, or distribution in any form (including screenshots).</li>
+        <li>Unauthorized use may result in civil and/or criminal liability.</li>
+        <li>All content remains the exclusive property of Trinos Strategy and is protected by law.</li>
+      </ul>
+      본 리포트는 기관 검토용으로만 제공되는 독점적 전략 분석 자료입니다. 열람자는 아래 조건에 동의해야 합니다:
+      <ul>
+        <li>모든 내용을 비밀로 유지하며 제3자에게 절대 공개하지 않습니다.</li>
+        <li>화면 캡처, 복제, 배포, 수정 등 어떤 형태의 2차 사용도 금지됩니다.</li>
+        <li>무단 사용 시 민형사상 책임이 발생할 수 있습니다.</li>
+        <li>모든 권리는 Trinos Strategy에 있으며 법적으로 보호됩니다.</li>
+      </ul>
+    </div>
 
     <label>
       <input type="checkbox" id="agreeBox" />
-      I agree to the confidentiality terms.
+      I understand and agree to the above terms.
     </label>
 
-    <div class="disclaimer-text">
-      By accessing this content, you agree not to disclose, distribute, or capture any portion of the report.
-      Unauthorized use may result in legal consequences. 본 자료는 외부 유출 및 무단 사용 시 법적 책임이 따를 수 있습니다.
-    </div>
-
+    <input type="password" id="password-input" placeholder="Enter access code" />
     <button onclick="checkAccess()">Access Reports</button>
-    <div id="error-message" style="color:#e53e3e; font-size: 13px; margin-top: 8px;"></div>
+    <div id="error-message" style="color:#e03131; font-size: 13px; margin-top: 8px;"></div>
   </div>
 
   <div class="menu" id="menu">
@@ -142,7 +162,7 @@
     <a href="why_750m_required_kr.html">왜 7.5억 달러가 필요한가 (KR)</a>
   </div>
 
-  <footer>© 2025 Trinos Strategy – All Rights Reserved</footer>
+  <footer>© 2025 Trinos Strategy. All rights reserved.</footer>
 
   <script>
     async function checkAccess() {
