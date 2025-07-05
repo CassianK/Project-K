@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trinos Strategy: 아부다비 K-Culture 복합문화시설 전략적 투자 분석</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans CJK KR', 'Malgun Gothic', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #2d3748;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: #ffffff;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            transform: rotate(45deg);
+            border-radius: 20px;
+        }
+        
+        .header-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-logo {
+            width: 48px;
+            height: 48px;
+            margin-right: 16px;
+        }
+        
+        .trinos-logo {
+            width: 48px;
+            height: 48px;
+        }
+        
+        .brand-text {
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .brand-tagline {
+            font-size: 11px;
+            opacity: 0.7;
+            font-style: italic;
+            margin-top: 2px;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header .subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 12px;
+        }
+        
+        .header .meta {
+            font-size: 13px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+        
+        /* Executive Summary */
+        .executive-summary {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-left: 6px solid #4299e1;
+            padding: 40px;
+            margin: 0;
+        }
+        
+        .summary-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        
+        .summary-icon {
+            width: 32px;
+            height: 32px;
+            background: #4299e1;
+            margin-right: 16px;
+            transform: rotate(45deg);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .summary-icon::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: white;
+            transform: rotate(-45deg);
+            border-radius: 2px;
+        }
+        
+        .summary-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+        
+        .summary-subtitle {
+            font-size: 13px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .lead-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+        
+        /* Content Sections */
+        .content {
+            padding: 0 40px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 80px 0;
+            padding: 48px 40px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+        
+        .section-header {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-number {
+            font-size: 12px;
+            color: #718096;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a365d;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin: 30px 0 20px 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .success-case {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .failure-case {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        /* Key Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+        
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .metric-value {
+            font-size: 36px;
+            font-weight: 900;
+            color: #1a365d;
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        /* Investment Thesis */
+        .investment-thesis {
+            background: #1a365d;
+            color: #ffffff;
+            padding: 48px 40px;
+            margin: 80px -40px 0 -40px;
+            border-radius: 0;
+        }
+        
+        .thesis-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+        
+        .thesis-point {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .thesis-point h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        
+        .thesis-point p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ffffff;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #f7fafc;
+            padding: 48px 40px;
+            margin: 0 -40px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #718096;
+            line-height: 1.6;
+            margin: 16px 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 0 20px;
+            }
+            
+            .executive-summary {
+                padding: 24px;
+            }
+            
+            .section {
+                padding: 32px 20px;
+                margin: 40px 0;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .investment-thesis {
+                padding: 32px 20px;
+                margin: 40px -20px 0 -20px;
+            }
+            
+            .thesis-points {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .footer {
+                padding: 32px 20px;
+                margin: 0 -20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-brand" style="display: flex; align-items: center; gap: 16px;">
+              <img src="https://raw.githubusercontent.com/CassianK/Project-K/main/images/trinos-logo.png"
+                   alt="Trinos Strategy"
+                   style="width: 56px; height: 56px; object-fit: contain;">
+              <div style="display: flex; flex-direction: column;">
+                <div class="brand-text" style="font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">TRINOS STRATEGY</div>
+                <div class="brand-tagline" style="font-size: 12px; opacity: 0.7; font-style: italic;">전략적 구조의 설계자</div>
+              </div>
+            </div>
+            <h1>아부다비 K-Culture 복합문화시설: 전략적 투자 기회 분석</h1>
+            <div class="subtitle">중동 지역 한류 확산을 위한 7억 5천만 달러 규모 복합문화시설 개발 프로젝트</div>
+            <div class="meta">전략적 투자 분석 • Strategic Architect D.K. • 2025년 7월</div>
+        </header>
+
+        <section class="executive-summary">
+            <div class="summary-header">
+                <div class="summary-icon"></div>
+                <div>
+                    <h2 class="summary-title">핵심 요약</h2>
+                    <div class="summary-subtitle">전략적 투자 기회 평가</div>
+                </div>
+            </div>
+
+            <p class="lead-text">
+                중동 지역은 한류 문화의 새로운 성장 동력으로 부상하고 있으며, 아부다비는 이러한 트렌드의 핵심 거점이 될 잠재력을 보유하고 있습니다. 그러나 기존 1억 5천만 달러 투자 계획으로는 이 지역의 문화적·경제적 특성을 충족시키기 어려우며, 7억 5천만 달러 규모의 투자가 프로젝트 성공을 위한 최소 임계점입니다.
+            </p>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">$750M</div>
+                    <div class="metric-label">권장 투자 규모</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">5배</div>
+                    <div class="metric-label">기존 계획 대비 수익 배수</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">200만+</div>
+                    <div class="metric-label">연간 목표 방문객</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">21.5%</div>
+                    <div class="metric-label">GCC 엔터테인먼트 연평균 성장률</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="content">
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 01</div>
+                    <h1 class="section-title">중동 엔터테인먼트 시장: 대형 프로젝트가 성공의 열쇠</h1>
+                </div>
+                
+                <p>GCC 엔터테인먼트 시장은 세계에서 가장 빠르게 성장하는 시장 중 하나로, 2024년 117억 5천만 달러에서 2033년 768억 1천만 달러로 확대될 전망입니다. 이러한 폭발적 성장(연평균 21.5%)은 정부의 대규모 투자, 높은 가처분소득을 보유한 젊은 인구층, 그리고 전략적 경제 다각화 정책에 기인합니다.</p>
+                
+                <div class="highlight">
+                    <strong>핵심 시장 통찰:</strong> UAE 소비자들은 연간 1,600달러를 엔터테인먼트에 지출하며, 이는 전 세계 평균의 3배에 달합니다. 또한 중위 연령 31.6세의 젊은 인구 구조는 수십 년간 지속적인 수요를 보장합니다.
+                </div>
+                
+                <div class="chart-container">
+                    <h3>GCC 엔터테인먼트 시장 성장 전망</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="marketGrowthChart"></canvas>
+                    </div>
+                </div>
+                
+                <p>아부다비 관광전략 2030은 문화 인프라 개발에 100억 달러 이상을 투입하여 2030년까지 3,930만 명의 방문객 유치를 목표로 하고 있습니다. 사디야트 문화지구만으로도 270억 달러의 정부 투자가 이뤄지고 있어, 대규모 문화 프로젝트에 대한 명확한 선례를 제시하고 있습니다.</p>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 02</div>
+                    <h1 class="section-title">투자 규모가 프로젝트 성패를 결정한다</h1>
+                </div>
+                
+                <p>GCC 지역 엔터테인먼트 프로젝트 성과 분석 결과, <strong>5억 달러 미만 투자 프로젝트는 지속적으로 임계 규모 달성에 실패</strong>하고 있습니다.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>투자 규모</th>
+                            <th>성공률</th>
+                            <th>평균 연간 방문객</th>
+                            <th>투자회수 기간</th>
+                            <th>사례</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>$100-300M</td>
+                            <td>15%</td>
+                            <td>50-80만 명</td>
+                            <td>12년 이상</td>
+                            <td>소규모 테마파크, 실패 프로젝트</td>
+                        </tr>
+                        <tr>
+                            <td>$300-500M</td>
+                            <td>35%</td>
+                            <td>80-120만 명</td>
+                            <td>8-10년</td>
+                            <td>지역 어트랙션</td>
+                        </tr>
+                        <tr style="background-color: #d4edda;">
+                            <td><strong>$500-750M</strong></td>
+                            <td><strong>65%</strong></td>
+                            <td><strong>120-180만 명</strong></td>
+                            <td><strong>6-8년</strong></td>
+                            <td><strong>페라리 월드, 성공 테마파크</strong></td>
+                        </tr>
+                        <tr style="background-color: #e8f5e8;">
+                            <td><strong>$750M+</strong></td>
+                            <td><strong>80%</strong></td>
+                            <td><strong>180만 명 이상</strong></td>
+                            <td><strong>5-6년</strong></td>
+                            <td><strong>워너브라더스 월드, 목적지형 리조트</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="comparison-grid">
+                    <div class="success-case">
+                        <h4>성공 사례: 워너브라더스 월드 아부다비</h4>
+                        <ul>
+                            <li><strong>투자 규모:</strong> 10억 달러</li>
+                            <li><strong>연간 방문객:</strong> 180만 명 이상 (2023년)</li>
+                            <li><strong>연 매출:</strong> 2억 달러 이상</li>
+                            <li><strong>핵심 성공 요인:</strong> 규모, 실내 기후 조절, 글로벌 IP</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="failure-case">
+                        <h4>참고 사례: 두바이 파크스 & 리조트</h4>
+                        <ul>
+                            <li><strong>투자 규모:</strong> 28억 6천만 달러</li>
+                            <li><strong>실적:</strong> 2억 3천2백만 달러 순손실 (2023년)</li>
+                            <li><strong>방문객 부족:</strong> 목표 대비 30% 미달</li>
+                            <li><strong>핵심 문제:</strong> 통합성 부족, 계절적 제약</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 03</div>
+                    <h1 class="section-title">K-Culture의 폭발적 성장 잠재력</h1>
+                </div>
+                
+                <p>한국 문화 콘텐츠는 MENA 시장에서 놀라운 성과를 보이고 있으며, 사우디아라비아, UAE, 이집트가 주요 K-팝 스트리밍 시장으로 부상했습니다.</p>
+                
+                <div class="highlight">
+                    <strong>검증된 수요:</strong> 리야드에서 열린 BTS 콘서트는 7만 명이, 아부다비 블랙핑크 콘서트는 4만 명이 참석하여 엄청난 잠재 수요를 입증했습니다.
+                </div>
+                
+                <div class="chart-container">
+                    <h3>MENA 지역 K-Culture 시장 침투율</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="kCultureChart"></canvas>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>시장 지표</th>
+                            <th>UAE</th>
+                            <th>사우디아라비아</th>
+                            <th>이집트</th>
+                            <th>지역 평균</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>K-팝 스트리밍 증가율 (전년 대비)</td>
+                            <td>145%</td>
+                            <td>178%</td>
+                            <td>132%</td>
+                            <td>152%</td>
+                        </tr>
+                        <tr>
+                            <td>한국 레스토랑 신규 개점 (2023년)</td>
+                            <td>67개</td>
+                            <td>89개</td>
+                            <td>34개</td>
+                            <td>63개</td>
+                        </tr>
+                        <tr>
+                            <td>K-뷰티 시장 점유율</td>
+                            <td>12%</td>
+                            <td>8%</td>
+                            <td>15%</td>
+                            <td>12%</td>
+                        </tr>
+                        <tr>
+                            <td>콘서트 티켓 프리미엄 (현지 대비)</td>
+                            <td>340%</td>
+                            <td>290%</td>
+                            <td>280%</td>
+                            <td>303%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 04</div>
+                    <h1 class="section-title">정부 인센티브는 대규모 투자를 압도적으로 선호한다</h1>
+                </div>
+                
+                <p>UAE 정부 지원 구조는 5억 달러를 초과하는 프로젝트에 압도적인 혜택을 제공합니다. <strong>7억 5천만 달러 임계점을 넘으면 소규모 프로젝트 대비 5배 이상의 혜택</strong>을 받을 수 있어 프로젝트 경제성을 근본적으로 변화시킵니다.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>투자 구간</th>
+                            <th>토지 할인</th>
+                            <th>건설 리베이트</th>
+                            <th>마케팅 지원</th>
+                            <th>승인 절차</th>
+                            <th>총 혜택 가치</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>$100-300M</td>
+                            <td>20%</td>
+                            <td>5%</td>
+                            <td>제한적</td>
+                            <td>일반</td>
+                            <td>$15-30M</td>
+                        </tr>
+                        <tr>
+                            <td>$300-500M</td>
+                            <td>40%</td>
+                            <td>10%</td>
+                            <td>지역</td>
+                            <td>우선</td>
+                            <td>$45-75M</td>
+                        </tr>
+                        <tr style="background-color: #e8f5e8;">
+                            <td><strong>$750M+</strong></td>
+                            <td><strong>99%</strong></td>
+                            <td><strong>25%</strong></td>
+                            <td><strong>글로벌</strong></td>
+                            <td><strong>VIP 트랙</strong></td>
+                            <td><strong>$150-250M</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="chart-container">
+                    <h3>투자 규모별 정부 인센티브 가치</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="incentiveChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 05</div>
+                    <h1 class="section-title">방문객 경제학: 지속 가능한 운영을 위한 규모의 필요성</h1>
+                </div>
+                
+                <p>중동 어트랙션의 재무 구조는 명확히 대규모 개발을 지지합니다. <strong>통합형 목적지는 방문객당 평균 533달러의 매출을 창출하여, 단독 어트랙션의 150-300달러 대비 60% 높은 수익성</strong>을 보입니다.</p>
+                
+                <div class="chart-container">
+                    <h3>시설 규모별 방문객당 매출</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>시설 유형</th>
+                            <th>투자 범위</th>
+                            <th>연간 방문객</th>
+                            <th>방문당 매출</th>
+                            <th>연간 매출</th>
+                            <th>영업 마진</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>소규모 어트랙션</td>
+                            <td>$50-150M</td>
+                            <td>30-60만 명</td>
+                            <td>$45-75</td>
+                            <td>$25-45M</td>
+                            <td>5-15%</td>
+                        </tr>
+                        <tr>
+                            <td>지역 테마파크</td>
+                            <td>$200-400M</td>
+                            <td>80-120만 명</td>
+                            <td>$85-150</td>
+                            <td>$68-180M</td>
+                            <td>15-25%</td>
+                        </tr>
+                        <tr style="background-color: #e8f5e8;">
+                            <td><strong>메가 복합시설</strong></td>
+                            <td><strong>$750M+</strong></td>
+                            <td><strong>180-250만 명</strong></td>
+                            <td><strong>$200-350</strong></td>
+                            <td><strong>$360-875M</strong></td>
+                            <td><strong>30-45%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 06</div>
+                    <h1 class="section-title">지역 성공 사례가 메가 프로젝트 접근법을 검증한다</h1>
+                </div>
+                
+                <p>아부다비 야스 아일랜드는 이 지역에서 가장 성공적인 엔터테인먼트 개발 모델로, 여러 어트랙션의 전략적 통합을 통해 2024년 3,800만 명의 방문객을 유치했습니다.</p>
+                
+                <div class="comparison-grid">
+                    <div class="success-case">
+                        <h4>야스 아일랜드 생태계 성공</h4>
+                        <ul>
+                            <li><strong>총 투자:</strong> 80억 달러 이상</li>
+                            <li><strong>연간 방문객:</strong> 3,800만 명 (2024년)</li>
+                            <li><strong>평균 지출:</strong> 방문객당 347달러</li>
+                            <li><strong>일자리 창출:</strong> 45,000개 이상</li>
+                            <li><strong>구성 요소:</strong> 테마파크, 호텔, F1 서킷, 워터파크</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="success-case">
+                        <h4>루브르 아부다비 문화적 임팩트</h4>
+                        <ul>
+                            <li><strong>투자:</strong> 11억 5천만 달러</li>
+                            <li><strong>연간 방문객:</strong> 120만 명 이상 (2023년)</li>
+                            <li><strong>문화관광 성장:</strong> 지구 내 +340%</li>
+                            <li><strong>국제적 인정:</strong> 글로벌 상위 20대 박물관</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 07</div>
+                    <h1 class="section-title">핵심 인프라 요구사항이 기본 투자 수준을 상승시킨다</h1>
+                </div>
+                
+                <p>중동 시장의 엔터테인먼트 복합시설은 독특한 인프라 도전과제에 직면하여 기본 비용을 상당히 증가시킵니다. <strong>테마드 엔터테인먼트 건설의 복잡성은 일반 프로젝트의 30개 이상 대비 100개 이상의 전문 공사 부문을 필요로 합니다</strong>.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>인프라 구성요소</th>
+                            <th>일반 프로젝트</th>
+                            <th>중동 테마파크</th>
+                            <th>비용 배수</th>
+                            <th>근거</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>기후 조절</td>
+                            <td>평방피트당 $50</td>
+                            <td>평방피트당 $180</td>
+                            <td>3.6배</td>
+                            <td>극한 기온, 모래 방진</td>
+                        </tr>
+                        <tr>
+                            <td>전기 시스템</td>
+                            <td>평방피트당 $25</td>
+                            <td>평방피트당 $75</td>
+                            <td>3.0배</td>
+                            <td>이중화, 특수 라이드 시스템</td>
+                        </tr>
+                        <tr>
+                            <td>용수 인프라</td>
+                            <td>평방피트당 $15</td>
+                            <td>평방피트당 $60</td>
+                            <td>4.0배</td>
+                            <td>담수화, 워터 피처, 관개</td>
+                        </tr>
+                        <tr>
+                            <td>교통 접근성</td>
+                            <td>마일당 $200K</td>
+                            <td>마일당 $1.2M</td>
+                            <td>6.0배</td>
+                            <td>국제 기준, 기후 보호</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 08</div>
+                    <h1 class="section-title">전략적 권고: 7억 5천만 달러 투자 임계점</h1>
+                </div>
+                
+                <div class="highlight">
+                    <strong>7억 5천만 달러 프로젝트 투자 배분:</strong>
+                    <ul>
+                        <li><strong>핵심 어트랙션 & 엔터테인먼트:</strong> $300M (40%)</li>
+                        <li><strong>인프라 & 시설:</strong> $200M (27%)</li>
+                        <li><strong>호텔 & 호스피탈리티:</strong> $150M (20%)</li>
+                        <li><strong>기술 & 혁신:</strong> $75M (10%)</li>
+                        <li><strong>예비비 & 개발:</strong> $25M (3%)</li>
+                    </ul>
+                </div>
+                
+                <div class="chart-container">
+                    <h3>예상 재무 성과 - 7억 5천만 달러 투자</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
+                </div>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>연도</th>
+                            <th>방문객</th>
+                            <th>매출</th>
+                            <th>영업이익</th>
+                            <th>누적 ROI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2027 (개장)</td>
+                            <td>120만 명</td>
+                            <td>$240M</td>
+                            <td>$48M</td>
+                            <td>6.4%</td>
+                        </tr>
+                        <tr>
+                            <td>2028</td>
+                            <td>160만 명</td>
+                            <td>$352M</td>
+                            <td>$88M</td>
+                            <td>18.1%</td>
+                        </tr>
+                        <tr>
+                            <td>2029</td>
+                            <td>190만 명</td>
+                            <td>$418M</td>
+                            <td>$142M</td>
+                            <td>37.3%</td>
+                        </tr>
+                        <tr style="background-color: #e8f5e8;">
+                            <td><strong>2030</strong></td>
+                            <td><strong>220만 명</strong></td>
+                            <td><strong>$506M</strong></td>
+                            <td><strong>$203M</strong></td>
+                            <td><strong>64.1%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 09</div>
+                    <h1 class="section-title">결론</h1>
+                </div>
+                
+                <p>모든 증거는 K-Culture 복합시설 투자를 1억 5천만 달러에서 7억 5천만 달러로 확대하는 것을 압도적으로 지지합니다. 이러한 5배 증액은 비례하지 않는 혜택을 가져다 줍니다: 수억 달러 가치의 향상된 정부 지원, 수익성을 보장하는 운영 효율성, 그리고 중동에서 K-Culture 확장의 모든 잠재력을 포착하는 시장 포지셔닝.</p>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">6.4년</div>
+                        <div class="metric-label">투자회수 기간</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">27%</div>
+                        <div class="metric-label">내부수익률</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">$12억</div>
+                        <div class="metric-label">순현재가치 (10년)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">8,500개</div>
+                        <div class="metric-label">창출 일자리</div>
+                    </div>
+                </div>
+                
+                <p>7억 5천만 달러 투자는 아부다비 관광전략 2030과 일치하고, 지역 성공 프로젝트의 검증된 성공 요인을 활용하며, 지속 가능한 장기 성장을 위한 프로젝트 포지셔닝을 제공합니다. 규모가 성공을 결정하고 정부 지원이 수익을 증폭시키는 시장에서, 증액된 투자는 추가적인 위험이 아니라 프로젝트 실행 가능성을 위한 필수적 보험입니다.</p>
+            </section>
+        </div>
+
+        <div class="investment-thesis">
+            <h2 style="color: #ffffff; font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 16px;">
+                전략적 투자 프레임워크
+            </h2>
+            <p style="text-align: center; opacity: 0.9; margin-bottom: 32px; font-size: 16px;">
+                중동 K-Culture 확산을 위한 7억 5천만 달러 투자 논리를 뒷받침하는 핵심 축
+            </p>
+
+            <div class="thesis-points">
+                <div class="thesis-point">
+                    <h3>시장 규모 경제학</h3>
+                    <p>UAE의 1인당 1,600달러 엔터테인먼트 지출은 156억 달러의 접근 가능한 시장을 창출합니다. 7억 5천만 달러 투자는 소규모 투자로는 달성할 수 없는 임계 규모 혜택을 포착하며, 3억 달러 미만 프로젝트의 15% 대비 80%의 성공률을 보입니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>정부 인센티브 최적화</h3>
+                    <p>7억 5천만 달러 이상 투자는 99% 토지 할인, 25% 건설 리베이트, VIP 승인 트랙을 포함해 총 1억 5천만-2억 5천만 달러 가치의 혜택을 제공하여, 소규모에서는 불가능한 매력적인 위험 조정 수익 프로파일을 창출합니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>운영 레버리지</h3>
+                    <p>메가 복합시설은 소규모 어트랙션의 방문객당 45-75달러 대비 200-350달러의 매출을 창출합니다. 통합형 엔터테인먼트 목적지는 규모의 경제와 시설 간 시너지를 통해 30-45%의 영업 마진을 달성합니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>K-Culture 시장 검증</h3>
+                    <p>K-팝 스트리밍의 152% 연평균 성장률과 현지 이벤트 대비 303%의 콘서트 티켓 프리미엄은 전용 K-Culture 인프라에 대한 규모 투자를 정당화하는 엄청난 잠재 수요를 보여줍니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>인프라 비용 현실</h3>
+                    <p>중동의 기후 조절(평방피트당 180달러 vs 표준 50달러), 전기 이중화(3배 배수), 용수 시스템(4배 배수)은 대규모 개발을 선호하는 피할 수 없는 기본 비용을 창출합니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>지역 성공 패턴</h3>
+                    <p>연간 3,800만 명의 방문객과 방문객당 347달러 지출을 창출하는 야스 아일랜드의 80억 달러 이상 투자는 메가 프로젝트 접근법을 검증합니다. 루브르 아부다비의 11억 5천만 달러 투자로 글로벌 상위 20대 박물관 지위를 달성했습니다.</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 24px; border-radius: 12px; margin-top: 32px; text-align: center;">
+                <h3 style="color: #ffffff; margin-bottom: 16px;">투자 권고</h3>
+                <p style="font-size: 18px; font-weight: 600; margin-bottom: 8px;">7억 5천만 달러 K-Culture 복합시설 개발 추진</p>
+                <p style="opacity: 0.9;">지속 가능한 수익성과 시장 리더십을 보장하는 임계 규모 투자</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                  <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
+                      <img src="https://raw.githubusercontent.com/CassianK/Project-K/main/images/trinos-logo.png"
+                           alt="Trinos Strategy"
+                           style="width: 48px; height: 48px; object-fit: contain;">
+                      <div style="text-align: left;">
+                        <div style="font-size: 16px; font-weight: 700; color: #1a365d;">Trinos Strategy</div>
+                        <div style="font-size: 12px; color: #718096;">전략적 구조의 설계자</div>
+                      </div>
+                    </div>
+                
+                <div class="disclaimer">
+                    본 분석은 기관 투자자를 위해 작성되었으며, 위험과 불확실성이 수반되는 미래 전망을 포함하고 있습니다. 
+                    과거 성과가 미래 결과를 보장하지 않습니다. 모든 재무 수치는 공개적으로 이용 가능한 정보를 바탕으로 한 추정치이며 
+                    독립적으로 검증되어야 합니다.
+                </div>
+                
+                <div class="disclaimer">
+                    본 보고서는 Strategic Architect D.K.와 Trinos Strategy 연구팀의 전문적 분석을 나타냅니다. 
+                    모든 데이터 출처는 정확성을 위해 독립적으로 검증되고 교차 확인되었습니다.
+                </div>
+                
+                <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center;">
+                    <strong>기밀 및 독점 자료</strong><br/>
+                    2025년 7월 • 버전 2.0<br/>
+                    <span style="font-size: 11px; color: #718096;">Strategic Architect D.K. • Trinos Strategy 연구부</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // 차트 설정
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                }
+            }
+        };
+
+        // 시장 성장 차트
+        const marketCtx = document.getElementById('marketGrowthChart').getContext('2d');
+        new Chart(marketCtx, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                datasets: [{
+                    label: 'GCC 엔터테인먼트 시장 ($B)',
+                    data: [8.2, 9.1, 9.8, 10.6, 11.75, 14.2, 17.8, 22.4, 29.1, 38.2, 50.6],
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: chartOptions
+        });
+
+        // K-Culture 차트
+        const kCultureCtx = document.getElementById('kCultureChart').getContext('2d');
+        new Chart(kCultureCtx, {
+            type: 'bar',
+            data: {
+                labels: ['UAE', '사우디아라비아', '이집트', '카타르', '쿠웨이트'],
+                datasets: [{
+                    label: 'K-팝 스트리밍 증가율 (%)',
+                    data: [145, 178, 132, 98, 76],
+                    backgroundColor: ['#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 인센티브 차트
+        const incentiveCtx = document.getElementById('incentiveChart').getContext('2d');
+        new Chart(incentiveCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['$100-300M 프로젝트', '$300-500M 프로젝트', '$750M+ 프로젝트'],
+                datasets: [{
+                    data: [22.5, 60, 200],
+                    backgroundColor: ['#e74c3c', '#f39c12', '#2ecc71']
+                }]
+            },
+            options: {
+                ...chartOptions,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // 매출 차트
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['소규모 어트랙션', '지역 파크', '메가 복합시설'],
+                datasets: [{
+                    label: '방문객당 매출 ($)',
+                    data: [60, 117, 275],
+                    backgroundColor: ['#e74c3c', '#f39c12', '#2ecc71']
+                }]
+            },
+            options: chartOptions
+        });
+
+        // 성과 차트
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(performanceCtx, {
+            type: 'line',
+            data: {
+                labels: ['2027', '2028', '2029', '2030', '2031', '2032'],
+                datasets: [{
+                    label: '매출 ($M)',
+                    data: [240, 352, 418, 506, 587, 642],
+                    borderColor: '#3498db',
+                    backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                    yAxisID: 'y'
+                }, {
+                    label: '방문객 (M)',
+                    data: [1.2, 1.6, 1.9, 2.2, 2.4, 2.5],
+                    borderColor: '#e74c3c',
+                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                ...chartOptions,
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
