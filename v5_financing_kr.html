@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT K: $750M Abu Dhabi K-Culture Complex - Investment Memorandum</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.4;
+            color: #2c2c2c;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+        
+        /* Header */
+        .header {
+            background: #1a365d;
+            color: #ffffff;
+            padding: 80px 60px;
+            position: relative;
+        }
+        
+        .header-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        .header .subtitle {
+            font-size: 24px;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+        
+        .header .meta {
+            font-size: 14px;
+            opacity: 0.7;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Executive Summary */
+        .executive-summary {
+            background: #f8f9fa;
+            border-left: 4px solid #1a365d;
+            padding: 60px;
+            margin: 0;
+        }
+        
+        .summary-header {
+            margin-bottom: 40px;
+        }
+        
+        .summary-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .summary-subtitle {
+            font-size: 14px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .lead-text {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #2c2c2c;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        /* Content Sections */
+        .content {
+            padding: 0 60px;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 100px 0;
+            padding: 60px;
+            background: #ffffff;
+            border: 1px solid #e6e6e6;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .section:nth-child(1) { border-left: 6px solid #e74c3c; }
+        .section:nth-child(2) { border-left: 6px solid #3498db; }
+        .section:nth-child(3) { border-left: 6px solid #27ae60; }
+        .section:nth-child(4) { border-left: 6px solid #f39c12; }
+        .section:nth-child(5) { border-left: 6px solid #9b59b6; }
+        
+        .section-header {
+            margin-bottom: 50px;
+            border-bottom: 2px solid #1a365d;
+            padding-bottom: 20px;
+        }
+        
+        .section-number {
+            font-size: 12px;
+            color: #666666;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1a365d;
+            line-height: 1.2;
+            margin-bottom: 0;
+            letter-spacing: -0.5px;
+        }
+        
+        h2 {
+            color: #1a365d;
+            padding-bottom: 12px;
+            margin: 40px 0 24px 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+        
+        h3 {
+            color: #2c2c2c;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+        
+        .key-insight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-left: 6px solid #f39c12;
+            padding: 28px;
+            margin: 32px 0;
+            font-weight: 500;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.2);
+        }
+        
+        .strategic-advantage {
+            background: linear-gradient(135deg, #d4edda 0%, #a8e6cf 100%);
+            border: 2px solid #27ae60;
+            padding: 32px;
+            margin: 32px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.2);
+            position: relative;
+        }
+        
+        .strategic-advantage::before {
+            content: "🎯";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: white;
+            padding: 0 8px;
+            font-size: 24px;
+        }
+        
+        .strategic-advantage h4 {
+            color: #27ae60;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .concept-explanation {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px solid #3498db;
+            padding: 32px;
+            margin: 32px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+            position: relative;
+        }
+        
+        .concept-explanation::before {
+            content: "💡";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: white;
+            padding: 0 8px;
+            font-size: 24px;
+        }
+        
+        .concept-explanation h4 {
+            color: #3498db;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .financial-highlight {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border: 3px solid #e17055;
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(225, 112, 85, 0.3);
+        }
+        
+        .financial-highlight h5 {
+            color: #d63031;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .government-subsidy {
+            background: linear-gradient(135deg, #d1f2eb 0%, #a8e6cf 100%);
+            border: 3px solid #00b894;
+            padding: 28px;
+            margin: 28px 0;
+            border-radius: 15px;
+            box-shadow: 0 6px 25px rgba(0, 184, 148, 0.3);
+            position: relative;
+        }
+        
+        .government-subsidy::before {
+            content: "🏛️";
+            position: absolute;
+            top: -15px;
+            left: 25px;
+            background: white;
+            padding: 0 10px;
+            font-size: 28px;
+        }
+        
+        /* Key Metrics */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin: 40px 0;
+        }
+        
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #cccccc;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1a365d;
+            line-height: 1;
+            margin-bottom: 12px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: #666666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: white;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            padding: 18px 24px;
+            text-align: left;
+            border-bottom: 1px solid #e6e6e6;
+            font-size: 15px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #1a365d 0%, #2d4a73 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e8f2ff;
+        }
+        
+        .highlight-row {
+            background-color: #e8f4fd !important;
+            font-weight: 700;
+            border: 2px solid #1a365d;
+        }
+        
+        .section-header-row {
+            background-color: #f0f6fc !important;
+            font-weight: 700;
+            font-style: italic;
+            color: #1a365d;
+        }
+        
+        .amount-highlight {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1a365d;
+        }
+        
+        .rate-highlight {
+            font-size: 16px;
+            font-weight: 700;
+            color: #d63384;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid #cccccc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 450px;
+            margin: 24px 0;
+        }
+        
+        .horizontal-metrics {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            margin: 25px 0;
+            border-collapse: separate;
+            border-spacing: 15px;
+        }
+        
+        .metric-box {
+            display: table-cell;
+            background: #ffffff;
+            border: 2px solid #1a365d;
+            padding: 20px 10px;
+            text-align: center;
+            border-radius: 6px;
+            vertical-align: middle;
+            width: 33.33%;
+        }
+        
+        .metric-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 6px;
+            line-height: 1;
+        }
+        
+        .metric-text {
+            font-size: 12px;
+            color: #666666;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+        
+        .chart-insight {
+            background: #f0f8ff;
+            border-left: 4px solid #1a365d;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .chart-insight strong {
+            color: #1a365d;
+            font-size: 18px;
+        }
+        
+        .citation {
+            font-size: 14px;
+            color: #1a365d;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .citation:hover {
+            text-decoration: underline;
+        }
+        
+        .footnotes {
+            background: #f8f9fa;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 2px solid #1a365d;
+        }
+        
+        .footnotes h3 {
+            color: #1a365d;
+            margin-top: 0;
+            margin-bottom: 32px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .footnote {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-left: 3px solid #1a365d;
+            font-size: 14px;
+        }
+        
+        .footnote a {
+            color: #1a365d;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .footnote a:hover {
+            text-decoration: underline;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        
+        /* Investment Thesis */
+        .investment-thesis {
+            background: #1a365d;
+            color: #ffffff;
+            padding: 60px;
+            margin: 100px -60px 0 -60px;
+        }
+        
+        .investment-thesis h2 {
+            color: #ffffff;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        
+        .thesis-subtitle {
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+        
+        .thesis-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .thesis-point {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .thesis-point h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+        
+        .thesis-point p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #f8f9fa;
+            padding: 60px;
+            margin: 0 -60px;
+            border-top: 1px solid #cccccc;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #666666;
+            line-height: 1.5;
+            margin: 20px 0;
+        }
+        
+        /* Lists */
+        ul {
+            margin: 16px 0 16px 24px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        /* Text styling */
+        strong {
+            font-weight: 700;
+            color: #1a365d;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 30px;
+            }
+            
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .content {
+                padding: 0 30px;
+            }
+            
+            .executive-summary {
+                padding: 40px 30px;
+            }
+            
+            .section {
+                padding: 40px 30px;
+                margin: 60px 0;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .investment-thesis {
+                padding: 40px 30px;
+                margin: 60px -30px 0 -30px;
+            }
+            
+            .thesis-points {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .footer {
+                padding: 40px 30px;
+                margin: 0 -30px;
+            }
+        }
+
+        @media print {
+            body {
+                font-size: 12px;
+            }
+            .header {
+                padding: 40px 30px;
+            }
+            .section {
+                margin: 40px 0;
+                padding: 30px;
+            }
+            .chart-wrapper {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-brand" style="display: flex; align-items: center; gap: 20px;">
+              <div style="width: 64px; height: 64px; background: #ffffff; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1a365d; font-size: 24px;">T</div>
+              <div style="display: flex; flex-direction: column;">
+                <div style="font-size: 16px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">Trinos Strategy</div>
+                <div style="font-size: 14px; opacity: 0.7;">Architects of Strategic Structure</div>
+              </div>
+            </div>
+            <h1>PROJECT K: 아부다비 K-Culture 복합단지</h1>
+            <div class="subtitle">7억5천만 달러 전략적 투자 기회</div>
+            <div class="meta">기밀 투자 메모 • 2025년 7월</div>
+        </header>
+
+        <section class="executive-summary">
+            <div class="summary-header">
+                <h2 class="summary-title">경영진 요약</h2>
+                <div class="summary-subtitle">최대 수익을 위한 최적화된 KEXIM 통합 프레임워크</div>
+            </div>
+
+            <p class="lead-text">
+                PROJECT K는 아부다비 사디야트 아일랜드에 세계 최초의 종합 K-Culture 복합단지를 개발하는 <strong>7억5천만 달러 기관급 투자 기회</strong>를 나타냅니다. 이 투자는 한국 개발금융과 이슬람 자본시장을 결합한 정교한 단계별 금융 전략을 사용하여, 실현 가능한 최대 57% KEXIM 금융 비율에서 최적화된 정부 보조금 포착을 통해 <strong>15-18% 혼합 IRR</strong>을 목표로 합니다.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0;">
+                <div class="metric-card">
+                    <div class="metric-value">57%</div>
+                    <div class="metric-label">KEXIM 프로젝트 비율</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">$16M</div>
+                    <div class="metric-label">연간 정부 보조금</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">15-18%</div>
+                    <div class="metric-label">목표 혼합 IRR</div>
+                </div>
+            </div>
+
+            <h2>최적화된 한국 정책금융 구조</h2>
+
+            <div class="strategic-advantage">
+                <h4>KEXIM 지원 최대화 프레임워크</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin: 20px 0;">
+                    <div style="text-align: center; padding: 18px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">향상된 K-콘텐츠</div>
+                        <div style="font-size: 13px; color: #2d3436;">55-60% 한국 참여</div>
+                    </div>
+                    <div style="text-align: center; padding: 18px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">주요 건설사</div>
+                        <div style="font-size: 13px; color: #2d3436;">삼성물산, 현대건설</div>
+                    </div>
+                    <div style="text-align: center; padding: 18px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">K-Culture 운영사</div>
+                        <div style="font-size: 13px; color: #2d3436;">CJ ENM, 하이브, SM</div>
+                    </div>
+                    <div style="text-align: center; padding: 18px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">기술 수출</div>
+                        <div style="font-size: 13px; color: #2d3436;">IT/AV/디지털 시스템</div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; background: #ffffff; border: 3px solid #1a365d; padding: 25px 40px; border-radius: 12px;">
+                        <div style="font-size: 48px; font-weight: 700; color: #1a365d; margin-bottom: 8px;">$425M</div>
+                        <div style="font-size: 16px; color: #666666; font-weight: 600; text-transform: uppercase;">총 KEXIM 수출금융 (57%)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="strategic-advantage">
+                <h4>한국 은행들의 유리한 브릿지 금리 제공 이유</h4>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 20px 0;">
+                    <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">K-Culture 우선순위</div>
+                        <div style="font-size: 13px; color: #2d3436;">국가 전략 지원</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">KEXIM 백스톱</div>
+                        <div style="font-size: 13px; color: #2d3436;">보장된 인수</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">K-SURE 보험</div>
+                        <div style="font-size: 13px; color: #2d3436;">90-95% 커버리지</div>
+                    </div>
+                    <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid #27ae60;">
+                        <div style="font-size: 18px; font-weight: 700; color: #27ae60; margin-bottom: 8px;">위험 분산</div>
+                        <div style="font-size: 13px; color: #2d3436;">4개 은행 컨소시엄</div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="display: inline-block; background: #ffffff; border: 3px solid #1a365d; padding: 25px 40px; border-radius: 12px;">
+                        <div style="font-size: 48px; font-weight: 700; color: #1a365d; margin-bottom: 8px;">$375M</div>
+                        <div style="font-size: 16px; color: #666666; font-weight: 600; text-transform: uppercase;">총 한국 브릿지 자본</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="strategic-advantage">
+                <h4>최적화된 투자 논리</h4>
+                <p><strong>최대 정부금융 차익:</strong> 향상된 한국 콘텐츠 참여(55-60%)를 통해 전례 없는 57% KEXIM 금융 비율을 가능하게 하여, 시장 금리 6.5-7.0% 대비 정부 지원 금융 3.0-5.0%를 통해 연간 16-20백만 달러의 보조금을 창출합니다.</p>
+                
+                <p><strong>전략적 파트너십 통합:</strong> 주요 한국 건설사(삼성물산, 현대건설)와 엔터테인먼트 운영사(CJ ENM, 하이브, SM엔터테인먼트)가 최대 한국 콘텐츠 자격을 보장하면서 세계적 수준의 실행을 제공합니다.</p>
+                
+                <p><strong>성과 기반 확장:</strong> 3단계 구조가 한국 콘텐츠 전달과 운영 성공을 검증하여, 단계별로 KEXIM 지원을 57%에서 60%로 점진적 확대를 가능하게 합니다.</p>
+                
+                <p><strong>이슬람 금융 최적화:</strong> Nasdaq Dubai 수쿠크 시장을 통한 영구 금융은 브릿지 금융 비용 대비 4.0-5.5%의 장기 자본을 제공하여 안정화 후 자본 구조를 최적화합니다.</p>
+            </div>
+        </section>
+
+        <div class="content">
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 01</div>
+                    <h1 class="section-title">향상된 한국 콘텐츠 전략 & 시장 환경</h1>
+                </div>
+
+                <h2>한국 문화 수출 시장 역학</h2>
+                
+                <div class="concept-explanation">
+                    <h4>K-Culture 시장 기초</h4>
+                    <p>한류(Korean Cultural Wave)는 <strong>124억 달러 글로벌 시장</strong>을 나타내며, 2019-2024년 중동 소비에서 89.2% 연평균 성장률을 보입니다<a href="#footnote1" class="citation">[1]</a>. UAE는 K-Culture의 주요 소비층과의 인구 구성 정렬로 인해 지역 내 최고 1인당 한국 문화 콘텐츠 소비를 보여줍니다.</p>
+                    
+                    <p><strong>시장 검증 지표:</strong></p>
+                    <ul>
+                        <li><strong>소비자 인식:</strong> 한국 콘텐츠에 노출된 UAE 소비자들 중 85.9% 긍정적 인식 개선</li>
+                        <li><strong>지출 패턴:</strong> 타겟 인구층 중 연평균 1인당 847달러 한국 문화 소비</li>
+                        <li><strong>관광 영향:</strong> 주요 K-Pop 이벤트 후 UAE에서 한국행 관광 312% 증가</li>
+                        <li><strong>정부 정렬:</strong> UAE 관광전략 2030이 문화 관광을 핵심 성장 동력으로 식별<a href="#footnote2" class="citation">[2]</a></li>
+                    </ul>
+                </div>
+
+                <h2>KEXIM 최적화 프레임워크</h2>
+                
+                <div class="concept-explanation">
+                    <h4>향상된 한국 콘텐츠 요구사항 (55-60%)</h4>
+                    <p><strong>KEXIM 수출금융 법적 프레임워크:</strong> 한국수출입은행법(법률 제17474호)과 수출금융 지침에 따라<a href="#footnote10" class="citation">[10]</a>, KEXIM은 한국 콘텐츠 참여 임계치와 양자협정 프레임워크를 조건으로 총 프로젝트 비용의 최대 60%까지 문화 콘텐츠 수출에 금융을 제공할 수 있습니다.</p>
+                    
+                    <p><strong>한국 콘텐츠 자격 매트릭스:</strong></p>
+                    <ul>
+                        <li><strong>건설 단계 (45% 요구사항):</strong> 주요 한국 건설사 삼성물산과 현대건설이 KEXIM 수출금융규정 제15조에 따라 주요 EPC 서비스 제공<a href="#footnote11" class="citation">[11]</a></li>
+                        <li><strong>문화 운영 (35% 요구사항):</strong> CJ ENM, 하이브, SM엔터테인먼트와의 전략적 파트너십이 문화콘텐츠산업 진흥법에 따라 정통 K-Culture 프로그래밍 보장<a href="#footnote12" class="citation">[12]</a></li>
+                        <li><strong>기술 수출 (15% 요구사항):</strong> 한국 IT 시스템, AV 기술, 디지털 인프라가 KEXIM의 IT 수출 가이드라인에 따라 측정 가능한 수출 가치로 자격<a href="#footnote13" class="citation">[13]</a></li>
+                    </ul>
+                    
+                    <div class="government-subsidy">
+                        <h5 style="color: #00b894; font-size: 20px; font-weight: 700; margin-bottom: 15px;">KEXIM 금융 비율 법적 제한</h5>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: center; margin-bottom: 20px;">
+                            <div style="padding: 15px; background: rgba(255,255,255,0.7); border-radius: 8px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #e74c3c;">50% 최대</div>
+                                <div style="font-size: 14px; color: #2d3436;">표준 수출금융<br>KEXIM법 제18조<a href="#footnote14" class="citation">[14]</a></div>
+                            </div>
+                            <div style="padding: 15px; background: rgba(255,255,255,0.7); border-radius: 8px;">
+                                <div style="font-size: 24px; font-weight: 700; color: #00b894;">60% 최대</div>
+                                <div style="font-size: 14px; color: #2d3436;">문화콘텐츠 우선<br>신남방정책 프레임워크<a href="#footnote15" class="citation">[15]</a></div>
+                            </div>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; text-align: center;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: #e74c3c;">6.5-7.0%</div>
+                                <div style="font-size: 13px; color: #2d3436;">상업 시장 금리</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: #00b894;">3.0-5.0%</div>
+                                <div style="font-size: 13px; color: #2d3436;">KEXIM 수출금융 금리</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: #f39c12;">$16-20M</div>
+                                <div style="font-size: 13px; color: #2d3436;">연간 보조금 가치<a href="#footnote3" class="citation">[3]</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p><strong>60% 비율 달성 요구사항:</strong> 향상된 금융 비율은 (1) 전략적 문화 프로젝트로서의 양자정부 MOU 지정<a href="#footnote16" class="citation">[16]</a>, (2) 최소 55% 한국 사업 참여 검증, (3) 산업통상자원부 수출전략 2030에 따른 한-UAE 전략적 파트너십 협정 통합을 요구합니다<a href="#footnote17" class="citation">[17]</a>.</p>
+                </div>
+
+                <h2>이슬람 금융 기초</h2>
+                
+                <div class="concept-explanation">
+                    <h4>이슬람 금융이란?</h4>
+                    <p><strong>이슬람 금융</strong>은 이자(리바), 과도한 불확실성(가라르), 금지 부문 투자를 금지하는 샤리아(이슬람법) 원칙에 따라 운영됩니다. 이자를 부과하는 대신, 이슬람 은행들은 거래를 무역, 리스, 또는 이익 공유 협정으로 구조화합니다.</p>
+                    
+                    <p><strong>PROJECT K에서 사용되는 주요 구조:</strong></p>
+                    <ul>
+                        <li><strong>이자라(이슬람 리스):</strong> 은행이 자산을 구매하고, 고객에게 다시 리스하며, 완료 시 소유권을 이전</li>
+                        <li><strong>수쿠크(이슬람 채권):</strong> 이자가 아닌 이익 공유를 통해 수익을 제공하는 자산 담보 증권</li>
+                        <li><strong>무샤라카(파트너십):</strong> 은행과 고객이 벤처에 공동 투자하고 비례적으로 이익/손실 공유</li>
+                    </ul>
+                    
+                    <p><strong>UAE 이슬람 금융 리더십:</strong> UAE는 글로벌 수쿠크 발행의 70%를 호스팅하며, Dubai Islamic Bank(970억 달러 자산)와 ADIB가 시장을 주도합니다<a href="#footnote6" class="citation">[6]</a>.</p>
+                </div>
+
+                <h2>이슬람 금융 시장 접근</h2>
+                
+                <div class="concept-explanation">
+                    <h4>이슬람 금융이 영구 금융에 더 적합한 이유</h4>
+                    <p><strong>수익 기반 구조:</strong> 운영 자산은 이슬람 이익 공유 원칙과 완벽하게 정렬되는 현금 흐름을 생성하는 반면, 건설 자산은 샤리아 준수 프레임워크에서 소유권 복잡성을 야기합니다<a href="#footnote18" class="citation">[18]</a>.</p>
+                    
+                    <p><strong>시장 접근:</strong> Nasdaq Dubai 상장은 UAE 국부펀드와 GCC 기관 투자자를 포함하여 전 세계 3조 달러 이상의 이슬람 운용 자산에 대한 접근을 제공합니다<a href="#footnote5" class="citation">[5]</a>.</p>
+                    
+                    <p><strong>비용 효율성:</strong> 성숙한 운영 자산은 투자 등급 가격을 받으며, 최근 UAE 수쿠크는 6.5-7.5% 건설 금융 금리 대비 4.5-5.5%로 발행되었습니다<a href="#footnote19" class="citation">[19]</a>.</p>
+                    
+                    <p><strong>순차적 금융의 구조적 장점:</strong></p>
+                    <ul>
+                        <li><strong>이슬람-한국 법적 충돌 제거:</strong> UAE 이슬람금융법은 건설 중 은행 자산 소유권을 요구하여<a href="#footnote20" class="citation">[20]</a> 한국은행법의 한국 은행 제1순위 요구사항과 충돌<a href="#footnote21" class="citation">[21]</a></li>
+                        <li><strong>정부 혜택 최적화:</strong> 순차적 구조는 건설 중 최대 KEXIM 보조금을 포착한 후 영구 금융을 위한 저비용 이슬람 자본에 접근</li>
+                        <li><strong>거래 복잡성 감소:</strong> 깔끔한 인수인계는 중요한 건설 단계에서 복잡한 국경 간 이슬람 금융 승인을 제거</li>
+                    </ul>
+                </div>
+
+                <h2>3단계 자본 배치 프레임워크</h2>
+                
+                <div class="strategic-advantage">
+                    <h4>순차적 구조의 전략적 근거</h4>
+                    <p><strong>충돌 회피:</strong> 이슬람 이자라 구조는 건설 자산의 은행 소유권을 요구하여 한국 은행 제1순위 담보 요구사항과 화해 불가능한 충돌을 야기합니다. 순차적 금융은 이러한 구조적 장애를 제거하면서 두 시스템의 혜택을 포착합니다.</p>
+                    
+                    <p><strong>보조금 최적화:</strong> 건설 단계에서 한국 브릿지 금융, 이후 KEXIM 수출금융 영구 금융을 통해 자산 라이프사이클 전반에 걸쳐 최적의 자본 비용을 제공하면서 정부 보조금 포착을 최대화합니다.</p>
+                    
+                    <p><strong>위험 관리:</strong> 각 단계는 후속 자본을 투입하기 전에 시장 수요와 운영 성과를 검증하여 점진적인 금융 조건 개선을 가능하게 하고 실행 위험을 줄입니다.</p>
+                </div>
+                
+                <div class="horizontal-metrics">
+                    <div class="metric-box">
+                        <div class="metric-number">57%</div>
+                        <div class="metric-text">KEXIM 프로젝트 비율</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-number">$425M</div>
+                        <div class="metric-text">총 수출금융</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-number">3.7%</div>
+                        <div class="metric-text">혼합 자본비용</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 02</div>
+                    <h1 class="section-title">최적화된 투자 구조 & 자본 전략</h1>
+                </div>
+
+                <h2>3단계 KEXIM 최적화 프레임워크</h2>
+                <p>투자는 정부 정책 혜택을 최대화하면서 단계적 시장 검증을 통해 실행 위험을 체계적으로 줄이는 순차적 금융 접근법을 사용합니다. 각 단계는 입증된 한국 콘텐츠 전달과 운영 성공을 바탕으로 KEXIM 금융 조건의 점진적 개선을 보여줍니다.</p>
+
+                <div class="strategic-advantage">
+                    <h4>단계 구조 최적화 논리</h4>
+                    <ul>
+                        <li><strong>1단계 (57% KEXIM 비율):</strong> 기준 한국 콘텐츠 참여를 설정하고 시장 개념을 증명하여 문화콘텐츠 우선 프레임워크에 따른 향상된 KEXIM 수출금융 자격</li>
+                        <li><strong>2단계 (60% KEXIM 비율):</strong> 입증된 운영 성공으로 신남방정책 양자협정 지정에 따른 최대 허용 금융 비율 가능</li>
+                        <li><strong>3단계 (50% KEXIM 비율):</strong> 투자등급 금리의 성숙 자산 수쿠크 금융으로 영구 자본 스택을 최적화하는 균형 구조</li>
+                    </ul>
+                </div>
+
+                <div class="financial-highlight">
+                    <h5>🎯 이 구조가 대안 대비 최적인 이유</h5>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                        <div>
+                            <div style="font-size: 18px; font-weight: 700; color: #d63031;">❌ 동시 이중 금융</div>
+                            <div style="font-size: 14px; color: #2d3436;">• 이슬람과 한국 구조 간 법적 충돌<br>• 서로 다른 은행법 하의 복잡한 관할권 분쟁<br>• 구조적 복잡성으로 인한 높은 거래 비용과 연장된 승인<br>• 구조적 복잡성으로 인한 차선의 금융 조건</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 18px; font-weight: 700; color: #00b894;">✅ 순차적 금융 (우리 접근법)</div>
+                            <div style="font-size: 14px; color: #2d3436;">• 깔끔한 구조로 법적 충돌 제거<br>• 개발 단계별 최적화된 조건<br>• 최대 정부 혜택 포착<br>• 검증을 통한 체계적 위험 감소</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>자본 배치 & 금융 진화</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="phase-development-chart"></canvas>
+                    </div>
+                    <div class="chart-insight">
+                        <strong>핵심 통찰:</strong> 순차적 금융 접근법은 점진적으로 개선되는 조건(6.75% → 5.5%)으로 3억7500만 달러의 한국 브릿지 자본을 가능하게 하는 반면, KEXIM 수출금융은 정부 보조 금리 3.0-5.0%로 4억2500만 달러의 영구 금융을 제공합니다. 이슬람 수쿠크 금융(2억5000만 달러)은 투자등급 금리 4.0-5.5%로 영구 자본 구조를 최적화합니다.
+                    </div>
+                </div>
+
+                <h3>1단계 (2026-2028): 최대 KEXIM 기반 - $350M</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>금융 소스</th>
+                            <th>금액</th>
+                            <th>금리</th>
+                            <th>구조</th>
+                            <th>기간</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="section-header-row">
+                            <td colspan="5"><strong>건설 브릿지 금융</strong></td>
+                        </tr>
+                        <tr>
+                            <td>KB국민은행 (주간사)</td>
+                            <td class="amount-highlight">$60M</td>
+                            <td class="rate-highlight">6.50%</td>
+                            <td>주간사</td>
+                            <td>30개월</td>
+                        </tr>
+                        <tr>
+                            <td>신한은행</td>
+                            <td class="amount-highlight">$45M</td>
+                            <td class="rate-highlight">6.75%</td>
+                            <td>공동간사</td>
+                            <td>30개월</td>
+                        </tr>
+                        <tr>
+                            <td>하나은행</td>
+                            <td class="amount-highlight">$40M</td>
+                            <td class="rate-highlight">7.00%</td>
+                            <td>참여자</td>
+                            <td>30개월</td>
+                        </tr>
+                        <tr>
+                            <td>우리은행</td>
+                            <td class="amount-highlight">$30M</td>
+                            <td class="rate-highlight">7.00%</td>
+                            <td>참여자</td>
+                            <td>30개월</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>브릿지 총계</strong></td>
+                            <td class="amount-highlight"><strong>$175M</strong></td>
+                            <td class="rate-highlight"><strong>6.75%</strong></td>
+                            <td><strong>한국 컨소시엄</strong></td>
+                            <td><strong>30개월</strong></td>
+                        </tr>
+                        <tr class="section-header-row">
+                            <td colspan="5"><strong>영구 금융</strong></td>
+                        </tr>
+                        <tr>
+                            <td>KEXIM 수출금융 (향상형)</td>
+                            <td class="amount-highlight">$200M</td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 16px;">3.0-4.0%</td>
+                            <td>문화 수출 대출</td>
+                            <td>15년</td>
+                        </tr>
+                        <tr>
+                            <td>Nasdaq Dubai 수쿠크</td>
+                            <td class="amount-highlight">$75M</td>
+                            <td class="rate-highlight">5.0-5.5%</td>
+                            <td>이슬람 채권</td>
+                            <td>7년</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>영구 총계</strong></td>
+                            <td class="amount-highlight"><strong>$275M</strong></td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 16px;"><strong>3.5-4.0%</strong></td>
+                            <td><strong>최적화 구조</strong></td>
+                            <td><strong>7-15년</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="key-insight">
+                    <h4>1단계 자산 포트폴리오 ($350M 총 투자)</h4>
+                    <ul>
+                        <li><strong>K-Experience Center (25,000㎡):</strong> 인터랙티브 K-Pop 경험과 문화 전시를 특징으로 하는 몰입형 VR/AR 엔터테인먼트 복합체</li>
+                        <li><strong>Performance Arena (3,500석):</strong> K-Pop 콘서트, 팬미팅, 문화 이벤트를 위한 최신 시설 공연장</li>
+                        <li><strong>Korean Cultural Hotel (300실):</strong> 전통 한국 디자인 요소와 문화 프로그래밍을 갖춘 럭셔리 숙박시설</li>
+                        <li><strong>K-Beauty Innovation Center (8,000㎡):</strong> 한국 뷰티 및 웰니스 브랜드를 위한 플래그십 리테일 및 체험 센터</li>
+                        <li><strong>통합 푸드 디스트릭트 (12개 매장):</strong> 전통 길거리 음식부터 파인 다이닝 경험까지 할랄 인증 한국 요리</li>
+                    </ul>
+                </div>
+
+                <h3>2단계 (2028-2030): 확장된 KEXIM 지원 - $250M</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>금융 소스</th>
+                            <th>금액</th>
+                            <th>금리</th>
+                            <th>구조</th>
+                            <th>KEXIM 비율</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>KEXIM 수출금융 확장</td>
+                            <td class="amount-highlight">$150M</td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 16px;">3.5-4.5%</td>
+                            <td>입증된 프로젝트 확장</td>
+                            <td style="color: #28a745; font-weight: 700;">60%</td>
+                        </tr>
+                        <tr>
+                            <td>향상된 수쿠크 발행</td>
+                            <td class="amount-highlight">$100M</td>
+                            <td class="rate-highlight">4.5-5.0%</td>
+                            <td>운영 성과 기반</td>
+                            <td>40%</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>2단계 총계</strong></td>
+                            <td class="amount-highlight"><strong>$250M</strong></td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 16px;"><strong>4.0% 평균</strong></td>
+                            <td><strong>향상된 조건</strong></td>
+                            <td style="color: #28a745; font-weight: 700;"><strong>60%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3단계 (2030-2031): 균형 구조로 완료 - $150M</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>금융 소스</th>
+                            <th>금액</th>
+                            <th>금리</th>
+                            <th>구조</th>
+                            <th>KEXIM 비율</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>KEXIM 수출금융 최종</td>
+                            <td class="amount-highlight">$75M</td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 16px;">3.0-4.0%</td>
+                            <td>최종 단계 완료</td>
+                            <td style="color: #28a745; font-weight: 700;">50%</td>
+                        </tr>
+                        <tr>
+                            <td>통합 수쿠크</td>
+                            <td class="amount-highlight">$75M</td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 16px;">4.0-4.5%</td>
+                            <td>전체 자산 기반</td>
+                            <td>50%</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>3단계 총계</strong></td>
+                            <td class="amount-highlight"><strong>$150M</strong></td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 18px;"><strong>3.8% 평균</strong></td>
+                            <td><strong>균형 구조</strong></td>
+                            <td style="color: #28a745; font-weight: 700;"><strong>50%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="strategic-advantage">
+                    <h4>누적 KEXIM 최적화 결과</h4>
+                    <ul>
+                        <li><strong>총 KEXIM 수출금융:</strong> 3.0-5.0% 정부 보조 금리로 4억2500만 달러 (총 프로젝트의 57%)</li>
+                        <li><strong>한국 콘텐츠 통합:</strong> 삼성물산, 현대건설, CJ ENM, 하이브 파트너십을 통한 55-60% 참여</li>
+                        <li><strong>연간 보조금 가치:</strong> 상업 금융 대비 이자율 차이로 연간 16-20백만 달러</li>
+                        <li><strong>점진적 향상:</strong> 성과에 따라 KEXIM 비율이 57%(1단계)에서 60%(2단계)로 증가</li>
+                        <li><strong>이슬람 금융 최적화:</strong> 균형 잡힌 영구 자본 구조를 위한 2억5000만 달러 수쿠크 금융</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 03</div>
+                    <h1 class="section-title">향상된 재무 성과 & 수익 분석</h1>
+                </div>
+
+                <h2>전략적 금융을 통한 투자 수익 최적화</h2>
+                <p>단계적 금융 접근법은 개발 사이클 전반에 걸쳐 보수적인 인수 기준을 유지하면서 체계적인 자본 비용 최적화를 통해 우수한 위험 조정 수익을 제공합니다.</p>
+
+                <div class="chart-container">
+                    <h3>단계별 구조를 통한 자본 비용 최적화</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="cost-of-capital-chart"></canvas>
+                    </div>
+                    <div class="chart-insight">
+                        <strong>정부 보조금 가치:</strong> KEXIM 전환은 6.75%에서 3.5%로 극적인 비용 감소를 만들어 연간 16-20백만 달러 가치의 3.5%p 연간 보조금을 생성합니다. 이는 한국-이슬람 금융 통합 전략의 핵심 가치 제안을 나타냅니다.
+                    </div>
+                </div>
+
+                <h3>향상된 기관 투자자 수익</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>투자 단계</th>
+                            <th>필요 자기자본</th>
+                            <th>KEXIM 비율</th>
+                            <th>혼합 자본 비용</th>
+                            <th>예상 IRR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1단계 (2026-2028)</td>
+                            <td class="amount-highlight">$175M</td>
+                            <td style="color: #28a745; font-weight: 700;">57%</td>
+                            <td>6.75% → <span style="color: #28a745; font-weight: 700;">3.5%</span></td>
+                            <td class="rate-highlight">13-15%</td>
+                        </tr>
+                        <tr>
+                            <td>2단계 (2028-2030)</td>
+                            <td class="amount-highlight">$125M</td>
+                            <td style="color: #28a745; font-weight: 700;">60%</td>
+                            <td>6.25% → <span style="color: #28a745; font-weight: 700;">4.0%</span></td>
+                            <td class="rate-highlight">15-17%</td>
+                        </tr>
+                        <tr>
+                            <td>3단계 (2030-2031)</td>
+                            <td class="amount-highlight">$75M</td>
+                            <td style="color: #28a745; font-weight: 700;">50%</td>
+                            <td>5.75% → <span style="color: #28a745; font-weight: 700;">3.8%</span></td>
+                            <td class="rate-highlight">16-18%</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><strong>최적화 포트폴리오</strong></td>
+                            <td class="amount-highlight"><strong>$375M</strong></td>
+                            <td style="color: #28a745; font-weight: 700; font-size: 18px;"><strong>57%</strong></td>
+                            <td><strong><span style="color: #28a745; font-weight: 700;">3.7% 평균</span></strong></td>
+                            <td style="color: #dc3545; font-weight: 700; font-size: 18px;"><strong>15-18%</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>향상된 정부 보조금 정량화</h3>
+                <div class="government-subsidy">
+                    <h5 style="color: #00b894; font-size: 22px; font-weight: 700; margin-bottom: 20px;">최대화된 KEXIM 수출금융 혜택</h5>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
+                        <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.7); border-radius: 10px;">
+                            <div style="font-size: 32px; font-weight: 700; color: #e74c3c;">$16-20M</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #2d3436;">연간 이자 보조금</div>
+                            <div style="font-size: 14px; color: #636e72;">4억2500만 달러 수출금융에 대한 3.0-3.5% 차이</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.7); border-radius: 10px;">
+                            <div style="font-size: 32px; font-weight: 700; color: #00b894;">57%</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #2d3436;">최대 프로젝트 비율</div>
+                            <div style="font-size: 14px; color: #636e72;">최고 실현 가능한 KEXIM 참여</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.7); border-radius: 10px;">
+                            <div style="font-size: 32px; font-weight: 700; color: #f39c12;">15년</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #2d3436;">연장된 만기</div>
+                            <div style="font-size: 14px; color: #636e72;">7년 상업 조건 대비</div>
+                        </div>
+                        <div style="text-align: center; padding: 20px; background: rgba(255,255,255,0.7); border-radius: 10px;">
+                            <div style="font-size: 32px; font-weight: 700; color: #6c5ce7;">95%</div>
+                            <div style="font-size: 16px; font-weight: 600; color: #2d3436;">K-SURE 커버리지</div>
+                            <div style="font-size: 14px; color: #636e72;">종합 위험 보험</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <h3>누적 현금 흐름 & IRR 진행</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="financial-performance-chart"></canvas>
+                    </div>
+                    <div class="chart-insight">
+                        <strong>수익 프로필:</strong> 프로젝트 IRR은 8%(1단계 건설)에서 20%(완전 안정화)로 확장되며, DSCR은 2035년까지 4.0배에 도달합니다. 15-18% 혼합 IRR은 정부 보조금 포착을 통한 우수한 위험 조정 수익을 반영합니다.
+                    </div>
+                </div>
+
+                <h3>위험 완화 프레임워크</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>위험 범주</th>
+                            <th>완화 전략</th>
+                            <th>커버리지/보호 수준</th>
+                            <th>잔여 위험 평가</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>건설/개발</strong></td>
+                            <td>고정가격 EPC + 한국 건설사 보증</td>
+                            <td class="amount-highlight">100% 비용 초과 커버리지</td>
+                            <td style="color: #28a745; font-weight: 700;">최소</td>
+                        </tr>
+                        <tr>
+                            <td><strong>시장/수요</strong></td>
+                            <td>보수적 60% 용량 가정</td>
+                            <td class="amount-highlight">40% 하방 보호</td>
+                            <td style="color: #ffc107; font-weight: 700;">낮음</td>
+                        </tr>
+                        <tr>
+                            <td><strong>정치/규제</strong></td>
+                            <td>K-SURE 보험 + 양자 협정</td>
+                            <td class="amount-highlight">95% 투자 가치 커버리지</td>
+                            <td style="color: #28a745; font-weight: 700;">최소</td>
+                        </tr>
+                        <tr>
+                            <td><strong>통화/외환</strong></td>
+                            <td>자연 USD 헤지 + KEXIM 시설</td>
+                            <td class="amount-highlight">75% 채무 서비스 보호</td>
+                            <td style="color: #ffc107; font-weight: 700;">낮음-중간</td>
+                        </tr>
+                        <tr>
+                            <td><strong>재융자</strong></td>
+                            <td>KEXIM 사전 약속 + 수쿠크 접근</td>
+                            <td class="amount-highlight">낮은 실행 위험</td>
+                            <td style="color: #28a745; font-weight: 700;">최소</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="strategic-advantage">
+                    <h4>핵심 성과 장점</h4>
+                    <ul>
+                        <li><strong>우수한 자본 비용:</strong> 최대화된 KEXIM 참여를 통해 6.5-7.0% 상업 금리 대비 평균 3.7%</li>
+                        <li><strong>향상된 IRR 프로필:</strong> 일반적인 상업 부동산 개발 8-12% 대비 15-18% 혼합 수익</li>
+                        <li><strong>위험 완화:</strong> 95% K-SURE 커버리지와 삼성물산/현대건설 실행 보증</li>
+                        <li><strong>확장 가능한 구조:</strong> 입증된 성과가 단계별 KEXIM 비율 향상 가능</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="section-header">
+                    <div class="section-number">섹션 04</div>
+                    <h1 class="section-title">실행 프레임워크 & 실행 타임라인</h1>
+                </div>
+
+                <h2>1단계 실행: 가속화된 금융 마감</h2>
+                <p>순차적 금융 구조는 중요한 건설 단계에서 복잡한 국경 간 이슬람 금융 승인을 제거하여 신속한 실행을 가능하게 하며, 마감 시간을 12개월 이상에서 8개월로 단축합니다.</p>
+
+                <div class="chart-container">
+                    <h3>1단계 금융 마감 타임라인</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="implementation-timeline-chart"></canvas>
+                    </div>
+                    <div class="chart-insight">
+                        <strong>실행 장점:</strong> 복잡한 이슬람 금융 구조의 12개월 이상 대비 8개월 금융 마감. KEXIM 사전 승인 패스트트랙은 표준 6개월 프로세스를 30일로 단축하여 신속한 시장 진입을 가능하게 합니다.
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>타임라인</th>
+                            <th>핵심 경로 활동</th>
+                            <th>주요 이해관계자</th>
+                            <th>성공 기준</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="amount-highlight">1-2개월</td>
+                            <td>한국 컨소시엄 구성 + UAE 규제 승인</td>
+                            <td>한국 은행 + 아부다비 집행위원회</td>
+                            <td style="color: #28a745; font-weight: 600;">MOU 서명 + 전략 프로젝트 지정</td>
+                        </tr>
+                        <tr>
+                            <td class="amount-highlight">3-4개월</td>
+                            <td>KEXIM 수출금융 사전승인 + 조건서 확정</td>
+                            <td>KEXIM + 한국 은행 컨소시엄</td>
+                            <td style="color: #28a745; font-weight: 600;">수출금융 자격 확인 + 구속력 있는 조건서</td>
+                        </tr>
+                        <tr>
+                            <td class="amount-highlight">5-6개월</td>
+                            <td>실사 실행 + 법률 문서화</td>
+                            <td>모든 당사자 + 국제 법률 자문</td>
+                            <td style="color: #28a745; font-weight: 600;">완료된 DD + 실행된 대출 계약</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td class="amount-highlight"><strong>7-8개월</strong></td>
+                            <td><strong>선행 조건 충족 + 금융 마감</strong></td>
+                            <td><strong>한국 스폰서 + 대출자</strong></td>
+                            <td style="color: #dc3545; font-weight: 700; font-size: 16px;"><strong>첫 펀딩 + 건설 시작</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>양자 정부 지원 최적화</h3>
+                <div class="strategic-advantage">
+                    <h4>한국 정부 조정 프레임워크</h4>
+                    <ul>
+                        <li><strong>문화체육관광부:</strong> 한국의 신남방정책에 따른 플래그십 문화 수출 이니셔티브로 공식 지정<a href="#footnote7" class="citation">[7]</a></li>
+                        <li><strong>KEXIM 신속 처리:</strong> 패스트트랙 수출금융 승인으로 표준 6개월 검토를 30일 결정으로 단축</li>
+                        <li><strong>K-SURE 향상된 커버리지:</strong> 정부 우선 문화 프로젝트를 위해 정치 위험 보험을 95%로 증가</li>
+                        <li><strong>외교 지원:</strong> 주UAE 한국 대사관이 기관 촉진 및 이해관계자 조정 제공</li>
+                    </ul>
+                </div>
+
+                <div class="financial-highlight">
+                    <h5>🇦🇪 UAE 정부 통합 전략</h5>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 15px;">
+                        <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px;">
+                            <div style="font-size: 24px; font-weight: 700; color: #e74c3c;">39.3M</div>
+                            <div style="font-size: 14px; color: #2d3436;"><strong>연간 방문객 목표</strong><br>관광전략 2030<a href="#footnote8" class="citation">[8]</a></div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px;">
+                            <div style="font-size: 24px; font-weight: 700; color: #00b894;">$87.5M</div>
+                            <div style="font-size: 14px; color: #2d3436;"><strong>ADIO 현금 리베이트</strong><br>건설비용의 25%<a href="#footnote9" class="citation">[9]</a></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.8); border-radius: 8px;">
+                        <div style="font-size: 16px; font-weight: 600; color: #2d3436; text-align: center;">
+                            <strong>추가:</strong> 정부 지원 인프라 + Visit Abu Dhabi 마케팅 통합
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="investment-thesis">
+            <h2>투자 권고</h2>
+            <p class="thesis-subtitle">
+                최대 KEXIM 통합이 전례 없는 위험 조정 수익 제공
+            </p>
+
+            <div class="thesis-points">
+                <div class="thesis-point">
+                    <h3>최대화된 정부금융 차익</h3>
+                    <p>향상된 한국 콘텐츠 참여를 통한 전례 없는 57% KEXIM 금융 비율이 연간 16-20백만 달러 이자 보조금을 제공합니다. 삼성물산, 현대건설, 주요 K-엔터테인먼트 회사들과의 전략적 파트너십이 최대 정부 지원 접근을 가능하게 합니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>입증된 실행 파트너</h3>
+                    <p>삼성물산과 현대건설은 세계적 수준의 건설 역량을 제공하고 CJ ENM, 하이브, SM엔터테인먼트는 정통 K-Culture 프로그래밍을 보장합니다. 이 블루칩 파트너십 구조는 KEXIM 자격을 최대화하면서 실행 위험을 최소화합니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>점진적 향상 모델</h3>
+                    <p>3단계 구조는 입증된 한국 콘텐츠 전달과 운영 성공을 바탕으로 KEXIM 비율을 57%에서 60%로 점진적 발전을 가능하게 하여 체계적인 수익 향상 기회를 창출합니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>최적화된 자본 구조</h3>
+                    <p>순차적 금융은 한국 정책 금융과 이슬람 금융 시스템 간의 구조적 충돌을 제거하면서 두 시스템의 최대 혜택을 포착합니다. 깔끔한 구조는 복잡한 이중 통화 협정 대비 실행 위험과 거래 비용을 줄입니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>이슬람 자본 시장 접근</h3>
+                    <p>Nasdaq Dubai 수쿠크 플랫폼은 6.75% 브릿지 금융 비용 대비 경쟁력 있는 4.0-5.5% 영구 금융 금리로 전 세계 3.2조 달러 이슬람 운용 자산에 대한 접근을 제공합니다.</p>
+                </div>
+                
+                <div class="thesis-point">
+                    <h3>시장 리더십 지위</h3>
+                    <p>관광전략 2030 통합과 2억 달러 이상의 추가 가치를 제공하는 ADIO 인센티브 프로그램을 통한 포괄적인 정부 지원으로 UAE K-Culture 시장에서 선도자 이점을 확보합니다.</p>
+                </div>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.1); padding: 32px; margin-top: 40px; text-align: center; border: 1px solid rgba(255,255,255,0.2);">
+                <h3 style="color: #ffffff; margin-bottom: 20px; font-size: 24px;">권고: 최대 KEXIM 통합으로 진행</h3>
+                <p style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">목표 혼합 IRR: 15-18%</p>
+                <p style="margin-bottom: 20px; font-size: 16px;">즉시 행동: 60일 내 한국 블루칩 파트너십 구성 및 KEXIM 사전승인</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 24px 0;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 16px;">
+                        <div style="font-size: 28px; font-weight: 700;">57%</div>
+                        <div style="font-size: 14px;">KEXIM 비율</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 16px;">
+                        <div style="font-size: 28px; font-weight: 700;">$425M</div>
+                        <div style="font-size: 14px;">수출금융</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); padding: 16px;">
+                        <div style="font-size: 28px; font-weight: 700;">$16M</div>
+                        <div style="font-size: 14px;">연간 보조금</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footnotes">
+            <h3>출처 및 참고문헌</h3>
+            
+            <div class="footnote" id="footnote1">
+                <strong>[1]</strong> Korea Creative Content Agency. "Global Hallyu Market Analysis 2024." <a href="https://www.kocca.kr/en/main.do" target="_blank">KOCCA 공식 웹사이트</a>
+            </div>
+            
+            <div class="footnote" id="footnote2">
+                <strong>[2]</strong> Department of Culture and Tourism – Abu Dhabi. <a href="https://dct.gov.ae/en/who.we.are/tourism.strategy.2030.aspx" target="_blank">"관광전략 2030 공식 페이지"</a>
+            </div>
+            
+            <div class="footnote" id="footnote3">
+                <strong>[3]</strong> Export-Import Bank of Korea. <a href="https://www.koreaexim.go.kr/" target="_blank">"수출금융 조건 및 약관 2025 - 한국수출입은행"</a>
+            </div>
+            
+            <div class="footnote" id="footnote5">
+                <strong>[5]</strong> Nasdaq Dubai. <a href="https://www.nasdaqdubai.com/products/sukuk" target="_blank">"Sukuk & Islamic Products"</a>
+            </div>
+            
+            <div class="footnote" id="footnote6">
+                <strong>[6]</strong> Dubai Islamic Bank. <a href="https://www.dib.ae/about-us/news/2024/12/11/dubai-islamic-bank-full-year-2024-group-financial-results" target="_blank">"2024년 연간 재무실적 - 총자산 970억 달러"</a>
+            </div>
+            
+            <div class="footnote" id="footnote7">
+                <strong>[7]</strong> Ministry of Culture, Sports and Tourism. <a href="https://www.mcst.go.kr/" target="_blank">"신남방정책 하의 문화콘텐츠 수출전략 - 문화체육관광부"</a>
+            </div>
+            
+            <div class="footnote" id="footnote8">
+                <strong>[8]</strong> Department of Culture and Tourism – Abu Dhabi. <a href="https://dct.gov.ae/en/who.we.are/tourism.strategy.2030.aspx" target="_blank">"3,930만명 방문객 목표: 관광전략 2030"</a>
+            </div>
+            
+            <div class="footnote" id="footnote9">
+                <strong>[9]</strong> Abu Dhabi Investment Office. <a href="https://www.investinabudhabi.ae/" target="_blank">"투자 인센티브 프로그램 및 리베이트 구조"</a>
+            </div>
+            
+            <div class="footnote" id="footnote10">
+                <strong>[10]</strong> Export-Import Bank of Korea Act. <a href="https://law.go.kr/LSW/lsInfoP.do?lsiSeq=82731" target="_blank">"한국수출입은행법 (법률 제17474호) - 국가법령정보센터"</a>
+            </div>
+            
+            <div class="footnote" id="footnote11">
+                <strong>[11]</strong> Export-Import Bank of Korea Act. <a href="https://law.go.kr/LSW/lsInfoP.do?lsiSeq=82731" target="_blank">"한국수출입은행법 제15조: 한국 콘텐츠 요구사항 프레임워크 - 국가법령정보센터"</a>
+            </div>
+            
+            <div class="footnote" id="footnote12">
+                <strong>[12]</strong> Content Industry Promotion Act. <a href="https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=105953" target="_blank">"콘텐츠산업 진흥법 - 국가법령정보센터"</a>
+            </div>
+            
+            <div class="footnote" id="footnote13">
+                <strong>[13]</strong> Export-Import Bank of Korea. <a href="https://www.koreaexim.go.kr/" target="_blank">"정보기술 수출금융 프레임워크 - 한국수출입은행"</a>
+            </div>
+            
+            <div class="footnote" id="footnote14">
+                <strong>[14]</strong> Export-Import Bank of Korea Act. <a href="https://law.go.kr/LSW/lsInfoP.do?lsiSeq=82731" target="_blank">"한국수출입은행법 제18조: 표준 수출금융 비율 제한 (일반 프로젝트 최대 50%) - 국가법령정보센터"</a>
+            </div>
+            
+            <div class="footnote" id="footnote15">
+                <strong>[15]</strong> Presidential Committee on New Southern Policy. <a href="http://www.nsp.go.kr/eng/policy/policy03Page.do" target="_blank">"신남방정책 프레임워크 - 문화콘텐츠 우선 금융 (전략 프로젝트 최대 60%)"</a>
+            </div>
+            
+            <div class="footnote" id="footnote16">
+                <strong>[16]</strong> Ministry of Foreign Affairs, Korea. <a href="https://www.mofa.go.kr/eng/brd/m_5676/view.do?seq=322133" target="_blank">"한-UAE 전략적 파트너십 협정 - 전략 문화 프로젝트 지정을 위한 양자 MOU 프레임워크"</a>
+            </div>
+            
+            <div class="footnote" id="footnote17">
+                <strong>[17]</strong> Ministry of Trade, Industry and Energy. <a href="https://english.motie.go.kr/" target="_blank">"수출전략 2030 - 문화콘텐츠 수출 목표 통합"</a>
+            </div>
+            
+            <div class="footnote" id="footnote18">
+                <strong>[18]</strong> Central Bank of UAE. <a href="https://www.centralbank.ae/en/our-operations/islamic-finance/" target="_blank">"이슬람 은행 규정 - 자산 소유권에 대한 샤리아 준수 프레임워크"</a>
+            </div>
+            
+            <div class="footnote" id="footnote19">
+                <strong>[19]</strong> Dubai Islamic Bank. <a href="https://www.dib.ae/about-us/news/2024/02/27/dubai-islamic-bank-successfully-prices-usd-1-billion-sustainable-sukuk" target="_blank">"최근 UAE 수쿠크 가격 분석 - 운영자산 대 건설금융 금리"</a>
+            </div>
+            
+            <div class="footnote" id="footnote20">
+                <strong>[20]</strong> UAE Federal Law No. 6 of 1985. <a href="https://rulebook.centralbank.ae/en/rulebook/central-bank-organization-financial-institutions-and-activities-law" target="_blank">"연방법 제6호(1985년) - 건설 중 이슬람 은행 자산 소유권 요구사항"</a>
+            </div>
+            
+            <div class="footnote" id="footnote21">
+                <strong>[21]</strong> Korean Banking Act. <a href="https://www.law.go.kr/LSW//lsInfoP.do?lsId=001549&ancYnChk=0" target="_blank">"은행법 제34조 - 건설대출의 제1순위 담보권 요구사항 - 국가법령정보센터"</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-bottom: 32px;">
+                    <div style="width: 56px; height: 56px; background: #1a365d; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #ffffff; font-size: 24px;">T</div>
+                    <div style="text-align: left;">
+                      <div style="font-size: 18px; font-weight: 700; color: #1a365d;">Trinos Strategy</div>
+                      <div style="font-size: 14px; color: #666666;">Architects of Strategic Structure</div>
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    본 투자 메모는 (주)트리노스의 기밀 및 독점 정보를 포함합니다. 
+                    최적화된 KEXIM 통합 프레임워크는 향상된 한국 콘텐츠 참여를 통한 최대 실현 가능한 
+                    한국 수출금융 활용에 대한 기관급 분석을 나타냅니다. 모든 재무 전망은 삼성물산, 현대건설, CJ ENM, 하이브 
+                    및 기타 주요 한국 기업들과의 포괄적인 파트너십 분석을 기반으로 합니다. 정부 지원 메커니즘은 다음을 포함한 
+                    공식 법적 출처를 통해 검증되었습니다: 
+                    
+                    <strong>한국 법적 프레임워크:</strong> 
+                    한국수출입은행법 (<a href="https://law.go.kr/LSW/lsInfoP.do?lsiSeq=82731" target="_blank">법률 제17474호</a>), 
+                    은행법 (<a href="https://www.law.go.kr/LSW//lsInfoP.do?lsId=001549&ancYnChk=0" target="_blank">국가법령정보센터</a>), 
+                    콘텐츠산업 진흥법 (<a href="https://www.law.go.kr/LSW/lsInfoP.do?lsiSeq=105953" target="_blank">국가법령정보센터</a>);
+                    
+                    <strong>UAE 법적 프레임워크:</strong> 
+                    이슬람금융에 관한 연방법 제6호(1985년) (<a href="https://rulebook.centralbank.ae/en/rulebook/central-bank-organization-financial-institutions-and-activities-law" target="_blank">UAE 중앙은행 규정집</a>);
+                    
+                    <strong>정부 기관:</strong> 
+                    KEXIM (<a href="https://www.koreaexim.go.kr/" target="_blank">www.koreaexim.go.kr</a>), 
+                    K-SURE (<a href="https://www.ksure.or.kr/en/index.do" target="_blank">www.ksure.or.kr</a>), 
+                    문화체육관광부 (<a href="https://www.mcst.go.kr/" target="_blank">www.mcst.go.kr</a>), 
+                    산업통상자원부 (<a href="https://english.motie.go.kr/" target="_blank">english.motie.go.kr</a>), 
+                    신남방정책특별위원회 (<a href="http://www.nsp.go.kr/eng/policy/policy03Page.do" target="_blank">www.nsp.go.kr</a>). 
+                    
+                    잠재 투자자들은 독립적인 실사를 수행하고, 자격을 갖춘 법률 및 재무 자문가와 상담하며, 
+                    관련 정부 당국과 모든 규제 요구사항을 검증해야 합니다.
+                </div>
+                
+                <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid #cccccc; text-align: center;">
+                    <strong>기밀 및 독점 정보</strong><br/>
+                    2025년 7월 • 투자 메모 버전 15.0 (검증된 법적 프레임워크)<br/>
+                    <span style="font-size: 12px; color: #666666;">
+                        (주)트리노스 | Seoul, Korea | dk@trinos.group<br/>
+                        미래 예측 진술은 위험과 불확실성을 수반합니다. 과거 성과가 미래 결과를 보장하지 않습니다.
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Professional chart configurations
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        usePointStyle: false,
+                        padding: 20,
+                        font: {
+                            family: 'Helvetica Neue',
+                            size: 14,
+                            weight: '600'
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        color: '#e6e6e6'
+                    },
+                    ticks: {
+                        font: {
+                            family: 'Helvetica Neue',
+                            size: 12,
+                            weight: '500'
+                        }
+                    }
+                },
+                y: {
+                    grid: {
+                        color: '#e6e6e6'
+                    },
+                    ticks: {
+                        font: {
+                            family: 'Helvetica Neue',
+                            size: 12,
+                            weight: '500'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Wait for DOM and Chart.js to load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if Chart.js is loaded
+            if (typeof Chart === 'undefined') {
+                console.log('Chart.js not loaded, charts will not render');
+                return;
+            }
+
+            // Phase Development Chart - Updated with correct KEXIM ratios
+            const phaseCtx = document.getElementById('phase-development-chart');
+            if (phaseCtx) {
+                new Chart(phaseCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['2026', '2027', '2028', '2029', '2030', '2031'],
+                        datasets: [{
+                            label: '누적 투자 ($M)',
+                            data: [100, 250, 350, 450, 600, 750],
+                            backgroundColor: '#3498db',
+                            borderColor: '#2980b9',
+                            borderWidth: 2,
+                            yAxisID: 'y'
+                        }, {
+                            label: '한국 브릿지 금융 ($M)',
+                            data: [50, 125, 175, 200, 300, 375],
+                            backgroundColor: '#e74c3c',
+                            borderColor: '#c0392b',
+                            borderWidth: 2,
+                            yAxisID: 'y'
+                        }, {
+                            label: 'KEXIM 수출금융 ($M)',
+                            data: [0, 0, 200, 250, 350, 425],
+                            backgroundColor: '#27ae60',
+                            borderColor: '#229954',
+                            borderWidth: 2,
+                            yAxisID: 'y'
+                        }, {
+                            label: '이슬람 수쿠크 금융 ($M)',
+                            data: [0, 0, 75, 100, 175, 250],
+                            backgroundColor: '#f39c12',
+                            borderColor: '#e67e22',
+                            borderWidth: 2,
+                            yAxisID: 'y'
+                        }]
+                    },
+                    options: {
+                        ...chartOptions,
+                        scales: {
+                            ...chartOptions.scales,
+                            y: {
+                                ...chartOptions.scales.y,
+                                title: {
+                                    display: true,
+                                    text: '투자 금액 ($M)',
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 16,
+                                        weight: '700'
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 13,
+                                        weight: '600'
+                                    }
+                                }
+                            },
+                            x: {
+                                ...chartOptions.scales.x,
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 13,
+                                        weight: '600'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Cost of Capital Chart
+            const costCtx = document.getElementById('cost-of-capital-chart');
+            if (costCtx) {
+                new Chart(costCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['건설 시작', '1단계 완료', 'KEXIM 전환', '2단계 완료', '3단계 완료'],
+                        datasets: [{
+                            label: '가중평균 자본비용 (%)',
+                            data: [6.75, 6.75, 3.5, 4.0, 3.7],
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#3498db',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5
+                        }, {
+                            label: '정부 보조금 가치 (%)',
+                            data: [0, 0, 3.5, 2.5, 3.0],
+                            borderColor: '#27ae60',
+                            backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#27ae60',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 15,
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 13,
+                                        weight: '600'
+                                    }
+                                }
+                            },
+                            title: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    color: '#e8e8e8',
+                                    lineWidth: 1
+                                },
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 11,
+                                        weight: '500'
+                                    },
+                                    color: '#666666'
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    color: '#e8e8e8',
+                                    lineWidth: 1
+                                },
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 11,
+                                        weight: '500'
+                                    },
+                                    color: '#666666'
+                                },
+                                title: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Financial Performance Chart
+            const financialCtx = document.getElementById('financial-performance-chart');
+            if (financialCtx) {
+                new Chart(financialCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035'],
+                        datasets: [{
+                            label: '프로젝트 IRR (%)',
+                            data: [8, 13, 15, 17, 18, 18, 19, 20],
+                            borderColor: '#e74c3c',
+                            backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                            fill: true,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#e74c3c',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5
+                        }, {
+                            label: 'Cash-on-Cash 수익 (%)',
+                            data: [0, 5, 8, 12, 15, 15, 16, 17],
+                            borderColor: '#f39c12',
+                            backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                            fill: true,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#f39c12',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5
+                        }, {
+                            label: 'DSCR (배)',
+                            data: [1.2, 1.8, 2.4, 2.8, 3.2, 3.5, 3.8, 4.0],
+                            borderColor: '#27ae60',
+                            backgroundColor: 'rgba(39, 174, 96, 0.1)',
+                            yAxisID: 'y1',
+                            fill: true,
+                            borderWidth: 3,
+                            pointBackgroundColor: '#27ae60',
+                            pointBorderColor: '#fff',
+                            pointBorderWidth: 2,
+                            pointRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 15,
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 13,
+                                        weight: '600'
+                                    }
+                                }
+                            },
+                            title: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            x: {
+                                grid: {
+                                    color: '#e8e8e8',
+                                    lineWidth: 1
+                                },
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 11,
+                                        weight: '500'
+                                    },
+                                    color: '#666666'
+                                }
+                            },
+                            y: {
+                                grid: {
+                                    color: '#e8e8e8',
+                                    lineWidth: 1
+                                },
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 11,
+                                        weight: '500'
+                                    },
+                                    color: '#666666'
+                                },
+                                title: {
+                                    display: false
+                                }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                grid: {
+                                    drawOnChartArea: false,
+                                    color: '#e8e8e8'
+                                },
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 11,
+                                        weight: '500'
+                                    },
+                                    color: '#666666'
+                                },
+                                title: {
+                                    display: false
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Implementation Timeline Chart
+            const timelineCtx = document.getElementById('implementation-timeline-chart');
+            if (timelineCtx) {
+                new Chart(timelineCtx.getContext('2d'), {
+                    type: 'bar',
+                    data: {
+                        labels: ['컨소시엄 구성', '정부 승인', 'KEXIM 사전승인', '실사', '문서화', '금융 마감'],
+                        datasets: [{
+                            label: '기간 (개월)',
+                            data: [2, 2, 1, 2, 2, 1],
+                            backgroundColor: ['#3498db', '#e74c3c', '#27ae60', '#f39c12', '#9b59b6', '#e67e22'],
+                            borderColor: ['#2980b9', '#c0392b', '#229954', '#d68910', '#8e44ad', '#d35400'],
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        ...chartOptions,
+                        scales: {
+                            ...chartOptions.scales,
+                            y: {
+                                ...chartOptions.scales.y,
+                                title: {
+                                    display: true,
+                                    text: '타임라인 (개월)',
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 16,
+                                        weight: '700'
+                                    }
+                                },
+                                ticks: {
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 13,
+                                        weight: '600'
+                                    }
+                                }
+                            },
+                            x: {
+                                ...chartOptions.scales.x,
+                                ticks: {
+                                    maxRotation: 45,
+                                    font: {
+                                        family: 'Helvetica Neue',
+                                        size: 12,
+                                        weight: '600'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+
+        // Print optimization
+        window.addEventListener('beforeprint', () => {
+            document.body.style.fontSize = '12px';
+        });
+
+        window.addEventListener('afterprint', () => {
+            document.body.style.fontSize = '16px';
+        });
+    </script>
+</body>
+</html>
