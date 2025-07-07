@@ -1,12 +1,11 @@
 
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Confidential Report Access – Trinos Strategy</title>
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confidential Report Access – Trinos Strategy</title>
+  <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f8f9fa;
@@ -123,42 +122,49 @@
   </style>
 </head>
 <body>
-<h1>Confidential Report Access</h1>
-<div class="subtitle">Institutional Access Only – Trinos Strategy</div>
-<div class="auth-box" id="auth-box">
-<div class="disclaimer-text">
-<strong>Confidential Access Disclaimer / 접근 동의 고지</strong>
+
+  <h1>Confidential Report Access</h1>
+  <div class="subtitle">Institutional Access Only – Trinos Strategy</div>
+
+  <div class="auth-box" id="auth-box">
+    <div class="disclaimer-text">
+      <strong>Confidential Access Disclaimer / 접근 동의 고지</strong>
       This report contains proprietary strategic analysis prepared exclusively for institutional review. By accessing this material, you agree to the following terms:
       <ul>
-<li>Maintain strict confidentiality. No sharing with third parties.</li>
-<li>No capture, reproduction, or distribution in any form (including screenshots).</li>
-<li>Unauthorized use may result in civil and/or criminal liability.</li>
-<li>All content remains the exclusive property of Trinos Strategy and is protected by law.</li>
-</ul>
+        <li>Maintain strict confidentiality. No sharing with third parties.</li>
+        <li>No capture, reproduction, or distribution in any form (including screenshots).</li>
+        <li>Unauthorized use may result in civil and/or criminal liability.</li>
+        <li>All content remains the exclusive property of Trinos Strategy and is protected by law.</li>
+      </ul>
       본 리포트는 기관 검토용으로만 제공되는 독점적 전략 분석 자료입니다. 열람자는 아래 조건에 동의해야 합니다:
       <ul>
-<li>모든 내용을 비밀로 유지하며 제3자에게 절대 공개하지 않습니다.</li>
-<li>화면 캡처, 복제, 배포, 수정 등 어떤 형태의 2차 사용도 금지됩니다.</li>
-<li>무단 사용 시 민형사상 책임이 발생할 수 있습니다.</li>
-<li>모든 권리는 Trinos Strategy에 있으며 법적으로 보호됩니다.</li>
-</ul>
-</div>
-<label>
-<input id="agreeBox" type="checkbox"/>
+        <li>모든 내용을 비밀로 유지하며 제3자에게 절대 공개하지 않습니다.</li>
+        <li>화면 캡처, 복제, 배포, 수정 등 어떤 형태의 2차 사용도 금지됩니다.</li>
+        <li>무단 사용 시 민형사상 책임이 발생할 수 있습니다.</li>
+        <li>모든 권리는 Trinos Strategy에 있으며 법적으로 보호됩니다.</li>
+      </ul>
+    </div>
+
+    <label>
+      <input type="checkbox" id="agreeBox" />
       I understand and agree to the above terms.
     </label>
-<input id="password-input" placeholder="Enter access code" type="password"/>
-<button onclick="checkAccess()">Access Reports</button>
-<div id="error-message" style="color:#e03131; font-size: 13px; margin-top: 8px;"></div>
-</div>
-<div class="menu" id="menu">
-<a href="k_culture_investment_report.html">Why $750M is Required-explained (EN)</a>
-<a href="k_culture_investment_report_kr.html">왜 7.5억 달러가 필요한가-explained (KR)</a>
-<a href="why_750m_required.html">Why $750M is Required-visual (EN)</a>
-<a href="why_750m_required_kr.html">왜 7.5억 달러가 필요한가-visual (KR)</a>
-<div style="font-weight:bold; text-align:left; margin-top:20px;">🔍 Detailed Strategy Memos</div><a href="v5_financing_eng.html">Optimized KEXIM Framework (EN)</a><a href="v5_financing_kr.html">KEXIM 최적화 프레임워크 (KR)</a></div>
-<footer>© 2025 Trinos Strategy. All rights reserved.</footer>
-<script>
+
+    <input type="password" id="password-input" placeholder="Enter access code" />
+    <button onclick="checkAccess()">Access Reports</button>
+    <div id="error-message" style="color:#e03131; font-size: 13px; margin-top: 8px;"></div>
+  </div>
+
+  <div class="menu" id="menu">
+    <a href="k_culture_investment_report.html">Why $750M is Required-explained (EN)</a>
+    <a href="k_culture_investment_report_kr.html">왜 7.5억 달러가 필요한가-explained (KR)</a>
+    <a href="why_750m_required.html">Why $750M is Required-visual (EN)</a>
+    <a href="why_750m_required_kr.html">왜 7.5억 달러가 필요한가-visual (KR)</a>
+  </div>
+
+  <footer>© 2025 Trinos Strategy. All rights reserved.</footer>
+
+  <script>
     async function checkAccess() {
       const pw = document.getElementById("password-input").value;
       const agreed = document.getElementById("agreeBox").checked;
@@ -183,5 +189,6 @@
       }
     }
   </script>
+
 </body>
 </html>
