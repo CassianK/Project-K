@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대화형 금융 실사 보고서 | 기관 투자자 관점 분석</title>
+    <!-- Chosen Palette: Calm Harmony Neutrals -->
+    <!-- Application Structure Plan: A top-down, single-page dashboard structure was chosen over a linear report format to enhance usability. It starts with a high-level executive summary and allows users to dive deeper into specific areas of interest (Financial Feasibility, Risk, Legal) via a sticky navigation bar. This thematic, non-linear flow empowers institutional investors to quickly access the most relevant information and compare different data points without sequential scrolling. Key interactions include tab-based content switching for detailed analysis, interactive charts that update based on user-selected scenarios, and clickable elements to reveal further details, facilitating an exploratory rather than a passive reading experience. -->
+    <!-- Visualization & Content Choices: 
+        - Executive Summary -> Inform -> Key metric cards & summary text -> Provides a quick, high-level overview of the project's viability at a glance.
+        - KEXIM Feasibility -> Compare/Inform -> Bar chart (KEXIM vs. Project) & text -> Visually contrasts the proposed financing structure against KEXIM's standard guidelines, highlighting potential alignment or discrepancies. Justification: A simple bar chart is the most effective way to show a direct comparison of ratios. Library: Chart.js.
+        - IRR Analysis -> Compare -> Bar chart (Project IRR vs. Benchmarks) -> Allows investors to immediately gauge the project's projected returns against familiar industry benchmarks. Justification: Facilitates quick competitive analysis. Library: Chart.js.
+        - Interest & LTV Conditions -> Compare -> Line & Bar charts (Rates & LTV vs. Benchmarks) -> Juxtaposes proposed terms with current, dynamic market data (BOK, PF 연체율), grounding the proposal in reality. Justification: Shows trends and contextualizes risk. Library: Chart.js.
+        - Risk Assessment -> Organize/Inform -> Interactive HTML Grid -> Users can click on a risk category (Market, Credit, etc.) to see a detailed explanation. This replaces a long, static list with an engaging, user-driven exploration. Justification: Improves information hierarchy and reduces cognitive load. Method: HTML/CSS/JS.
+        - Scenario Analysis -> Compare/Change -> Interactive Bar Chart -> Buttons (Best/Base/Worst) update a single chart, clearly demonstrating the financial impact of different market conditions on key metrics (IRR, NPV, DSCR). Justification: The most direct way to visualize volatility and project resilience. Library: Chart.js.
+        - Sensitivity Analysis -> Relationships -> Bar Chart (Tornado-style) -> Visually demonstrates which variables have the most significant impact on project outcomes, helping to prioritize risk mitigation efforts. Justification: Instantly communicates key project levers. Library: Chart.js.
+        - Legal Structure -> Organize -> HTML/CSS Diagram -> A clean, structured diagram built with Tailwind CSS clarifies the complex relationships between entities. Justification: More intuitive and clearer than a textual description. Method: HTML/CSS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active, .nav-link:hover {
+            color: #0d6efd;
+            border-bottom-color: #0d6efd;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: #0d6efd;
+            color: #ffffff;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            max-height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+                max-width: 800px;
+            }
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.1);
+        }
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <ul class="flex items-center justify-center space-x-4 md:space-x-8 text-sm md:text-base font-semibold text-gray-600">
+                <li><a href="#summary" class="nav-link active">종합 요약</a></li>
+                <li><a href="#feasibility" class="nav-link">재무 타당성</a></li>
+                <li><a href="#risk" class="nav-link">리스크 분석</a></li>
+                <li><a href="#legal" class="nav-link">법률 및 규제</a></li>
+                <li><a href="#conclusion" class="nav-link">결론 및 제언</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="title-section" class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-2">대화형 금융 실사 보고서</h1>
+            <p class="text-lg text-gray-500">기관 투자자 관점에서의 금융 제안 심층 분석</p>
+        </section>
+
+        <!-- 종합 요약 섹션 -->
+        <section id="summary" class="content-section active mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-blue-500">Executive Summary</h2>
+            <div class="card">
+                <p class="text-gray-700 leading-relaxed">
+                    본 보고서는 기관 투자자 입장에서 제시된 금융 제안의 현실성, 실현 가능성 및 내재된 위험을 정밀하게 분석합니다. 분석 결과, 본 제안은 잠재적 투자 기회를 포함하고 있으나, IRR 추정치의 낙관적 가정, 현재 PF 시장 상황을 미반영한 금리/LTV 조건 등 일부 항목에 대한 추가 검토와 조정이 필요합니다. 본 대화형 보고서는 데이터 기반의 심층 분석을 통해 내부 투자 의사결정 및 금융기관 협상을 위한 견고한 기반을 제공하는 것을 목표로 합니다.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8 text-center">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-sm font-semibold text-blue-800">KEXIM 참여</p>
+                        <p class="text-2xl font-bold text-blue-900">조건부 가능</p>
+                        <p class="text-xs text-gray-500 mt-1">'한국적 이점' 연계성 검증 필요</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-sm font-semibold text-green-800">예상 IRR</p>
+                        <p class="text-2xl font-bold text-green-900">과대추정 가능성</p>
+                        <p class="text-xs text-gray-500 mt-1">NPV 등 보완지표 필수</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <p class="text-sm font-semibold text-yellow-800">금리/LTV 조건</p>
+                        <p class="text-2xl font-bold text-yellow-900">조정 필요</p>
+                        <p class="text-xs text-gray-500 mt-1">시장 스트레스 미반영</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <p class="text-sm font-semibold text-red-800">종합 리스크</p>
+                        <p class="text-2xl font-bold text-red-900">상호연계성 높음</p>
+                        <p class="text-xs text-gray-500 mt-1">시나리오별 분석 중요</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 재무 타당성 섹션 -->
+        <section id="feasibility" class="content-section mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">재무 타당성 분석</h2>
+            <p class="text-gray-500 mb-8">제안된 금융 조건의 현실성을 시장 데이터와 비교하여 심층 분석합니다.</p>
+            
+            <div class="bg-white p-4 rounded-lg shadow mb-8">
+                <div class="flex justify-center space-x-2">
+                    <button class="tab-button text-sm font-semibold px-4 py-2 rounded-md active" data-target="kexim-analysis">KEXIM 참여 조건</button>
+                    <button class="tab-button text-sm font-semibold px-4 py-2 rounded-md" data-target="irr-analysis">IRR 벤치마킹</button>
+                    <button class="tab-button text-sm font-semibold px-4 py-2 rounded-md" data-target="ltv-analysis">금리 및 LTV 현실성</button>
+                </div>
+            </div>
+
+            <div id="kexim-analysis" class="feasibility-content active">
+                <div class="card grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">KEXIM 참여 비율 현실성</h3>
+                        <p class="text-gray-600 mb-4">제안된 KEXIM 참여 비율은 은행의 일반적인 지침(총 사업비의 90% 이내)과 부합하는 것으로 보입니다. 그러나 실제 참여는 프로젝트의 '한국적 이점'과의 연관성, 스폰서의 자기자본 기여도, 오프테이크 계약의 견고성에 따라 결정될 것입니다.</p>
+                        <ul class="text-sm text-gray-700 list-disc list-inside space-y-2">
+                            <li><strong>지원 한도:</strong> 수출금융 시 계약금액의 85%, 해외투자금융 시 총 사업비의 90%까지 가능</li>
+                            <li><strong>핵심 요건:</strong> 건전한 사업계획, 신뢰성 있는 현금흐름, 신용도 높은 거래 상대방</li>
+                            <li><strong>주요 리스크:</strong> '한국적 이점' 연관성 부족 시 지원 축소 또는 지연 가능성</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container"><canvas id="keximChart"></canvas></div>
+                </div>
+            </div>
+
+            <div id="irr-analysis" class="feasibility-content hidden">
+                 <div class="card grid md:grid-cols-2 gap-8 items-center">
+                    <div class="chart-container"><canvas id="irrChart"></canvas></div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">IRR 과대추정 가능성 검토</h3>
+                        <p class="text-gray-600 mb-4">제안된 IRR은 시장 벤치마크 대비 매력적이나, IRR 지표의 내재적 한계를 고려할 때 과대평가되었을 수 있습니다. 특히 비현실적인 재투자수익률 가정은 수익률을 왜곡할 수 있어 NPV 등 보완 지표를 통한 교차 검증이 필수적입니다.</p>
+                         <ul class="text-sm text-gray-700 list-disc list-inside space-y-2">
+                            <li><strong>재투자 위험:</strong> IRR은 창출된 현금흐름이 IRR과 동일한 수익률로 재투자된다고 가정</li>
+                            <li><strong>규모의 문제:</strong> 프로젝트의 절대적 가치(NPV)를 반영하지 못함</li>
+                            <li><strong>현금흐름 패턴:</strong> 복잡한 현금흐름 시 여러 개의 IRR이 발생하여 해석의 모호성 존재</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ltv-analysis" class="feasibility-content hidden">
+                <div class="card grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">금리 및 LTV 조건 현실성</h3>
+                        <p class="text-gray-600 mb-4">최근 PF 대출 연체율 상승과 규제 강화 기조를 고려할 때, 제안된 금리와 LTV는 다소 낙관적일 수 있습니다. 시장의 리스크 프리미엄 상승으로 인해 실제 조달 금리는 제안보다 높고 LTV는 낮아질 가능성이 있습니다.</p>
+                        <p class="text-sm text-red-600 bg-red-50 p-3 rounded-lg mt-4"><strong>주의:</strong> 2025년 1분기 PF 대출 연체율은 4.4%로 역대 최고치를 기록했으며, 금융당국은 PF 리스크 관리를 강화하고 있습니다.</p>
+                    </div>
+                    <div class="chart-container"><canvas id="interestRateChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 리스크 분석 섹션 -->
+        <section id="risk" class="content-section mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">종합 리스크 분석</h2>
+            <p class="text-gray-500 mb-8">다양한 시나리오와 변수 변화에 따른 프로젝트의 재무적 민감도를 평가합니다.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4">시나리오 분석</h3>
+                    <p class="text-gray-600 mb-4">주요 변수 변화에 따른 프로젝트의 재무 성과를 최고, 기본, 최악의 세 가지 시나리오로 나누어 분석합니다. 아래 버튼을 클릭하여 시나리오별 결과를 확인하세요.</p>
+                    <div class="flex justify-center space-x-2 my-4">
+                        <button class="scenario-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold" data-scenario="worst">최악</button>
+                        <button class="scenario-btn bg-blue-500 text-white px-4 py-2 rounded-md font-semibold" data-scenario="base">기본</button>
+                        <button class="scenario-btn bg-gray-200 text-gray-800 px-4 py-2 rounded-md font-semibold" data-scenario="best">최고</button>
+                    </div>
+                    <div class="chart-container"><canvas id="scenarioChart"></canvas></div>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-bold mb-4">주요 변수 민감도 분석</h3>
+                    <p class="text-gray-600 mb-4">프로젝트의 순현재가치(NPV)에 가장 큰 영향을 미치는 변수를 식별합니다. 매출 단가와 공사비 변동이 가장 큰 리스크 요인으로 작용합니다.</p>
+                    <div class="chart-container"><canvas id="sensitivityChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 법률 및 규제 섹션 -->
+        <section id="legal" class="content-section mb-16">
+             <h2 class="text-3xl font-bold text-gray-800 mb-2">법률 구조 및 규제 준수</h2>
+             <p class="text-gray-500 mb-8">프로젝트의 법적 구조 현실성과 국내외 규제 준수 여부를 검토합니다.</p>
+             <div class="card grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">프로젝트 법률 구조</h3>
+                    <p class="text-gray-600 mb-6">프로젝트는 자산 보호와 세금 효율성을 위해 특수목적회사(SPC/PFV)를 중심으로 구성됩니다. 각 참여 주체 간의 권리와 의무는 EPC, 오프테이크, 금융 계약 등 핵심 계약을 통해 명확히 규정되어야 합니다.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-800 font-bold p-3 rounded-lg w-28 text-center">스폰서</div>
+                            <div class="mx-4 text-2xl text-gray-400 self-center">→</div>
+                            <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-1"><strong>SPC/PFV</strong><br/><span class="text-sm">프로젝트 실행 주체</span></div>
+                        </div>
+                         <div class="flex items-start">
+                            <div class="bg-yellow-100 text-yellow-800 font-bold p-3 rounded-lg w-28 text-center">대주단 (KEXIM 등)</div>
+                            <div class="mx-4 text-2xl text-gray-400 self-center">→</div>
+                            <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-1"><strong>금융 계약</strong><br/><span class="text-sm">자금 조달</span></div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 text-purple-800 font-bold p-3 rounded-lg w-28 text-center">건설사</div>
+                            <div class="mx-4 text-2xl text-gray-400 self-center">→</div>
+                            <div class="bg-green-100 text-green-800 p-3 rounded-lg flex-1"><strong>EPC 계약</strong><br/><span class="text-sm">설계, 조달, 시공</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                     <h3 class="text-2xl font-bold mb-4">핵심 규제 준수 사항</h3>
+                     <p class="text-gray-600 mb-6">본 프로젝트는 자본시장법, 금융소비자보호법 등 국내 금융 규제와 KEXIM의 내부 규정을 모두 준수해야 합니다.</p>
+                     <ul class="space-y-3">
+                        <li class="flex items-center text-gray-700"><span class="icon text-green-500">✓</span>자본시장법: 금융투자상품 규제 준수</li>
+                        <li class="flex items-center text-gray-700"><span class="icon text-green-500">✓</span>금융소비자보호법: 불공정 영업 행위 금지</li>
+                        <li class="flex items-center text-gray-700"><span class="icon text-green-500">✓</span>KEXIM법: 정책금융 목적 부합 및 여신 한도 준수</li>
+                        <li class="flex items-center text-gray-700"><span class="icon text-green-500">✓</span>PF 규제 지침: 자본비율 및 건전성 관리 기준 충족</li>
+                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 결론 및 제언 섹션 -->
+        <section id="conclusion" class="content-section">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-blue-500">결론 및 제언</h2>
+            <div class="card">
+                <h3 class="text-xl font-bold mb-3">종합 결론</h3>
+                <p class="text-gray-700 mb-6">제시된 금융 제안은 매력적인 투자 기회를 내포하고 있으나, 일부 가정의 현실성과 시장 위험에 대한 노출도가 높습니다. 성공적인 투자를 위해서는 제안 조건에 대한 신중한 재검토와 전략적인 협상이 필수적입니다.</p>
+                <h3 class="text-xl font-bold mb-3">기관 투자자를 위한 핵심 권고 사항</h3>
+                <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                    <li><strong>재무 모델 재검토:</strong> 현재 PF 시장 상황을 반영한 보수적 가정(금리, LTV 등)을 적용하여 재무적 생존 가능성을 재평가해야 합니다.</li>
+                    <li><strong>다각적 수익률 분석:</strong> IRR 외에 NPV, MIRR 등 보완 지표를 활용하여 프로젝트의 절대 가치와 현실적 수익성을 평가해야 합니다.</li>
+                    <li><strong>위험 완화 전략 강화:</strong> 식별된 주요 리스크(금리, 공사비 등)에 대한 구체적인 헤징 및 완화 방안을 제안사에 요구해야 합니다.</li>
+                    <li><strong>핵심 계약 조건 협상:</strong> 대주단의 이익을 보호하고 현금 흐름 안정성을 확보하는 방향으로 오프테이크, EPC 등 핵심 계약 조건을 심층 협상해야 합니다.</li>
+                </ol>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+
+            const setActiveLink = (targetId) => {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${targetId}`);
+                });
+                sections.forEach(section => {
+                    section.classList.toggle('active', section.id === targetId);
+                });
+            };
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    setActiveLink(targetId);
+                    window.history.pushState(null, null, `#${targetId}`);
+                });
+            });
+
+            window.addEventListener('popstate', () => {
+                const targetId = window.location.hash.substring(1) || 'summary';
+                setActiveLink(targetId);
+            });
+            
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                setActiveLink(targetId);
+            }
+
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const feasibilityContents = document.querySelectorAll('.feasibility-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    tabButtons.forEach(btn => btn.classList.remove('active', 'bg-blue-500', 'text-white'));
+                    this.classList.add('active', 'bg-blue-500', 'text-white');
+                    
+                    const targetId = this.getAttribute('data-target');
+                    feasibilityContents.forEach(content => {
+                        content.classList.toggle('active', content.id === targetId);
+                        content.classList.toggle('hidden', content.id !== targetId);
+                    });
+                });
+            });
+
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            };
+            
+            new Chart(document.getElementById('keximChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['총 사업비 대비 여신 한도'],
+                    datasets: [{
+                        label: 'KEXIM 기준',
+                        data: [90],
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '본 프로젝트 제안',
+                        data: [85],
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: chartOptions
+            });
+
+            new Chart(document.getElementById('irrChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['프로젝트 제안 IRR', '해외 대체투자 기대수익률', 'KVIC 벤처펀드 IRR', 'KIC 10년 연환산 수익률'],
+                    datasets: [{
+                        label: '수익률(%)',
+                        data: [13.5, 8.0, 12.56, 4.92],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.6)',
+                            'rgba(54, 162, 235, 0.6)',
+                            'rgba(255, 206, 86, 0.6)',
+                            'rgba(75, 192, 192, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: { ...chartOptions, plugins: { legend: { display: false } } }
+            });
+
+            new Chart(document.getElementById('interestRateChart'), {
+                type: 'line',
+                data: {
+                    labels: ['2024-Q1', '2024-Q2', '2024-Q3', '2024-Q4', '2025-Q1', '2025-Q2'],
+                    datasets: [{
+                        label: 'PF 대출 연체율',
+                        data: [2.7, 3.1, 3.5, 3.9, 4.4, 4.2],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        fill: true,
+                        yAxisID: 'y1',
+                    }, {
+                        label: '한은 기준금리',
+                        data: [3.5, 3.5, 3.25, 3.0, 2.5, 2.5],
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        yAxisID: 'y',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            type: 'linear',
+                            display: true,
+                            position: 'left',
+                             ticks: { callback: value => value + '%' }
+                        },
+                        y1: {
+                            type: 'linear',
+                            display: true,
+                            position: 'right',
+                            grid: { drawOnChartArea: false },
+                            ticks: { callback: value => value + '%' }
+                        }
+                    }
+                }
+            });
+
+            const scenarioData = {
+                worst: { labels: ['IRR', 'NPV (억)', 'DSCR'], data: [5.5, -150, 0.9] },
+                base: { labels: ['IRR', 'NPV (억)', 'DSCR'], data: [13.5, 500, 1.4] },
+                best: { labels: ['IRR', 'NPV (억)', 'DSCR'], data: [18.0, 850, 1.8] }
+            };
+            const scenarioChartCtx = document.getElementById('scenarioChart');
+            const scenarioChart = new Chart(scenarioChartCtx, {
+                type: 'bar',
+                data: {
+                    labels: scenarioData.base.labels,
+                    datasets: [{
+                        label: '기본 시나리오',
+                        data: scenarioData.base.data,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                    }]
+                },
+                 options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true
+                        }
+                    }
+                }
+            });
+
+            document.querySelectorAll('.scenario-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.scenario-btn').forEach(btn => {
+                        btn.classList.remove('bg-blue-500', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-800');
+                    });
+                    this.classList.add('bg-blue-500', 'text-white');
+                    this.classList.remove('bg-gray-200', 'text-gray-800');
+
+                    const scenario = this.dataset.scenario;
+                    scenarioChart.data.datasets[0].data = scenarioData[scenario].data;
+                    scenarioChart.data.datasets[0].label = `${this.textContent} 시나리오`;
+                    scenarioChart.update();
+                });
+            });
+            
+            new Chart(document.getElementById('sensitivityChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['매출단가 -10%', '공사비 +10%', '운영비용 +10%', '금리 +1.0%p', '매출단가 +10%'],
+                    datasets: [{
+                        label: 'NPV 변화율 (%)',
+                        data: [-25, -20, -12, -8, 25],
+                        backgroundColor: (context) => {
+                            const value = context.raw;
+                            return value < 0 ? 'rgba(255, 99, 132, 0.6)' : 'rgba(75, 192, 192, 0.6)';
+                        }
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: {
+                            ticks: { callback: value => value + '%' }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
