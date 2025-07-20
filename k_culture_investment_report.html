@@ -13,8 +13,8 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            font-size: 16px;
-            line-height: 1.7;
+            font-size: 11pt;
+            line-height: 1.6;
             color: #2d3748;
             background: #ffffff;
             -webkit-font-smoothing: antialiased;
@@ -26,13 +26,70 @@
             background: #ffffff;
         }
         
+        /* Page Setup for PDF */
+        @page {
+            size: A4;
+            margin: 2.5cm 2cm 3.5cm 2cm;
+            
+            @top-center {
+                content: "Trinos Strategy - K-Culture Complex Investment Analysis";
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                font-size: 9pt;
+                color: #666;
+                font-style: italic;
+            }
+            
+            @bottom-center {
+                content: "Page " counter(page) " of " counter(pages);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                font-size: 9pt;
+                color: #666;
+            }
+            
+            @bottom-left {
+                content: "CONFIDENTIAL & PROPRIETARY";
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                font-size: 8pt;
+                color: #999;
+            }
+            
+            @bottom-right {
+                content: "July 2025";
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+                font-size: 8pt;
+                color: #999;
+            }
+        }
+        
+        /* Page break rules */
+        .print-section {
+            page-break-inside: avoid;
+        }
+        
+        .page-break {
+            page-break-after: always;
+        }
+        
+        h1, h2, h3, h4 {
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+        
+        p {
+            orphans: 3;
+            widows: 3;
+            page-break-inside: avoid;
+        }
+        
         /* Header */
         .header {
             background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
             color: #ffffff;
-            padding: 60px 40px;
+            padding: 30px 40px;
             position: relative;
             overflow: hidden;
+            page-break-inside: avoid;
+            page-break-after: avoid;
         }
         
         .header::before {
@@ -50,14 +107,14 @@
         .header-brand {
             display: flex;
             align-items: center;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             position: relative;
             z-index: 2;
         }
         
         .header-logo {
-            width: 56px;
-            height: 56px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
             border-radius: 12px;
             margin-right: 16px;
@@ -66,11 +123,11 @@
             justify-content: center;
             color: white;
             font-weight: 800;
-            font-size: 24px;
+            font-size: 20px;
         }
         
         .brand-text {
-            font-size: 16px;
+            font-size: 14pt;
             font-weight: 700;
             opacity: 0.95;
             text-transform: uppercase;
@@ -78,141 +135,197 @@
         }
         
         .brand-tagline {
-            font-size: 12px;
+            font-size: 10pt;
             opacity: 0.7;
             font-style: italic;
             margin-top: 2px;
         }
         
         .header h1 {
-            font-size: 42px;
+            font-size: 28pt;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 16px;
+            line-height: 1.2;
+            margin-bottom: 12px;
             position: relative;
             z-index: 2;
         }
         
         .header .subtitle {
-            font-size: 20px;
+            font-size: 14pt;
             font-weight: 400;
             opacity: 0.9;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         
         .header .meta {
-            font-size: 13px;
+            font-size: 10pt;
             opacity: 0.7;
             font-weight: 400;
         }
 
         .confidential-banner {
-            background: #dc3545;
             color: white;
-            padding: 12px 40px;
             text-align: center;
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 11pt;
+            padding-bottom: 8px;
             letter-spacing: 1px;
+        }
+        
+        /* Table of Contents */
+        .table-of-contents {
+            padding: 40px;
+            page-break-after: always;
+        }
+        
+        .table-of-contents h2 {
+            font-size: 24pt;
+            color: #1a365d;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .table-of-contents ol {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .table-of-contents li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: baseline;
+        }
+        
+        .table-of-contents .toc-title {
+            flex: 0 0 auto;
+            padding-right: 10px;
+        }
+        
+        .table-of-contents .toc-dots {
+            flex: 1;
+            border-bottom: 1px dotted #ccc;
+            margin: 0 5px;
+            height: 1px;
+        }
+        
+        .table-of-contents .page-num {
+            flex: 0 0 auto;
+            font-weight: 600;
+            padding-left: 10px;
         }
         
         /* Content */
         .content {
-            padding: 60px 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 0 40px;
         }
         
         .content h1 {
-            font-size: 36px;
+            font-size: 24pt;
             font-weight: 800;
             color: #1a365d;
-            margin: 60px 0 24px 0;
-            padding-bottom: 16px;
-            border-bottom: 4px solid #3498db;
+            margin: 40px 0 20px 0;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #3498db;
+            page-break-before: always;
+            page-break-after: avoid;
+        }
+        
+        .content h1:first-child {
+            page-break-before: avoid;
+            margin-top: 30px;
         }
         
         .content h2 {
-            font-size: 28px;
+            font-size: 18pt;
             font-weight: 700;
             color: #2c3e50;
-            margin: 40px 0 20px 0;
-            padding-bottom: 12px;
+            margin: 30px 0 16px 0;
+            padding-bottom: 8px;
             border-bottom: 2px solid #3498db;
+            page-break-after: avoid;
         }
         
         .content h3 {
-            font-size: 22px;
+            font-size: 14pt;
             font-weight: 600;
             color: #34495e;
-            margin: 30px 0 16px 0;
+            margin: 24px 0 12px 0;
+            page-break-after: avoid;
         }
         
         .content h4 {
-            font-size: 18px;
+            font-size: 12pt;
             font-weight: 600;
             color: #2c3e50;
-            margin: 24px 0 12px 0;
+            margin: 20px 0 10px 0;
+            page-break-after: avoid;
         }
         
         .content p {
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             text-align: justify;
+            page-break-inside: avoid;
         }
         
         .content ul, .content ol {
-            margin: 20px 0;
-            padding-left: 30px;
+            margin: 16px 0;
+            padding-left: 25px;
+            page-break-inside: avoid;
         }
         
         .content li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         
         .content blockquote {
             background: #f8f9fa;
             border-left: 4px solid #3498db;
-            padding: 20px;
-            margin: 24px 0;
+            padding: 16px;
+            margin: 20px 0;
             font-style: italic;
             border-radius: 0 8px 8px 0;
+            page-break-inside: avoid;
         }
         
         .highlight {
             background: linear-gradient(135deg, #fff3cd 0%, #fef9e7 100%);
             border-left: 5px solid #ffc107;
-            padding: 24px;
-            margin: 24px 0;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 10px rgba(255, 193, 7, 0.1);
+            page-break-inside: avoid;
         }
         
         .success-case {
             background: linear-gradient(135deg, #d4edda 0%, #e8f5e9 100%);
             border-left: 5px solid #28a745;
-            padding: 24px;
-            margin: 24px 0;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 10px rgba(40, 167, 69, 0.1);
+            page-break-inside: avoid;
         }
         
         .failure-case {
             background: linear-gradient(135deg, #f8d7da 0%, #fdeaea 100%);
             border-left: 5px solid #dc3545;
-            padding: 24px;
-            margin: 24px 0;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 0 8px 8px 0;
             box-shadow: 0 2px 10px rgba(220, 53, 69, 0.1);
+            page-break-inside: avoid;
         }
         
         .key-insight {
             background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
             border: 2px solid #3498db;
-            padding: 24px;
-            margin: 24px 0;
+            padding: 20px;
+            margin: 20px 0;
             border-radius: 12px;
             position: relative;
+            page-break-inside: avoid;
         }
         
         .key-insight::before {
@@ -222,20 +335,15 @@
             left: 20px;
             background: white;
             padding: 0 8px;
-            font-size: 20px;
+            font-size: 18px;
         }
         
         .citation {
             color: #3498db;
             text-decoration: none;
             font-weight: 600;
-            font-size: 14px;
-            border-bottom: 1px dotted #3498db;
-        }
-        
-        .citation:hover {
-            text-decoration: none;
-            border-bottom: 1px solid #3498db;
+            font-size: 10pt;
+            vertical-align: super;
         }
         
         .strong-emphasis {
@@ -246,7 +354,6 @@
             font-weight: 600;
         }
         
-        /* Statistics and Numbers */
         .stat-number {
             font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
             font-weight: 700;
@@ -260,15 +367,16 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 24px 0;
+            margin: 20px 0;
             background: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
         }
         
         th, td {
-            padding: 16px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
         }
@@ -277,36 +385,27 @@
             background: linear-gradient(135deg, #3498db, #2980b9);
             color: white;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 11pt;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+        
+        thead {
+            display: table-header-group;
         }
         
         tr:nth-child(even) {
             background-color: #f8f9fa;
         }
         
-        tr:hover {
-            background-color: #e3f2fd;
-        }
-        
-        /* Links */
-        a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
         /* Footer */
         .footer {
             background: #f7fafc;
-            padding: 48px 40px;
+            padding: 40px;
             border-top: 1px solid #e2e8f0;
             text-align: center;
+            margin-top: 60px;
+            page-break-inside: avoid;
         }
         
         .footer-content {
@@ -315,52 +414,98 @@
         }
         
         .disclaimer {
-            font-size: 12px;
+            font-size: 9pt;
             color: #718096;
-            line-height: 1.6;
-            margin: 16px 0;
+            line-height: 1.5;
+            margin: 12px 0;
             text-align: left;
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header {
-                padding: 40px 20px;
+        /* Print-specific styles */
+        @media print {
+            body {
+                width: 21cm;
+                margin: 0;
+                padding: 0;
+                font-size: 11pt;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             
-            .header h1 {
-                font-size: 28px;
+            .container {
+                width: 100%;
+            }
+            
+            .header {
+                background: #1a365d !important;
+                color: white !important;
+                page-break-inside: avoid;
+                margin: 0;
             }
             
             .content {
-                padding: 40px 20px;
+                padding: 0;
             }
             
-            .content h1 {
-                font-size: 28px;
+            /* Ensure backgrounds print */
+            .highlight, .success-case, .failure-case, .key-insight {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             
-            .content h2 {
-                font-size: 24px;
+            /* Show link URLs for external links */
+            a[href^="http"]:after {
+                content: " (" attr(href) ")";
+                font-size: 8pt;
+                color: #666;
+                font-weight: normal;
             }
             
-            .footer {
-                padding: 32px 20px;
+            /* Don't show URLs for internal links */
+            a[href^="#"]:after {
+                content: "";
+            }
+            
+            .citation:after {
+                content: "";
+            }
+            
+            /* Adjust margins for print */
+            h1, h2, h3, h4, p, ul, ol {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            /* Keep sections together */
+            .print-section {
+                page-break-inside: avoid;
+            }
+            
+            /* Force color printing for important elements */
+            th {
+                background: #3498db !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .strong-emphasis {
+                background: #f39c12 !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="confidential-banner">
-            STRICTLY CONFIDENTIAL & PROPRIETARY
-        </div>
-        
         <header class="header">
+            <div class="confidential-banner">
+                STRICTLY CONFIDENTIAL & PROPRIETARY
+            </div>
             <div class="header-brand">
-                <img src="https://raw.githubusercontent.com/CassianK/Project-K/main/images/trinos-logo.png" 
-                     alt="Trinos Strategy Logo" 
-                     style="width: 56px; height: 56px; margin-right: 16px; object-fit: contain;">
+                <div class="header-logo">T</div>
                 <div>
                     <div class="brand-text">TRINOS STRATEGY</div>
                     <div class="brand-tagline">Architects of Strategic Structure</div>
@@ -368,178 +513,260 @@
             </div>
             <h1>Scaling Success: Why the Middle East K-Culture Complex Requires $750M Investment</h1>
             <div class="subtitle">A comprehensive analysis of investment thresholds, market dynamics, and strategic positioning in the GCC entertainment sector</div>
-            <div class="meta">Strategic Investment Analysis • Strategic Architect D.K. • January 2025</div>
+            <div class="meta">Strategic Investment Analysis • Strategic Architect D.K. • July 2025</div>
         </header>
 
+        <!-- Table of Contents -->
+        <div class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ol>
+                <li>
+                    <span class="toc-title">1. Executive Summary Report</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">3</span>
+                </li>
+                <li>
+                    <span class="toc-title">2. Entertainment mega-projects define Middle East market success</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">4</span>
+                </li>
+                <li>
+                    <span class="toc-title">3. Investment thresholds determine project viability</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">5</span>
+                </li>
+                <li>
+                    <span class="toc-title">4. K-Culture demonstrates explosive growth potential</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">6</span>
+                </li>
+                <li>
+                    <span class="toc-title">5. Government incentives dramatically favor large-scale investments</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">7</span>
+                </li>
+                <li>
+                    <span class="toc-title">6. Visitor economics demand scale for sustainable operations</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">8</span>
+                </li>
+                <li>
+                    <span class="toc-title">7. Regional success stories validate the mega-project approach</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">9</span>
+                </li>
+                <li>
+                    <span class="toc-title">8. Critical infrastructure requirements elevate baseline investment needs</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">10</span>
+                </li>
+                <li>
+                    <span class="toc-title">9. Conclusion: Strategic scale unlocks transformative returns</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">11</span>
+                </li>
+                <li>
+                    <span class="toc-title">10. Strategic Investment Framework</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">12</span>
+                </li>
+                <li>
+                    <span class="toc-title">11. References</span>
+                    <span class="toc-dots"></span>
+                    <span class="page-num">13</span>
+                </li>
+            </ol>
+        </div>
+
         <div class="content">
-            <h1>Executive Summary Report</h1>
-            <p><strong>Date:</strong> January 2025<br>
-            <strong>Prepared by:</strong> Strategic Investment Analysis Team<br>
-            <strong>Classification:</strong> Government Review Grade</p>
+            <section class="print-section">
+                <h1>1. Executive Summary Report</h1>
+                <p><strong>Date:</strong> July 2025<br>
+                <strong>Prepared by:</strong> Strategic Investment Analysis Team<br>
+                <strong>Classification:</strong> Government Review Grade</p>
 
-            <div class="key-insight">
-                <strong>Bottom Line Up Front:</strong> The Middle East entertainment market presents an unprecedented opportunity for Korean cultural expansion, but success demands scale. Research across government strategies, market dynamics, and investment patterns reveals that the original $150M investment plan falls critically short of regional requirements. A $750M investment represents the minimum viable threshold for creating a sustainable, profitable K-Culture destination in Abu Dhabi.
-            </div>
+                <div class="key-insight">
+                    <strong>Bottom Line Up Front:</strong> The Middle East entertainment market presents an unprecedented opportunity for Korean cultural expansion, but success demands scale. Research across government strategies, market dynamics, and investment patterns reveals that the original $150M investment plan falls critically short of regional requirements. A $750M investment represents the minimum viable threshold for creating a sustainable, profitable K-Culture destination in Abu Dhabi.
+                </div>
+            </section>
 
-            <h2>Entertainment mega-projects define Middle East market success</h2>
+            <section class="print-section">
+                <h2>2. Entertainment mega-projects define Middle East market success</h2>
 
-            <p>The GCC entertainment sector has emerged as one of the world's fastest-growing markets, expanding from $11.75 billion in 2024 to a projected $76.81 billion by 2033<a href="#footnote1" class="citation">[1]</a>. This explosive 21.5% compound annual growth stems from massive government investment, young demographics with high disposable income, and strategic economic diversification. <span class="strong-emphasis">UAE consumers spend $1,600 annually on entertainment—triple the global average</span><a href="#footnote2" class="citation">[2]</a>—while the median population age of 31.6 years ensures sustained demand for decades.</p>
+                <p>The GCC entertainment sector has emerged as one of the world's fastest-growing markets, expanding from $11.75 billion in 2024 to a projected $76.81 billion by 2033<sup class="citation">[1]</sup>. This explosive 21.5% compound annual growth stems from massive government investment, young demographics with high disposable income, and strategic economic diversification. <span class="strong-emphasis">UAE consumers spend $1,600 annually on entertainment—triple the global average</span><sup class="citation">[2]</sup>—while the median population age of 31.6 years ensures sustained demand for decades.</p>
 
-            <p>Abu Dhabi's Tourism Strategy 2030 commits $10+ billion to cultural infrastructure development, targeting 39.3 million visitors by 2030<a href="#footnote3" class="citation">[3]</a>. The emirate's Saadiyat Cultural District alone represents a $27 billion government investment<a href="#footnote4" class="citation">[4]</a>, establishing clear precedent for large-scale cultural projects. This strategic vision positions Abu Dhabi as a global cultural capital, with flagship projects serving as economic catalysts rather than standalone attractions.</p>
+                <p>Abu Dhabi's Tourism Strategy 2030 commits $10+ billion to cultural infrastructure development, targeting 39.3 million visitors by 2030<sup class="citation">[3]</sup>. The emirate's Saadiyat Cultural District alone represents a $27 billion government investment<sup class="citation">[4]</sup>, establishing clear precedent for large-scale cultural projects. This strategic vision positions Abu Dhabi as a global cultural capital, with flagship projects serving as economic catalysts rather than standalone attractions.</p>
 
-            <p>The market's fundamental characteristic is its preference for world-class, destination-level attractions. Warner Bros World Abu Dhabi's $1 billion investment and Ferrari World's consistent profitability demonstrate that scale creates competitive advantage. Conversely, Dubai Parks & Resorts' financial struggles despite $2.86 billion investment highlight that even massive projects can fail without proper integration and strategic positioning.</p>
+                <p>The market's fundamental characteristic is its preference for world-class, destination-level attractions. Warner Bros World Abu Dhabi's $1 billion investment and Ferrari World's consistent profitability demonstrate that scale creates competitive advantage. Conversely, Dubai Parks & Resorts' financial struggles despite $2.86 billion investment highlight that even massive projects can fail without proper integration and strategic positioning.</p>
+            </section>
 
-            <h2>Investment thresholds determine project viability in harsh operating conditions</h2>
+            <section class="print-section">
+                <h2>3. Investment thresholds determine project viability in harsh operating conditions</h2>
 
-            <p>Analysis of successful and failed entertainment projects across the GCC reveals a clear pattern: <span class="strong-emphasis">projects below $500 million investment consistently fail to achieve critical mass</span><a href="#footnote5" class="citation">[5]</a>. The region's unique challenges—extreme climate requiring indoor facilities, limited regional population necessitating international appeal, and high consumer expectations—create elevated baseline costs that smaller projects cannot overcome.</p>
+                <p>Analysis of successful and failed entertainment projects across the GCC reveals a clear pattern: <span class="strong-emphasis">projects below $500 million investment consistently fail to achieve critical mass</span><sup class="citation">[5]</sup>. The region's unique challenges—extreme climate requiring indoor facilities, limited regional population necessitating international appeal, and high consumer expectations—create elevated baseline costs that smaller projects cannot overcome.</p>
 
-            <p>Indoor climate control alone adds 40% to operational days compared to outdoor facilities, while proximity to international airports increases visitor access by 25%. These infrastructure requirements establish a minimum viable investment threshold well above typical Western markets. Ferrari World's $650 million annual revenue from a $190 million expansion demonstrates the exponential returns possible at scale, while Warner Bros World Abu Dhabi's $1 billion investment showcases how mega-scale projects can achieve global recognition and sustainable profitability<a href="#footnote6" class="citation">[6]</a>.</p>
+                <p>Indoor climate control alone adds 40% to operational days compared to outdoor facilities, while proximity to international airports increases visitor access by 25%. These infrastructure requirements establish a minimum viable investment threshold well above typical Western markets. Ferrari World's $650 million annual revenue from a $190 million expansion demonstrates the exponential returns possible at scale, while Warner Bros World Abu Dhabi's $1 billion investment showcases how mega-scale projects can achieve global recognition and sustainable profitability<sup class="citation">[6]</sup>.</p>
 
-            <div class="highlight">
-                <strong>Critical mass research identifies specific investment allocations required for sustainability:</strong>
-                <ul>
-                    <li>$200-300 million for infrastructure base</li>
-                    <li>$300-400 million for attractions</li>
-                    <li>$100-150 million for integrated hospitality facilities</li>
-                </ul>
-                This breakdown explains why the $750 million threshold represents the minimum viable scale for competing in Middle East markets.
-            </div>
+                <div class="highlight">
+                    <strong>Critical mass research identifies specific investment allocations required for sustainability:</strong>
+                    <ul>
+                        <li>$200-300 million for infrastructure base</li>
+                        <li>$300-400 million for attractions</li>
+                        <li>$100-150 million for integrated hospitality facilities</li>
+                    </ul>
+                    This breakdown explains why the $750 million threshold represents the minimum viable scale for competing in Middle East markets.
+                </div>
+            </section>
 
-            <h2>K-Culture demonstrates explosive growth potential awaiting infrastructure</h2>
+            <section class="print-section">
+                <h2>4. K-Culture demonstrates explosive growth potential awaiting infrastructure</h2>
 
-            <p>Korean cultural content has established remarkable traction in MENA markets, with Saudi Arabia, UAE, and Egypt emerging as top K-pop streaming markets<a href="#footnote7" class="citation">[7]</a>. <span class="strong-emphasis">BTS's historic 70,000-person concert in Riyadh and Blackpink's 40,000 attendees in Abu Dhabi prove massive latent demand</span><a href="#footnote8" class="citation">[8]</a>. The cultural resonance stems from shared values—family bonds, modest entertainment, and respect for tradition—that differentiate Korean content from Western alternatives.</p>
+                <p>Korean cultural content has established remarkable traction in MENA markets, with Saudi Arabia, UAE, and Egypt emerging as top K-pop streaming markets<sup class="citation">[7]</sup>. <span class="strong-emphasis">BTS's historic 70,000-person concert in Riyadh and Blackpink's 40,000 attendees in Abu Dhabi prove massive latent demand</span><sup class="citation">[8]</sup>. The cultural resonance stems from shared values—family bonds, modest entertainment, and respect for tradition—that differentiate Korean content from Western alternatives.</p>
 
-            <p>Government support accelerates this cultural exchange through formal partnerships. The UAE-Korea Cultural Dialogue, Korean Cultural Center activities, and $30 billion UAE investment commitment to Korea signal long-term strategic alignment<a href="#footnote9" class="citation">[9]</a>. With 77% of Saudi consumers preferring Arabic content yet embracing Korean entertainment, the market presents unique localization opportunities for a properly scaled K-Culture complex.</p>
+                <p>Government support accelerates this cultural exchange through formal partnerships. The UAE-Korea Cultural Dialogue, Korean Cultural Center activities, and $30 billion UAE investment commitment to Korea signal long-term strategic alignment<sup class="citation">[9]</sup>. With 77% of Saudi consumers preferring Arabic content yet embracing Korean entertainment, the market presents unique localization opportunities for a properly scaled K-Culture complex.</p>
 
-            <p>Consumer spending patterns reinforce the opportunity. Middle Eastern K-Culture enthusiasts demonstrate premium spending behavior, attending multiple concerts, purchasing merchandise, and driving Korean restaurant expansion across the region. This proven commercial ecosystem awaits only the infrastructure to capture its full potential.</p>
+                <p>Consumer spending patterns reinforce the opportunity. Middle Eastern K-Culture enthusiasts demonstrate premium spending behavior, attending multiple concerts, purchasing merchandise, and driving Korean restaurant expansion across the region. This proven commercial ecosystem awaits only the infrastructure to capture its full potential.</p>
+            </section>
 
-            <h2>Government incentives dramatically favor large-scale investments</h2>
+            <section class="print-section">
+                <h2>5. Government incentives dramatically favor large-scale investments</h2>
 
-            <p>UAE government support structures create compelling advantages for projects exceeding $500 million investment. <span class="strong-emphasis">The $750 million threshold unlocks benefits worth 5x more than smaller projects</span><a href="#footnote10" class="citation">[10]</a>, fundamentally altering project economics. Abu Dhabi Investment Office's $545 million incentive pool provides rebates up to 25% on qualifying expenditures for large projects, compared to just 10% for smaller initiatives.</p>
+                <p>UAE government support structures create compelling advantages for projects exceeding $500 million investment. <span class="strong-emphasis">The $750 million threshold unlocks benefits worth 5x more than smaller projects</span><sup class="citation">[10]</sup>, fundamentally altering project economics. Abu Dhabi Investment Office's $545 million incentive pool provides rebates up to 25% on qualifying expenditures for large projects, compared to just 10% for smaller initiatives.</p>
 
-            <p>Land allocation policies particularly favor scale. While small projects face market-rate land costs of $27-95 per square foot, major developments receive direct government allocation at $0.13 per square foot—a 99% discount<a href="#footnote11" class="citation">[11]</a>. The Saadiyat Cultural District exemplifies this approach, with the government providing an entire 27-square-kilometer island plus $250 million in bridge infrastructure for cultural development.</p>
+                <p>Land allocation policies particularly favor scale. While small projects face market-rate land costs of $27-95 per square foot, major developments receive direct government allocation at $0.13 per square foot—a 99% discount<sup class="citation">[11]</sup>. The Saadiyat Cultural District exemplifies this approach, with the government providing an entire 27-square-kilometer island plus $250 million in bridge infrastructure for cultural development.</p>
 
-            <p>Beyond financial incentives, large projects receive fast-track regulatory approval, dedicated government liaison support, and integration into national tourism marketing campaigns worth millions in promotional value. This comprehensive support package, available only to flagship projects, reduces risk while accelerating returns.</p>
+                <p>Beyond financial incentives, large projects receive fast-track regulatory approval, dedicated government liaison support, and integration into national tourism marketing campaigns worth millions in promotional value. This comprehensive support package, available only to flagship projects, reduces risk while accelerating returns.</p>
+            </section>
 
-            <h2>Visitor economics demand scale for sustainable operations</h2>
+            <section class="print-section">
+                <h2>6. Visitor economics demand scale for sustainable operations</h2>
 
-            <p>The financial mathematics of Middle East attractions unequivocally support larger developments. <span class="strong-emphasis">Integrated destinations generate $533 average daily spend per visitor—60% higher than standalone attractions' $150-300 range</span><a href="#footnote12" class="citation">[12]</a>. This premium derives from extended dwell time, multiple revenue streams, and enhanced visitor satisfaction at scale.</p>
+                <p>The financial mathematics of Middle East attractions unequivocally support larger developments. <span class="strong-emphasis">Integrated destinations generate $533 average daily spend per visitor—60% higher than standalone attractions' $150-300 range</span><sup class="citation">[12]</sup>. This premium derives from extended dwell time, multiple revenue streams, and enhanced visitor satisfaction at scale.</p>
 
-            <p>Critical visitor thresholds further reinforce the scale imperative. UAE theme parks averaged just 4,300 daily visitors pre-pandemic, with all parks under 1.7 million annual attendance<a href="#footnote13" class="citation">[13]</a>. Research indicates 2 million+ annual visitors represents the minimum for sustainable operations—a threshold only achievable through destination-level appeal. Yas Island's evolution to 38 million visits in 2024 demonstrates how scale creates self-reinforcing success through ecosystem development.</p>
+                <p>Critical visitor thresholds further reinforce the scale imperative. UAE theme parks averaged just 4,300 daily visitors pre-pandemic, with all parks under 1.7 million annual attendance<sup class="citation">[13]</sup>. Research indicates 2 million+ annual visitors represents the minimum for sustainable operations—a threshold only achievable through destination-level appeal. Yas Island's evolution to 38 million visits in 2024 demonstrates how scale creates self-reinforcing success through ecosystem development.</p>
 
-            <p>Revenue diversification at scale provides crucial resilience. While admission fees generate 40-50% of revenue, successful large attractions capture significant income from food and beverage (25-35%), retail (15-20%), and ancillary services (10-15%). Smaller projects cannot support the infrastructure for comprehensive revenue capture, leaving them vulnerable to market fluctuations.</p>
+                <p>Revenue diversification at scale provides crucial resilience. While admission fees generate 40-50% of revenue, successful large attractions capture significant income from food and beverage (25-35%), retail (15-20%), and ancillary services (10-15%). Smaller projects cannot support the infrastructure for comprehensive revenue capture, leaving them vulnerable to market fluctuations.</p>
+            </section>
 
-            <h2>Regional success stories validate the mega-project approach</h2>
+            <section class="print-section">
+                <h2>7. Regional success stories validate the mega-project approach</h2>
 
-            <p>Abu Dhabi's Yas Island represents the region's most successful entertainment development model, attracting 38 million visits in 2024 through strategic integration of multiple attractions<a href="#footnote14" class="citation">[14]</a>. Warner Bros World's achievement as the first Middle East park on TEA/AECOM global rankings validates the indoor mega-park concept. The Louvre Abu Dhabi's 1.2 million visitors demonstrate that cultural attractions can achieve commercial success at scale<a href="#footnote15" class="citation">[15]</a>.</p>
+                <p>Abu Dhabi's Yas Island represents the region's most successful entertainment development model, attracting 38 million visits in 2024 through strategic integration of multiple attractions<sup class="citation">[14]</sup>. Warner Bros World's achievement as the first Middle East park on TEA/AECOM global rankings validates the indoor mega-park concept. The Louvre Abu Dhabi's 1.2 million visitors demonstrate that cultural attractions can achieve commercial success at scale<sup class="citation">[15]</sup>.</p>
 
-            <div class="success-case">
-                <h4>Success Factors Shared by Regional Winners:</h4>
-                <ul>
-                    <li>Government infrastructure support</li>
-                    <li>Integration with broader tourism ecosystems</li>
-                    <li>Weather-independent operations</li>
-                    <li>Sufficient scale for global marketing</li>
-                </ul>
-            </div>
+                <div class="success-case">
+                    <h4>Success Factors Shared by Regional Winners:</h4>
+                    <ul>
+                        <li>Government infrastructure support</li>
+                        <li>Integration with broader tourism ecosystems</li>
+                        <li>Weather-independent operations</li>
+                        <li>Sufficient scale for global marketing</li>
+                    </ul>
+                </div>
 
-            <p>The upcoming Guggenheim Abu Dhabi, Natural History Museum, and teamLab Phenomena represent continued commitment to this proven model<a href="#footnote16" class="citation">[16]</a>.</p>
+                <p>The upcoming Guggenheim Abu Dhabi, Natural History Museum, and teamLab Phenomena represent continued commitment to this proven model<sup class="citation">[16]</sup>.</p>
 
-            <div class="failure-case">
-                <h4>Failed projects provide equally instructive lessons:</h4>
-                <p>Dubailand's $64 billion masterplan collapsed due to poor timing and overambition, while Dubai Parks & Resorts' financial struggles despite significant investment highlight the importance of strategic positioning over pure scale<a href="#footnote17" class="citation">[17]</a>. These failures universally cite insufficient visitor numbers, seasonal limitations, and lack of ecosystem integration—challenges that proper scale and planning address.</p>
-            </div>
+                <div class="failure-case">
+                    <h4>Failed projects provide equally instructive lessons:</h4>
+                    <p>Dubailand's $64 billion masterplan collapsed due to poor timing and overambition, while Dubai Parks & Resorts' financial struggles despite significant investment highlight the importance of strategic positioning over pure scale<sup class="citation">[17]</sup>. These failures universally cite insufficient visitor numbers, seasonal limitations, and lack of ecosystem integration—challenges that proper scale and planning address.</p>
+                </div>
+            </section>
 
-            <h2>Critical infrastructure requirements elevate baseline investment needs</h2>
+            <section class="print-section">
+                <h2>8. Critical infrastructure requirements elevate baseline investment needs</h2>
 
-            <p>Entertainment complexes in Middle East markets face unique infrastructure challenges that substantially increase baseline costs. Specialized electrical systems must support both ride operations and massive cooling requirements that can consume 20% of operating budgets. Water systems require complex engineering for both attractions and desert landscaping. Transportation infrastructure must accommodate international visitors while managing extreme weather conditions.</p>
+                <p>Entertainment complexes in Middle East markets face unique infrastructure challenges that substantially increase baseline costs. Specialized electrical systems must support both ride operations and massive cooling requirements that can consume 20% of operating budgets. Water systems require complex engineering for both attractions and desert landscaping. Transportation infrastructure must accommodate international visitors while managing extreme weather conditions.</p>
 
-            <p><span class="strong-emphasis">Construction complexity multiplies in themed entertainment, requiring 100+ specialized work divisions versus 30+ for traditional projects</span><a href="#footnote18" class="citation">[18]</a>. Integration challenges between ride systems, utilities, and facilities demand sophisticated project management and extended timelines. Quality standards necessitate dust-free construction environments for sensitive electronics, further elevating costs.</p>
+                <p><span class="strong-emphasis">Construction complexity multiplies in themed entertainment, requiring 100+ specialized work divisions versus 30+ for traditional projects</span><sup class="citation">[18]</sup>. Integration challenges between ride systems, utilities, and facilities demand sophisticated project management and extended timelines. Quality standards necessitate dust-free construction environments for sensitive electronics, further elevating costs.</p>
 
-            <p>These infrastructure requirements create natural economies of scale. Shared utility systems, centralized operations, and bulk purchasing provide exponential benefits as projects grow. The $750 million threshold represents the point where infrastructure efficiency gains offset increased complexity, enabling sustainable operations.</p>
+                <p>These infrastructure requirements create natural economies of scale. Shared utility systems, centralized operations, and bulk purchasing provide exponential benefits as projects grow. The $750 million threshold represents the point where infrastructure efficiency gains offset increased complexity, enabling sustainable operations.</p>
+            </section>
 
-            <h2>Conclusion: Strategic scale unlocks transformative returns</h2>
+            <section class="print-section">
+                <h2>9. Conclusion: Strategic scale unlocks transformative returns</h2>
 
-            <div class="key-insight">
-                <strong>Investment Recommendation:</strong> The evidence overwhelmingly supports scaling the K-Culture complex investment from $150 million to $750 million. This 5x increase unlocks disproportionate benefits: enhanced government support worth hundreds of millions, operational efficiencies that ensure profitability, and market positioning that captures the full potential of K-Culture expansion in the Middle East.
-            </div>
+                <div class="key-insight">
+                    <strong>Investment Recommendation:</strong> The evidence overwhelmingly supports scaling the K-Culture complex investment from $150 million to $750 million. This 5x increase unlocks disproportionate benefits: enhanced government support worth hundreds of millions, operational efficiencies that ensure profitability, and market positioning that captures the full potential of K-Culture expansion in the Middle East.
+                </div>
 
-            <p>The $750 million investment aligns with Abu Dhabi's Tourism Strategy 2030, leverages proven success factors from regional winners, and positions the project for sustainable long-term growth. In a market where scale determines success and government support amplifies returns, the increased investment represents not additional risk but essential insurance for project viability. The convergence of market opportunity, government backing, and proven demand creates a unique window for establishing the Middle East's premier K-Culture destination—but only at appropriate scale.</p>
+                <p>The $750 million investment aligns with Abu Dhabi's Tourism Strategy 2030, leverages proven success factors from regional winners, and positions the project for sustainable long-term growth. In a market where scale determines success and government support amplifies returns, the increased investment represents not additional risk but essential insurance for project viability. The convergence of market opportunity, government backing, and proven demand creates a unique window for establishing the Middle East's premier K-Culture destination—but only at appropriate scale.</p>
+            </section>
 
-            <h3>Strategic Investment Framework - Key Pillars</h3>
-            
-            <h4>1. Market Scale Economics</h4>
-            <p>UAE entertainment spending of $1,600 per capita creates a $15.6B addressable market. The $750M investment captures critical mass benefits that smaller investments cannot achieve, with 80% success rates versus 15% for sub-$300M projects.</p>
+            <section class="print-section">
+                <h2>10. Strategic Investment Framework - Key Pillars</h2>
+                
+                <h4>1. Market Scale Economics</h4>
+                <p>UAE entertainment spending of $1,600 per capita creates a $15.6B addressable market. The $750M investment captures critical mass benefits that smaller investments cannot achieve, with 80% success rates versus 15% for sub-$300M projects.</p>
 
-            <h4>2. Government Incentive Optimization</h4>
-            <p>$750M+ investments unlock 99% land discounts, 25% construction rebates, and VIP approval tracks worth $150-250M in total value—creating a compelling risk-adjusted return profile impossible at smaller scales.</p>
+                <h4>2. Government Incentive Optimization</h4>
+                <p>$750M+ investments unlock 99% land discounts, 25% construction rebates, and VIP approval tracks worth $150-250M in total value—creating a compelling risk-adjusted return profile impossible at smaller scales.</p>
 
-            <h4>3. Operational Leverage</h4>
-            <p>Mega complexes generate $200-350 revenue per visitor versus $45-75 for small attractions. Integrated entertainment destinations achieve 30-45% operating margins through economies of scale and cross-facility synergies.</p>
+                <h4>3. Operational Leverage</h4>
+                <p>Mega complexes generate $200-350 revenue per visitor versus $45-75 for small attractions. Integrated entertainment destinations achieve 30-45% operating margins through economies of scale and cross-facility synergies.</p>
 
-            <h4>4. K-Culture Market Validation</h4>
-            <p>K-pop streaming growth of 152% CAGR and concert ticket premiums of 303% versus local events demonstrate massive latent demand that justifies scale investment in dedicated K-Culture infrastructure.</p>
+                <h4>4. K-Culture Market Validation</h4>
+                <p>K-pop streaming growth of 152% CAGR and concert ticket premiums of 303% versus local events demonstrate massive latent demand that justifies scale investment in dedicated K-Culture infrastructure.</p>
 
-            <h4>5. Infrastructure Cost Realities</h4>
-            <p>Middle East climate control ($180/sq ft vs $50 standard), electrical redundancy (3x multiplier), and water systems (4x multiplier) create unavoidable baseline costs that favor larger-scale development.</p>
+                <h4>5. Infrastructure Cost Realities</h4>
+                <p>Middle East climate control ($180/sq ft vs $50 standard), electrical redundancy (3x multiplier), and water systems (4x multiplier) create unavoidable baseline costs that favor larger-scale development.</p>
 
-            <h4>6. Regional Success Patterns</h4>
-            <p>Yas Island's $8B+ investment generating 38M annual visitors and $347 per-visitor spend validates the mega-project approach. Louvre Abu Dhabi's $1.15B investment achieved top-20 global museum status.</p>
+                <h4>6. Regional Success Patterns</h4>
+                <p>Yas Island's $8B+ investment generating 38M annual visitors and $347 per-visitor spend validates the mega-project approach. Louvre Abu Dhabi's $1.15B investment achieved top-20 global museum status.</p>
 
-            <div class="highlight">
-                <h4>Final Investment Recommendation</h4>
-                <p><strong>Proceed with $750M K-Culture Complex Development</strong><br>
-                Critical mass investment ensuring sustainable profitability and market leadership</p>
-            </div>
+                <div class="highlight">
+                    <h4>Final Investment Recommendation</h4>
+                    <p><strong>Proceed with $750M K-Culture Complex Development</strong><br>
+                    Critical mass investment ensuring sustainable profitability and market leadership</p>
+                </div>
+            </section>
 
-            <h2>References</h2>
-            
-            <p id="footnote1"><strong>[1]</strong> IMARC Group (2024). <a href="https://www.imarcgroup.com/gcc-online-entertainment-market" target="_blank">GCC Online Entertainment Market Size and Forecast 2033</a></p>
-            
-            <p id="footnote2"><strong>[2]</strong> Global Media Insight (2025). <a href="https://www.globalmediainsight.com/blog/uae-population-statistics/" target="_blank">United Arab Emirates (UAE) Population Statistics 2025</a></p>
-            
-            <p id="footnote3"><strong>[3]</strong> UAE Government (2024). <a href="https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/strategies-plans-and-visions/tourism/uae-tourism-strategy-2031" target="_blank">UAE Tourism Strategy 2031</a></p>
-            
-            <p id="footnote4"><strong>[4]</strong> MEED (2024). <a href="https://www.meed.com/saadiyat-island-abu-dhabis-cultural-centre/" target="_blank">Saadiyat Island, Abu Dhabi's cultural centre</a></p>
-            
-            <p id="footnote5"><strong>[5]</strong> Skift (2025). <a href="https://skift.com/2025/05/14/uae-theme-parks-often-fail-can-abu-dhabi-disneyland-succeed/" target="_blank">UAE Theme Parks Often Fail. Can Disneyland Abu Dhabi Succeed?</a></p>
-            
-            <p id="footnote6"><strong>[6]</strong> Reuters (2017). <a href="https://www.reuters.com/article/emirates-abudhabi-themepark/abu-dhabi-to-build-1-billion-warner-bros-theme-park-idUSL5N17M2HC" target="_blank">Abu Dhabi to build $1 billion Warner Bros. theme park</a></p>
-            
-            <p id="footnote7"><strong>[7]</strong> MDPI (2023). <a href="https://www.mdpi.com/2199-8531/4/4/51" target="_blank">The Korean Wave in the Middle East: Past and Present</a></p>
-            
-            <p id="footnote8"><strong>[8]</strong> South China Morning Post (2023). <a href="https://www.scmp.com/lifestyle/k-pop/article/3193820/k-pop-grows-its-middle-east-presence-festivals-and-blackpink-2023" target="_blank">K-pop grows its Middle East presence with festivals and Blackpink 2023 tour dates</a></p>
-            
-            <p id="footnote9"><strong>[9]</strong> Middle East Briefing (2024). <a href="https://www.middleeastbriefing.com/news/trumps-90-day-clock-is-up-will-gcc-become-a-safe-bet-for-global-investors/" target="_blank">Korea-UAE Investment Relations</a></p>
-            
-            <p id="footnote10"><strong>[10]</strong> Abu Dhabi Investment Office (2024). <a href="https://www.investinabudhabi.ae/Innovation-programme" target="_blank">Innovation programme</a></p>
-            
-            <p id="footnote11"><strong>[11]</strong> Department of Economic Development (2024). <a href="https://www.added.gov.ae/en/set-up/advice-and-support/financial-advice" target="_blank">Financial Advice and Investment Support</a></p>
-            
-            <p id="footnote12"><strong>[12]</strong> Roland Berger (2024). <a href="https://www.rolandberger.com/en/Insights/Publications/Tourism-in-the-GCC.html" target="_blank">Tourism in GCC Report 2024</a></p>
-            
-            <p id="footnote13"><strong>[13]</strong> Blooloop (2024). <a href="https://blooloop.com/theme-park/in-depth/top-theme-parks-middle-east/" target="_blank">Top theme parks Middle East</a></p>
-            
-            <p id="footnote14"><strong>[14]</strong> Blooloop (2024). <a href="https://blooloop.com/theme-park/opinion/tourism-trends-uae/" target="_blank">UAE leisure, entertainment, and tourism industry predictions</a></p>
-            
-            <p id="footnote15"><strong>[15]</strong> Abu Dhabi Media Office (2023). <a href="https://www.mediaoffice.abudhabi/en/arts-culture/louvre-abu-dhabi-welcomes-1m-visitors-in-2023/" target="_blank">Louvre Abu Dhabi welcomes 1.2m+ visitors in 2023</a></p>
-            
-            <p id="footnote16"><strong>[16]</strong> The Art Newspaper (2024). <a href="https://www.theartnewspaper.com/2024/05/22/abu-dhabis-saadiyat-cultural-district-on-track-for-completion-in-2025" target="_blank">Abu Dhabi's Saadiyat Cultural District on track for completion in 2025</a></p>
-            
-            <p id="footnote17"><strong>[17]</strong> ZAWYA (2024). <a href="https://www.zawya.com/en/business/dubai-parks-and-resorts-operator-reports-232mln-net-loss-n8a61xqn" target="_blank">Dubai Parks and Resorts operator reports $232mln net loss</a></p>
-            
-            <p id="footnote18"><strong>[18]</strong> Companies of Nassal (2024). <a href="https://nfusion.companiesofnassal.com/insights/planning-and-scheduling-roadmap-theme-park-projects" target="_blank">Planning and Scheduling: The Roadmap for Theme Park Projects</a></p>
+            <section class="print-section">
+                <h2>11. References</h2>
+                
+                <p id="footnote1"><strong>[1]</strong> IMARC Group (2024). GCC Online Entertainment Market Size and Forecast 2033</p>
+                
+                <p id="footnote2"><strong>[2]</strong> Global Media Insight (2025). United Arab Emirates (UAE) Population Statistics 2025</p>
+                
+                <p id="footnote3"><strong>[3]</strong> UAE Government (2024). UAE Tourism Strategy 2031</p>
+                
+                <p id="footnote4"><strong>[4]</strong> MEED (2024). Saadiyat Island, Abu Dhabi's cultural centre</p>
+                
+                <p id="footnote5"><strong>[5]</strong> Skift (2025). UAE Theme Parks Often Fail. Can Disneyland Abu Dhabi Succeed?</p>
+                
+                <p id="footnote6"><strong>[6]</strong> Reuters (2017). Abu Dhabi to build $1 billion Warner Bros. theme park</p>
+                
+                <p id="footnote7"><strong>[7]</strong> MDPI (2023). The Korean Wave in the Middle East: Past and Present</p>
+                
+                <p id="footnote8"><strong>[8]</strong> South China Morning Post (2023). K-pop grows its Middle East presence with festivals and Blackpink 2023 tour dates</p>
+                
+                <p id="footnote9"><strong>[9]</strong> Middle East Briefing (2024). Korea-UAE Investment Relations</p>
+                
+                <p id="footnote10"><strong>[10]</strong> Abu Dhabi Investment Office (2024). Innovation programme</p>
+                
+                <p id="footnote11"><strong>[11]</strong> Department of Economic Development (2024). Financial Advice and Investment Support</p>
+                
+                <p id="footnote12"><strong>[12]</strong> Roland Berger (2024). Tourism in GCC Report 2024</p>
+                
+                <p id="footnote13"><strong>[13]</strong> Blooloop (2024). Top theme parks Middle East</p>
+                
+                <p id="footnote14"><strong>[14]</strong> Blooloop (2024). UAE leisure, entertainment, and tourism industry predictions</p>
+                
+                <p id="footnote15"><strong>[15]</strong> Abu Dhabi Media Office (2023). Louvre Abu Dhabi welcomes 1.2m+ visitors in 2023</p>
+                
+                <p id="footnote16"><strong>[16]</strong> The Art Newspaper (2024). Abu Dhabi's Saadiyat Cultural District on track for completion in 2025</p>
+                
+                <p id="footnote17"><strong>[17]</strong> ZAWYA (2024). Dubai Parks and Resorts operator reports $232mln net loss</p>
+                
+                <p id="footnote18"><strong>[18]</strong> Companies of Nassal (2024). Planning and Scheduling: The Roadmap for Theme Park Projects</p>
+            </section>
         </div>
 
         <footer class="footer">
             <div class="footer-content">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px;">
-                    <img src="https://raw.githubusercontent.com/CassianK/Project-K/main/images/trinos-logo.png" 
-                         alt="Trinos Strategy Logo" 
-                         style="width: 48px; height: 48px; object-fit: contain;">
+                    <div class="header-logo" style="width: 40px; height: 40px; font-size: 18px;">T</div>
                     <div style="text-align: left;">
-                        <div style="font-size: 16px; font-weight: 700; color: #1a365d;">Trinos Strategy</div>
-                        <div style="font-size: 12px; color: #718096;">Architects of Strategic Structure</div>
+                        <div style="font-size: 14pt; font-weight: 700; color: #1a365d;">Trinos Strategy</div>
+                        <div style="font-size: 10pt; color: #718096;">Architects of Strategic Structure</div>
                     </div>
                 </div>
                 
@@ -553,8 +780,8 @@
                 
                 <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center;">
                     <strong>CONFIDENTIAL & PROPRIETARY</strong><br/>
-                    January 2025 • Version 2.0<br/>
-                    <span style="font-size: 11px; color: #718096;">Strategic Architect D.K. • Trinos Strategy Research Division</span>
+                    July 2025 • Version 2.0<br/>
+                    <span style="font-size: 9pt; color: #718096;">Strategic Architect D.K. • Trinos Strategy Research Division</span>
                 </div>
             </div>
         </footer>
