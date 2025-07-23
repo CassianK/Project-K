@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Protected: 2-Step Strategy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input[type="password"] { width: 100%; padding: 12px; margin-bottom: 20px; }
+    button { padding: 10px 20px; background: #2d3748; color: white; border: none; cursor: pointer; }
+    .protected-content {
+      display: none;
+      margin-top: 20px;
+      line-height: 1.4;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1, h2, h3, h4, h5, h6 { margin-top: 1em; }
+    p { margin: 0 0 12px; }
+    ul { padding-left: 20px; }
+    nav#toc {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #f0f0f0;
+      border-radius: 8px;
+    }
+    nav#toc ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    nav#toc ul ul {
+      padding-left: 20px;
+    }
+    nav#toc a {
+      text-decoration: none;
+      color: #2d3748;
+    }
+    nav#toc a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 Access to 2-Step Strategy Report</h2>
+    <input type="password" id="passwordInput" placeholder="Enter password" />
+    <button onclick="checkPassword()">Submit</button>
+    <div id="protectedContent" class="protected-content">
+      <nav id="toc">
+        <strong>Table of Contents</strong>
+        <ul>
+          <li><a href="#section-1">1. 핵심 전략 요약</a></li>
+          <li><a href="#section-2">2. Phase 1 상세 분석: FTI Consulting 단독 활용 (초기 6개월)</a>
+            <ul>
+              <li><a href="#section-2-1">2.1 FTI Consulting 역량 평가</a></li>
+              <li><a href="#section-2-2">2.2 아부다비 정부 인센티브 최적화 전략</a></li>
+              <li><a href="#section-2-3">2.3 한국 엔터테인먼트 앵커 확보 전략</a></li>
+              <li><a href="#section-2-4">2.4 Phase 1 예상 비용 및 KPI</a></li>
+            </ul>
+          </li>
+          <li><a href="#section-3">3. Phase 2 분석: 한국 금융자문 + McKinsey 투입</a>
+            <ul>
+              <li><a href="#section-3-1">3.1 한국 금융자문사 선정</a></li>
+              <li><a href="#section-3-2">3.2 McKinsey 투입 시점 및 역할</a></li>
+              <li><a href="#section-3-3">3.3 KEXIM 57% 파이낸싱 구조화</a></li>
+            </ul>
+          </li>
+          <li><a href="#section-4">4. 비용 최적화 상세 분석</a>
+            <ul>
+              <li><a href="#section-4-1">4.1 기존 동시 투입 vs 단계적 투입 비교</a></li>
+              <li><a href="#section-4-2">4.2 리스크 조정 가치 분석</a></li>
+            </ul>
+          </li>
+          <li><a href="#section-5">5. 실행 전략 및 리스크 관리</a>
+            <ul>
+              <li><a href="#section-5-1">5.1 Phase 1 실행 로드맵</a></li>
+              <li><a href="#section-5-2">5.2 주요 리스크 및 대응 방안</a></li>
+              <li><a href="#section-5-3">5.3 성과 기반 확장 조건</a></li>
+            </ul>
+          </li>
+          <li><a href="#section-6">6. 결론 및 권고사항</a>
+            <ul>
+              <li><a href="#section-6-1">6.1 결론 및 권고사항 요약</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <h1>아부다비 K-Culture 복합단지 단계적 자문사 전략 재설계 분석</h1>
+      <section>
+        <hr />
+        <h2 id="section-1">1. 핵심 전략 요약</h2>
+        <p>단계적 자문사 활용 전략은 기존 동시 투입 방식 대비 <strong>15-25%의 비용 절감</strong>과 함께 프로젝트 초기 실패 시 <strong>$23.5M-$32.5M의 손실 회피</strong> 효과를 제공합니다. FTI Consulting의 아부다비 정부 관계와 CJ ENM의 중동 진출 의지를 활용한 Phase 1 전략은 성공 가능성이 높으며, 성과 기반 확장 구조를 통해 개발업자의 리스크를 최소화할 수 있습니다.</p>
+      </section>
+      <section>
+        <hr />
+        <h2 id="section-2">2. Phase 1 상세 분석: FTI Consulting 단독 활용 (초기 6개월)</h2>
+      <h3 id="section-2-1">2.1 FTI Consulting 역량 평가</h3>
+      <h4>아부다비 정부 관계 강점:</h4>
+      <ul>
+        <li><strong>현지 입지</strong>: 2023년 9월 아부다비 글로벌 마켓(ADGM) Al Sila Tower에 사무소 설립</li>
+        <li><strong>정부 실적</strong>: 아부다비 투자청(ADIA)의 글로벌 커뮤니케이션 파트너로 선정</li>
+        <li><strong>Future 100 파트너</strong>: UAE 정부의 Future 100 이니셔티브 가속화 파트너로 ADIO와 직접 협력</li>
+        <li><strong>주요 인사</strong>: Antoine Nasr (중동 대표), Ryan Holmes (아부다비 MD) - 현지 정부 네트워크 보유</li>
+      </ul>
+      <h4>엔터테인먼트 부문 전문성:</h4>
+      <ul>
+        <li><strong>FTI Delta</strong>: 16개 세부 분야 전문 미디어·엔터테인먼트 전략 부서 운영</li>
+        <li><strong>실적</strong>: 1,100개 이상 프로젝트, $130B 자산 가치 자문</li>
+        <li><strong>한국 연결</strong>: 서울 사무소 운영, Yeongjoon Pyeon (시니어 디렉터) 등 한국어 구사 인력 보유</li>
+      </ul>
+      <h4>한계점:</h4>
+      <ul>
+        <li>한국 엔터테인먼트 업체와의 구체적 프로젝트 사례 부족</li>
+        <li>중동 지역 문화 프로젝트 공개 실적 제한적</li>
+      </ul>
+      <h3 id="section-2-2">2.2 아부다비 정부 인센티브 최적화 전략</h3>
+      <h4>활용 가능 인센티브 패키지:</h4>
+      <ol>
+        <li><strong>ADIO Innovation Programme (AED 20억 규모)</strong>
+          <ul>
+            <li>적격 지출의 최대 40% 환급</li>
+            <li>고급 인력 급여 리베이트</li>
+            <li>사무실 및 시설 보조금</li>
+            <li>규제 승인 신속 처리</li>
+          </ul>
+        </li>
+        <li><strong>DCT 문화산업 투자 (AED 300억+)</strong>
+          <ul>
+            <li>향후 5년간 AED 220억 추가 투자 계획</li>
+            <li>Creative Visa 프로그램</li>
+            <li>문화 시설 인프라 지원</li>
+          </ul>
+        </li>
+        <li><strong>세제 혜택</strong>
+          <ul>
+            <li>Free Zone 내 법인세 0%</li>
+            <li>개인소득세 면제</li>
+            <li>9% 연방 법인세율 (글로벌 최저 수준)</li>
+          </ul>
+        </li>
+        <li><strong>입지 옵션</strong>
+          <ul>
+            <li><strong>Yas Creative Hub</strong>: 60+ 에이커 미디어·엔터테인먼트 시설</li>
+            <li><strong>Saadiyat Cultural District</strong>: AED 8.5억 문화 인프라 투자</li>
+            <li>보조금 또는 무상 토지 제공 가능</li>
+          </ul>
+        </li>
+      </ol>
+      <h4>최적화 접근법:</h4>
+      <ul>
+        <li>ADIO와 DCT 동시 협상 (투자 인센티브 + 문화 프로그래밍)</li>
+        <li>한국-UAE 문화 교량 역할 강조</li>
+        <li>일자리 창출 및 경제 다각화 기여도 부각</li>
+        <li>단계적 개발로 정부 리스크 완화</li>
+      </ul>
+      <h3 id="section-2-3">2.3 한국 엔터테인먼트 앵커 확보 전략</h3>
+      <h4>우선순위 타깃 분석:</h4>
+      <ol>
+        <li><strong>CJ ENM (최우선)</strong>
+          <ul>
+            <li><strong>강점</strong>: 2025년을 "글로벌 확장 원년"으로 선언, $818M 콘텐츠 예산</li>
+            <li><strong>중동 실적</strong>: Shahid 파트너십, 사우디 Manga Productions MOU, KCON 사우디 2년 연속 개최</li>
+            <li><strong>접촉 채널</strong>: Steve Chung (글로벌 전략 책임자, 전 Fox Corporation)</li>
+            <li><strong>예상 요구사항</strong>: 정부 공동투자, 지역 스트리밍 플랫폼 접근권, 10년 이상 약정</li>
+          </ul>
+        </li>
+        <li><strong>HYBE (차선)</strong>
+          <ul>
+            <li><strong>강점</strong>: "Multi-home, Multi-genre" 전략, Bang Si-hyuk의 UAE 대통령 면담 이력</li>
+            <li><strong>우려사항</strong>: 중동 수익성에 대한 내부 우려</li>
+            <li><strong>접촉 채널</strong>: Jason Jaesang Lee (CEO), Young Jae Shin (APAC 사장)</li>
+            <li><strong>필요 인센티브</strong>: 기술 통합 기회(Weverse), 팬덤 비즈니스 확장 지원</li>
+          </ul>
+        </li>
+        <li><strong>SM Entertainment (보조)</strong>
+          <ul>
+            <li><strong>강점</strong>: 사우디 문화부 MOU 체결, 조기 시장 진입 경험</li>
+            <li><strong>한계</strong>: 최근 중동 공연 철수 (수익성 우려)</li>
+            <li><strong>접촉 채널</strong>: 이성수, 탁영준 (공동 CEO)</li>
+            <li><strong>높은 재정 인센티브 필요</strong></li>
+          </ul>
+        </li>
+      </ol>
+      <h4>앵커 확보 전략:</h4>
+      <ul>
+        <li>정부 대 정부 접근: UAE 투자부 → 한국 문체부</li>
+        <li>ADQ (아부다비 국부펀드) CEO 직접 접촉</li>
+        <li>최소 수익 보장 및 공동투자 모델 제시</li>
+        <li>MENA 지역 한국 엔터테인먼트 허브 비전 제시</li>
+      </ul>
+      <h3 id="section-2-4">2.4 Phase 1 예상 비용 및 KPI</h3>
+      <h4>비용 구조:</h4>
+      <ul>
+        <li>FTI Consulting 자문료: $1.5M-$2.5M (프로젝트 가치의 0.2-0.33%)</li>
+        <li>60% 기본 보수 + 40% 성과 연동</li>
+        <li>월 리테이너: $250K-$420K</li>
+      </ul>
+      <h4>핵심 성과지표 (KPI):</h4>
+      <ol>
+        <li><strong>정부 승인 마일스톤</strong> (3개월)
+          <ul>
+            <li>ADIO 원칙적 승인 획득</li>
+            <li>인센티브 패키지 초안 확정</li>
+            <li>DCT 문화 프로그램 지원 약정</li>
+          </ul>
+        </li>
+        <li><strong>앵커 테넌트 확보</strong> (6개월)
+          <ul>
+            <li>최소 2개 한국 대형 엔터사 참여 의향서</li>
+            <li>1개 이상 구속력 있는 MOU 체결</li>
+            <li>예상 임대 면적의 40% 이상 사전 약정</li>
+          </ul>
+        </li>
+        <li><strong>프로젝트 구조화</strong>
+          <ul>
+            <li>타당성 검증 완료</li>
+            <li>기본 재무 모델 수립</li>
+            <li>주요 이해관계자 합의</li>
+          </ul>
+        </li>
+      </ol>
+      </section>
+      <section>
+        <hr />
+        <h2 id="section-3">3. Phase 2 분석: 한국 금융자문 + McKinsey 투입</h2>
+      <h3 id="section-3-1">3.1 한국 금융자문사 선정</h3>
+      <h4>1순위: 삼일 PwC</h4>
+      <ul>
+        <li><strong>KEXIM 관계</strong>: 한국 수출입은행 금융 구조화 최강자</li>
+        <li><strong>엔터테인먼트 실적</strong>: 2023년 M&A 84건, 10.8조원 (시장 1위)</li>
+        <li><strong>주요 인력</strong>: 홍준기 (감사부문 대표), 민준선 (딜즈부문장)</li>
+        <li><strong>예상 수수료</strong>: 프로젝트 가치의 0.5-0.8%</li>
+      </ul>
+      <h4>2순위: 삼정 KPMG</h4>
+      <ul>
+        <li><strong>중동 네트워크</strong>: 한국계 중 UAE 네트워크 최강</li>
+        <li><strong>인프라 금융</strong>: 프로젝트 파이낸싱 전문성</li>
+        <li><strong>경쟁력 있는 가격</strong>: 삼일 대비 10-15% 저렴</li>
+        <li><strong>예상 수수료</strong>: 프로젝트 가치의 0.4-0.6%</li>
+      </ul>
+      <h4>비추천: 딜로이트 안진</h4>
+      <ul>
+        <li>최근 규제 제재로 50개 이상 주요 고객 이탈</li>
+        <li>평판 리스크 및 실행 능력 우려</li>
+      </ul>
+      <h3 id="section-3-2">3.2 McKinsey 투입 시점 및 역할</h3>
+      <p><strong>최적 투입 시점</strong>: Phase 1 성공 후 즉시</p>
+      <ul>
+        <li>정부 승인 및 앵커 확보 확정 시</li>
+        <li>전략적 포지셔닝 및 가치 창출 극대화</li>
+      </ul>
+      <p><strong>주요 역할</strong>:</p>
+      <ul>
+        <li>복합단지 마스터플랜 최적화</li>
+        <li>수익 모델 고도화</li>
+        <li>지역 확장 전략 수립</li>
+        <li>투자자 유치 지원</li>
+      </ul>
+      <h3 id="section-3-3">3.3 KEXIM 57% 파이낸싱 구조화</h3>
+      <p><strong>필수 역량 요구사항</strong>:</p>
+      <ul>
+        <li>한국 수출입은행 관계 및 실적</li>
+        <li>수출 신용 기관 금융 경험</li>
+        <li>한국-중동 크로스보더 프로젝트 이해</li>
+        <li>엔터테인먼트 산업 평가 능력</li>
+      </ul>
+      <p><strong>구조화 핵심 요소</strong>:</p>
+      <ul>
+        <li>한국 콘텐츠 수출 연계성 극대화</li>
+        <li>정부 보증 또는 오프테이크 계약</li>
+        <li>단계별 인출 구조로 리스크 완화</li>
+        <li>현지 은행 협조융자 병행</li>
+      </ul>
+      </section>
+      <section>
+        <hr />
+        <h2 id="section-4">4. 비용 최적화 상세 분석</h2>
+      <h3 id="section-4-1">4.1 기존 동시 투입 vs 단계적 투입 비교</h3>
+      <p><strong>기존 방식 (McKinsey + EFG Hermes 동시):</strong></p>
+      <ul>
+        <li>총 자문 비용: $25M-$35M (프로젝트의 3.3-4.7%)</li>
+        <li>초기 투입: 전체 자문팀 즉시 가동</li>
+        <li>실패 시 손실: $25M-$35M 전액</li>
+      </ul>
+      <p><strong>단계적 방식:</strong></p>
+      <ul>
+        <li>Phase 1: $1.5M-$2.5M</li>
+        <li>총 자문 비용: $18M-$28M (프로젝트의 2.4-3.7%)</li>
+        <li>실패 시 손실: Phase 1 비용만</li>
+        <li><strong>순 절감액: $7M-$12M (20-34% 절감)</strong></li>
+      </ul>
+      <h3 id="section-4-2">4.2 리스크 조정 가치 분석</h3>
+      <p><strong>하방 리스크 보호:</strong></p>
+      <ul>
+        <li>Phase 1 실패 확률 30% 가정 시</li>
+        <li>회피 가능 손실: $23.5M-$32.5M × 30% = $7M-$9.75M</li>
+        <li>옵션 가치: 시장 상황 변화 대응 유연성</li>
+      </ul>
+      <p><strong>상방 잠재력:</strong></p>
+      <ul>
+        <li>Phase 1 성공으로 투자자 신뢰도 향상</li>
+        <li>더 나은 조건의 파이낸싱 가능</li>
+        <li>앵커 확보로 프리미엄 임대료 실현</li>
+      </ul>
+      </section>
+      <section>
+        <hr />
+        <h2 id="section-5">5. 실행 전략 및 리스크 관리</h2>
+      <h3 id="section-5-1">5.1 Phase 1 실행 로드맵</h3>
+      <p><strong>1-2개월차:</strong></p>
+      <ul>
+        <li>FTI 계약 및 팀 구성</li>
+        <li>ADIO/DCT 초기 미팅</li>
+        <li>한국 엔터사 예비 접촉</li>
+      </ul>
+      <p><strong>3-4개월차:</strong></p>
+      <ul>
+        <li>정부 인센티브 협상</li>
+        <li>앵커 테넌트 본격 협상</li>
+        <li>타당성 분석 진행</li>
+      </ul>
+      <p><strong>5-6개월차:</strong></p>
+      <ul>
+        <li>정부 승인 확정</li>
+        <li>앵커 MOU 체결</li>
+        <li>Phase 2 준비</li>
+      </ul>
+      <h3 id="section-5-2">5.2 주요 리스크 및 대응 방안</h3>
+      <ol>
+        <li><strong>정부 승인 지연/거부</strong>
+          <ul>
+            <li>대응: 단계별 승인 접근, 파일럿 프로젝트 제안</li>
+            <li>Exit: 3개월 시점 중간 평가로 조기 종료 옵션</li>
+          </ul>
+        </li>
+        <li><strong>앵커 테넌트 확보 실패</strong>
+          <ul>
+            <li>대응: 중소 엔터사 컨소시엄 구성</li>
+            <li>대안: 일본/중국 엔터사로 확대</li>
+          </ul>
+        </li>
+        <li><strong>경쟁 프로젝트 출현</strong>
+          <ul>
+            <li>대응: 선점 효과 극대화, 독점 협상권 확보</li>
+            <li>차별화: 정부 파트너십 깊이 강조</li>
+          </ul>
+        </li>
+      </ol>
+      <h3 id="section-5-3">5.3 성과 기반 확장 조건</h3>
+      <p><strong>Phase 2 진입 기준:</strong></p>
+      <ul>
+        <li>ADIO 공식 프로젝트 승인</li>
+        <li>최소 20% 인센티브 패키지 확정</li>
+        <li>2개 이상 한국 대형 엔터사 참여 확약</li>
+        <li>프로젝트 IRR 15% 이상 검증</li>
+      </ul>
+      <p><strong>중단 옵션 가치:</strong></p>
+      <ul>
+        <li>각 단계별 명확한 Go/No-go 기준</li>
+        <li>매몰 비용 최소화 구조</li>
+        <li>성과 미달 시 즉시 중단 권한</li>
+      </ul>
+      </section>
+      <section>
+        <hr />
+        <h2 id="section-6">6. 결론 및 권고사항</h2>
+        <h3 id="section-6-1">6.1 결론 및 권고사항 요약</h3>
+      <p>단계적 자문사 활용 전략은 <strong>$7M-$12M의 직접 비용 절감</strong>과 함께 <strong>프로젝트 실패 시 $23.5M-$32.5M의 손실 회피</strong> 효과를 제공합니다. FTI Consulting의 아부다비 정부 관계와 CJ ENM의 중동 진출 의지를 결합한 Phase 1 전략은 높은 성공 가능성을 보이며, 성과 검증 후 삼일 PwC와 McKinsey를 투입하는 Phase 2는 KEXIM 파이낸싱 확보와 프로젝트 가치 극대화를 달성할 수 있습니다.</p>
+      <p><strong>핵심 성공 요인:</strong></p>
+      <ol>
+        <li>FTI의 정부 관계 활용 극대화</li>
+        <li>CJ ENM과의 조기 파트너십 구축</li>
+        <li>명확한 단계별 성과 지표 설정</li>
+        <li>유연한 Exit 옵션 확보</li>
+      </ol>
+      <p>이 전략은 개발업자 관점에서 리스크를 최소화하면서도 프로젝트 성공 시 최대 가치를 실현할 수 있는 최적의 접근법입니다.</p>
+      </section>
+    </div>
+  </div>
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === "trinoscore2025") {
+        document.getElementById("protectedContent").style.display = "block";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
+</body>
+</html>
