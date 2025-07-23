@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -8,6 +7,25 @@
 <title>Confidential Report Access – Trinos Strategy</title>
 <style>
     body {
+    .language-toggle {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 14px;
+      color: #4a5568;
+      cursor: pointer;
+    }
+    .language-toggle span {
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .language-toggle span:hover {
+      text-decoration: underline;
+    }
+    .language-toggle span.active {
+      font-weight: bold;
+      color: #1a73e8;
+    }
       font-family: 'Segoe UI', sans-serif;
       background-color: #f8f9fa;
       color: #1a202c;
@@ -88,6 +106,24 @@
       margin-top: 40px;
     }
 
+    .group {
+      margin-top: 30px;
+      padding: 16px;
+      border: 1px solid #dee2e6;
+      border-radius: 8px;
+      background: var(--group-bg, #ffffff);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+    .group h3 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #2d3748;
+    }
+
     .menu a {
       text-decoration: none;
       font-size: 15px;
@@ -96,11 +132,13 @@
       padding: 12px 20px;
       border-radius: 6px;
       border: 1px solid #ced4da;
-      transition: background 0.2s ease;
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     .menu a:hover {
       background: #dee2e6;
+      transform: translateY(-2px);
+      transition: background 0.2s ease, transform 0.2s ease;
     }
 
     footer {
@@ -124,6 +162,9 @@
 </head>
 <body>
 <h1>Confidential Report Access</h1>
+<div class="language-toggle">
+  <span onclick="setLanguage('en')">EN</span> | <span onclick="setLanguage('kr')">KR</span>
+</div>
 <div class="subtitle">Institutional Access Only – Trinos Strategy</div>
 <div class="auth-box" id="auth-box">
 <div class="disclaimer-text">
@@ -152,27 +193,68 @@
 <div id="error-message" style="color:#e03131; font-size: 13px; margin-top: 8px;"></div>
 </div>
 <div class="menu" id="menu">
-
-  <a href="k_culture_investment_report.html">Why $750M is Required-explained (EN)</a>
-  <a href="k_culture_investment_report_kr.html">왜 7.5억 달러가 필요한가-explained (KR)</a>
-  <a href="why_750m_required.html">Why $750M is Required-visual (EN)</a>
-  <a href="why_750m_required_kr.html">왜 7.5억 달러가 필요한가-visual (KR)</a>
-  <a href="v5_financing_eng.html">Optimized KEXIM Framework (EN)</a>
-  <a href="v5_financing_kr.html">KEXIM 최적화 프레임워크 (KR)</a>
-
-  <!-- ✅ 새로 추가된 DD 보고서 링크 -->
-  <a href="1st_financial DD.html">1st Financial Due Diligence Report (HTML)</a>
-  <a href="2nd-financial DD.html">2nd Financial Due Diligence Report (HTML)</a>
-  <a href="3rd financial dd.html">3rd Financial Due Diligence Report (HTML)</a>
-  <a href="netlify/3th_financial_dd_protected.html" target="_blank">
-  3th Financial DD Report (🔒 Google Doc, Protected)
-  </a>
-  <a href="functions/2stepstrategy_protected.html" target="_blank">
-  2-Step Strategy Report (🔒 Protected)
-  </a>
- <!-- ✅ V7 합작투자 구조 보고서 -->
-  <a href="v7_jv_structure_en.html">Korea-UAE Joint Venture Structure V7 (EN)</a>
-  <a href="v7_jv_structure_kr.html">한-UAE 합작투자 구조 V7 (KR)</a>
+  <!-- English group blocks -->
+  <div class="lang lang-en">
+    <div class="group" style="--group-bg: #ffffff">
+      <h3><span style="font-size: 18px;">💡</span> Why $750M is Required</h3>
+      <a href="why_750m_required.html">Why $750M is Required-visual (EN)</a>
+      <a href="k_culture_investment_report.html">Why $750M is Required-explained (EN)</a>
+    </div>
+    <div class="group" style="--group-bg: #f8f9fa">
+      <h3><span style="font-size: 18px;">📊</span> Due Diligence Reports</h3>
+      <a href="1st_financial DD.html">1st Financial Due Diligence Report (HTML)</a>
+      <a href="2nd-financial DD.html">2nd Financial Due Diligence Report (HTML)</a>
+      <a href="3rd financial dd.html">3rd Financial Due Diligence Report (HTML)</a>
+      <a href="netlify/3th_financial_dd_protected.html" target="_blank">
+        3th Financial DD Report (🔒 Google Doc, Protected)
+      </a>
+    </div>
+    <div class="group" style="--group-bg: #ffffff">
+      <h3><span style="font-size: 18px;">🏗️</span> Structure Reports</h3>
+      <a href="v5_financing_eng.html">Optimized KEXIM Framework (EN)</a>
+      <a href="v7_jv_structure_en.html">Korea-UAE Joint Venture Structure V7 (EN)</a>
+    </div>
+    <div class="group" style="--group-bg: #f8f9fa">
+      <h3><span style="font-size: 18px;">🔐</span> Confidential Strategy Reports</h3>
+      <a href="functions/2stepstrategy_protected.html" target="_blank">
+        2-Step Strategy Report (🔒 Protected)
+      </a>
+      <a href="functions/Advisory_protected.html" target="_blank">
+        Advisory Report (🔒 Protected)
+      </a>
+    </div>
+  </div>
+  <!-- Korean group blocks -->
+  <div class="lang lang-kr">
+    <div class="group" style="--group-bg: #ffffff">
+      <h3><span style="font-size: 18px;">💡</span> 왜 7.5억 달러가 필요한가</h3>
+      <a href="why_750m_required_kr.html">왜 7.5억 달러가 필요한가-visual (KR)</a>
+      <a href="k_culture_investment_report_kr.html">왜 7.5억 달러가 필요한가-explained (KR)</a>
+    </div>
+    <div class="group" style="--group-bg: #f8f9fa">
+      <h3><span style="font-size: 18px;">📊</span> 실사 보고서</h3>
+      <a href="1st_financial DD.html">1차 재무 실사 보고서 (HTML)</a>
+      <a href="2nd-financial DD.html">2차 재무 실사 보고서 (HTML)</a>
+      <a href="3rd financial dd.html">3차 재무 실사 보고서 (HTML)</a>
+      <a href="netlify/3th_financial_dd_protected.html" target="_blank">
+        3차 재무 실사 보고서 (🔒 Google Doc, 보호됨)
+      </a>
+    </div>
+    <div class="group" style="--group-bg: #ffffff">
+      <h3><span style="font-size: 18px;">🏗️</span> 구조 보고서</h3>
+      <a href="v5_financing_kr.html">KEXIM 최적화 프레임워크 (KR)</a>
+      <a href="v7_jv_structure_kr.html">한-UAE 합작투자 구조 V7 (KR)</a>
+    </div>
+    <div class="group" style="--group-bg: #f8f9fa">
+      <h3><span style="font-size: 18px;">🔐</span> 기밀 전략 보고서</h3>
+      <a href="functions/2stepstrategy_protected.html" target="_blank">
+        2단계 전략 보고서 (🔒 보호됨)
+      </a>
+      <a href="functions/Advisory_protected.html" target="_blank">
+        자문 보고서 (🔒 보호됨)
+      </a>
+    </div>
+  </div>
 </div>
 <footer>© 2025 Trinos Strategy. All rights reserved.</footer>
 <script>
@@ -199,10 +281,36 @@
         errorBox.textContent = "❌ Incorrect password. Access denied.";
       }
     }
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang').forEach(el => {
+        el.style.display = el.classList.contains('lang-' + lang) ? 'block' : 'none';
+      });
+      document.querySelectorAll('.language-toggle span').forEach(span => {
+        span.classList.remove('active');
+      });
+      var activeSpan = document.querySelector(`.language-toggle span[onclick="setLanguage('${lang}')"]`);
+      if (activeSpan) {
+        activeSpan.classList.add('active');
+      }
+    }
+    // Set default language and highlight
+    setLanguage('en');
   </script>
 </body>
 </html>
 
-  <a href="functions/Advisory_protected.html" target="_blank">
-  Advisory Report (🔒 Protected)
-  </a>
+    @media (max-width: 600px) {
+      body {
+        padding: 30px 10px;
+      }
+      .auth-box, .menu {
+        max-width: 100%;
+      }
+      .menu a {
+        font-size: 14px;
+        padding: 10px 14px;
+      }
+      .group h3 {
+        font-size: 15px;
+      }
+    }
