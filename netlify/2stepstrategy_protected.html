@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Protected: 2-Step Strategy</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f2f2f2; display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; }
+    .container { background: #fff; padding: 30px 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); width: 90%; max-width: 500px; text-align: center; }
+    #protectedContent { display: none; margin-top: 20px; }
+    input[type="password"] { padding: 10px; width: 100%; font-size: 16px; margin-top: 10px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 15px; background: #2d3748; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .link-box { margin-top: 20px; background: #edf2f7; padding: 15px; border-radius: 5px; word-break: break-word; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 Access to 2-Step Strategy</h2>
+    <p>Enter the password to continue</p>
+    <input type="password" id="passwordInput" placeholder="Enter password" />
+    <button onclick="checkPassword()">Submit</button>
+
+    <div id="protectedContent">
+      <h3>Access Granted ✅</h3>
+      <div class="link-box">
+        <p><strong>📄 View File:</strong></p>
+        <a href="./actionplan/2stepstrategy.md" target="_blank">2stepstrategy.md</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const correctPassword = "trinoscore2025";
+      if (input === correctPassword) {
+        document.getElementById("protectedContent").style.display = "block";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
+</body>
+</html>
