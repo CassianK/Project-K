@@ -98,12 +98,15 @@
 
     .menu {
       display: none;
-      flex-direction: column;
-      gap: 12px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 24px 16px;
       text-align: center;
       width: 100%;
-      max-width: 400px;
+      max-width: 900px;
       margin-top: 40px;
+      justify-content: center;
+      align-items: flex-start;
     }
 
     .group {
@@ -114,6 +117,15 @@
       background: var(--group-bg, #ffffff);
       box-shadow: 0 2px 4px rgba(0,0,0,0.04);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .group a {
+      display: inline-block;
+      width: 100%;
+      max-width: 360px;
+      margin: 4px auto;
     }
     .group h3 {
       font-size: 16px;
@@ -306,9 +318,22 @@
       .auth-box, .menu {
         max-width: 100%;
       }
-      .menu a {
+      .menu {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .group {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        align-items: center;
+      }
+      .group a {
         font-size: 14px;
         padding: 10px 14px;
+        width: 100%;
+        max-width: 100%;
+        margin: 4px 0;
       }
       .group h3 {
         font-size: 15px;
