@@ -1,4 +1,55 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Protected: Advisory Report</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      padding: 40px;
+      line-height: 1.5;
+      color: #333;
+    }
+    .container {
+      max-width: 720px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #2d3748;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .protected-content {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 Advisory Report</h2>
+    <input type="password" id="passwordInput" placeholder="Enter password"/>
+    <button onclick="checkPassword()">Submit</button>
+
+    <div id="protectedContent" class="protected-content">
+      <h3>Access Granted ✅</h3>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -1071,5 +1122,21 @@
             </div>
         </footer>
     </div>
+</body>
+</html>
+      <p>(You can replace this section with real content.)</p>
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const pw = document.getElementById("passwordInput").value;
+      if (pw === "trinoscore2025") {
+        document.getElementById("protectedContent").style.display = "block";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
 </body>
 </html>
